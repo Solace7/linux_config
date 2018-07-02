@@ -1,0 +1,64 @@
+02:36:46 PM.296: CPU Name: Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz
+02:36:46 PM.296: CPU Speed: 900.107MHz
+02:36:46 PM.297: Physical Cores: 4, Logical Cores: 8
+02:36:46 PM.297: Physical Memory: 15917MB Total, 13094MB Free
+02:36:46 PM.297: Kernel Version: Linux 4.15.14-1-ARCH
+02:36:46 PM.297: Distribution: "Arch Linux" Unknown
+02:36:46 PM.299: Portable mode: false
+02:36:46 PM.372: OBS 21.0.2-1 (linux)
+02:36:46 PM.372: ---------------------------------
+02:36:46 PM.373: ---------------------------------
+02:36:46 PM.373: audio settings reset:
+02:36:46 PM.373: 	samples per sec: 44100
+02:36:46 PM.373: 	speakers:        2
+02:36:46 PM.391: ---------------------------------
+02:36:46 PM.391: Initializing OpenGL...
+02:36:46 PM.506: OpenGL version: 3.2.0 NVIDIA 390.48
+02:36:46 PM.514: ---------------------------------
+02:36:46 PM.514: video settings reset:
+02:36:46 PM.514: 	base resolution:   1920x1080
+02:36:46 PM.514: 	output resolution: 1920x1080
+02:36:46 PM.514: 	downscale filter:  Lanczos
+02:36:46 PM.514: 	fps:               30/1
+02:36:46 PM.514: 	format:            NV12
+02:36:46 PM.515: Audio monitoring device:
+02:36:46 PM.515: 	name: Default
+02:36:46 PM.515: 	id: default
+02:36:46 PM.515: ---------------------------------
+02:36:46 PM.516: os_dlopen(/usr//lib/obs-plugins/frontend-tools.so->/usr//lib/obs-plugins/frontend-tools.so): libluajit-5.1.so.2: cannot open shared object file: No such file or directory
+02:36:46 PM.516: 
+02:36:46 PM.516: Module '/usr//lib/obs-plugins/frontend-tools.so' not loaded
+02:36:46 PM.520: No blackmagic support
+02:36:46 PM.525: NVENC supported
+02:36:46 PM.531: VLC found, VLC video source enabled
+02:36:46 PM.531: ---------------------------------
+02:36:46 PM.531:   Loaded Modules:
+02:36:46 PM.531:     vlc-video.so
+02:36:46 PM.531:     text-freetype2.so
+02:36:46 PM.531:     rtmp-services.so
+02:36:46 PM.531:     obs-x264.so
+02:36:46 PM.531:     obs-transitions.so
+02:36:46 PM.531:     obs-outputs.so
+02:36:46 PM.531:     obs-libfdk.so
+02:36:46 PM.531:     obs-filters.so
+02:36:46 PM.531:     obs-ffmpeg.so
+02:36:46 PM.531:     linux-v4l2.so
+02:36:46 PM.531:     linux-pulseaudio.so
+02:36:46 PM.531:     linux-jack.so
+02:36:46 PM.531:     linux-decklink.so
+02:36:46 PM.531:     linux-capture.so
+02:36:46 PM.531:     linux-alsa.so
+02:36:46 PM.531:     image-source.so
+02:36:46 PM.531: ---------------------------------
+02:36:46 PM.531: ==== Startup complete ===============================================
+02:36:46 PM.532: Service '' not found
+02:36:46 PM.533: Switched to Preview/Program mode
+02:36:46 PM.533: ------------------------------------------------
+02:36:46 PM.533: All scene data cleared
+02:36:46 PM.533: ------------------------------------------------
+02:36:46 PM.535: pulse-input: Server name: 'pulseaudio 11.1'
+02:36:46 PM.535: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+02:36:46 PM.535: pulse-input: Started recording from 'alsa_output.pci-0000_00_1f.3.analog-stereo.monitor'
+02:36:46 PM.601: pulse-input: Server name: 'pulseaudio 11.1'
+02:36:46 PM.602: pulse-input: Audio format: s16le, 44100 Hz, 2 channels
+02:36:46 PM.602: pulse-input: Started recording from 'alsa_input.usb-Samson_Technologies_Samson_Meteor_Mic-00.analog-stereo'
