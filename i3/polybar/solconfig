@@ -16,6 +16,30 @@ primary = #ffd700
 secondary = #bf211e
 alert = #bf211e
 
+[bar/system]
+width = 100%
+height = 27
+fixed-center = true
+bottom = true
+tray-position = right
+tray-padding = 1
+
+separator = |
+
+background = ${colors.background-alt}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = ${colors.foreground}
+
+font-0 = Hack:size=10;1
+font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
+font-2 = FontAwesome:size=10
+
+modules-right = cpugov memory alsa
+modules-center = mpd 
+modules-left = xwindow
+
 [bar/sol]
 monitor = ${env:MONITOR}
 width = 100%
@@ -23,7 +47,7 @@ height = 27
 radius = 2.0
 fixed-center = true
 
-background = ${colors.background}
+background = ${colors.background-alt}
 foreground = ${colors.foreground}
 
 line-size = 2
@@ -43,8 +67,8 @@ font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10
 
 modules-left = i3
-modules-center = mpd date
-modules-right = alsa memory cpu temperature wifi eth cpugov battery
+modules-center = date
+modules-right =  cpu temperature wifi eth battery
 
 dim-value = 1.0
 
@@ -55,7 +79,7 @@ tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
-wm-restack = i3
+;wm-restack = i3
 
 enable-ipc = true
 
@@ -66,7 +90,9 @@ scroll-down = i3wm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title%
+
+label-maxlen = 45
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -122,120 +148,23 @@ label-mode-background = ${colors.alert}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-background = ${colors.background}
+label-focused-underline = ${colors.primary}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-background = ${colors.background-alt}
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %name%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
-
-[module/ewmh]
-type = internal/xworkspaces
-
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
-pin-workspaces = true
-
-; Create click handler used to focus desktop
-; Default: true
-enable-click = true
-
-; Create scroll handlers used to cycle desktops
-; Default: true
-enable-scroll = true
-
-; icon-[0-9]+ = <desktop-name>;<icon>
-; NOTE: The desktop name needs to match the name configured by the WM
-; You can get a list of the defined desktops using:
-; $ xprop -root _NET_DESKTOP_NAMES
-;icon-0 = code;♚
-;icon-1 = office;♛
-;icon-2 = graphics;♜
-;icon-3 = mail;♝
-;icon-4 = web;♞
-;icon-default = ♟
-
-; Available tags:
-;   <label-monitor>
-;   <label-state> - gets replaced with  <label-(active|urgent|occupied|empty)>
-; Default: <label-state>
-;format = <label-state>
-
-; Available tokens:
-;   %name%
-; Default: %name%
-;label-monitor = %name%
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-;label-active = %icon% %name%
-;label-active-foreground = #ffffff
-;label-active-background = #3f3f3f
-;label-active-underline = #fba922
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-;label-occupied = %icon%
-;label-occupied-underline = #555555
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-;label-urgent = %icon%
-;label-urgent-foreground = #000000
-;label-urgent-background = #bd2c40
-;label-urgent-underline = #9b0a20
-
-; Available tokens:
-;   %name%
-;   %icon%
-;   %index%
-; Default: %icon%  %name%
-;label-empty = %icon%
-;label-empty-foreground = #55
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
+label-urgent = %name%
+label-urgent-padding = 1
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
 
 [module/mpd]
 type = internal/mpd
@@ -243,7 +172,6 @@ host = /home/solace/.config/mpd/socket
 format-online = <label-song>
 label-offline = 🎜 mpd is offline
 format-stopped = Music Stopped
-
 
 icon-prev = 
 icon-stop = 
@@ -301,7 +229,7 @@ ramp-coreload-7 = █
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 ;format-underline = #4bffdc
 label = %gb_used%/%gb_total%
@@ -354,7 +282,6 @@ type = custom/script
 exec = cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 interval = 90
 
-
 [module/date]
 type = internal/date
 interval = 1
@@ -376,7 +303,7 @@ type = internal/alsa
 #master-soundcard = hw:0
 #speaker-soundcard = hw:0
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
 
