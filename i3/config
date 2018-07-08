@@ -9,7 +9,7 @@ bindsym $mod+Shift+Return exec terminator
 bindsym $mod+Shift+q kill
 
 #pick window to kill
-#bindsym $mod+q xkill
+bindsym $mod+x xkill
 
 #Change focus
 bindsym $mod+Left focus left
@@ -131,17 +131,17 @@ workspace_auto_back_and_forth yes
 floating_minimum_size 100 x 100
 
 #Workspace Variables
-set $workspace1 "1"
-set $workspace2 "2"
+set $workspace1 "HOME"
+set $workspace2 ">>"
 set $workspace3 "3"
 set $workspace4 "4"
-set $workspace5 "5"
+set $workspace5 "GAMES"
 set $workspace6 "6"
-set $workspace7 "7"
+set $workspace7 "EXT"
 set $workspace8 "8"
-set $workspace9 "9"
+set $workspace9 "COMMS"
 set $workspace10 "10"
-set $workspace11 "11"
+set $workspace11 "CREATE"
 
 
 # switch to workspace
@@ -227,7 +227,7 @@ assign [class="Krita"] $workspace11
 #On External Monitor | workspace7
 assign [class="google-chrome-stable"] $workspace7
 
-#Window Options/properties
+#Window Options/Properties
 for_window [class="Plank"] _NET_WM_WINDOW_TYPE_DOCK
 for_window [class="Steam"] floating enable�
 for_window [class="StarMade Main Menu"] floating enable
@@ -252,6 +252,7 @@ for_window[title="Helm"] floating enable
 for_window[title="Discord Updater"] floating enable
 for_window[class="TeamViewer"] floating enable
 for_window[title="Player"] floating enable
+for_window[class="MEGAsync"] floating enable
 
 # Font for window titles.
 font pango: Hack 10
@@ -299,8 +300,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-#replaced with tint2
-
 ##########################
 #Autostarted Applications#
 ##########################
@@ -308,12 +307,12 @@ bindsym $mod+minus scratchpad show
 exec xss-lock i3lockscreen &
 
 #exec_always --no-startup-id sh .screenlayout/default.sh
-exec --no-startup-id tint2 -c .config/i3/tint2/tint2config
-exec --no-startup-id /home/solace/bin/audio_setup.sh
+exec --no-startup-id sh home/solace/config/audio_setup.sh
 exec_always bash /home/solace/.config/i3/rxvtconf.sh
 exec_always --no-startup-id res-polybar
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
 #exec --no-startup-id steam-native
+exec --no-startup-id xfce4-power-manager
 #exec_always bash /home/solace/.config/wpg/wp_init.sh
 exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
 #exec --no-startup-id slack
@@ -333,6 +332,7 @@ exec --no-startup-id dunst -conf /home/solace/.config/i3/dunstrc
 exec --no-startup-id mpd --no-daemon /home/solace/.config/mpd/mpd.conf
 exec --no-startup-id redshift-gtk
 exec --no-startup-id kdeconnect-indicator
-exec thunderbird
+exec tint2
+#exec thunderbird
 #exec_always --no-startup-id conky -c /home/solace/.config/conky/solconky/solconky.conkyrc
 #exec_always --no-startup-id conky -c /home/solace/.config/conky/horical/horical.conkyrc

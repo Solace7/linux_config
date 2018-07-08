@@ -8,12 +8,6 @@
 ;=====================================================
 
 [colors]
-;background = ${xrdb:color1:#222}
-;background-alt = ${xrdb:color0:#444}
-;foreground = ${xrdb:color15:#999}
-;foreground-alt = ${xrdb:color7:#555}
-;primary = ${xrdb:color7}
-;secondary = ${xrdb:color12}
 background = #2f2f2f
 background-alt = #1f1f1f
 foreground = #cacaca
@@ -45,7 +39,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = Hack:size=10;1
-font-1 = SourceCodeProMedium:fontformat=truetype:size=8:antialias=false;0
+font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10
 
 modules-left = i3
@@ -56,23 +50,19 @@ dim-value = 1.0
 
 separator = |
 
-;tray-position = right
+tray-position = right
 tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 enable-ipc = true
 
 ;override-redirect = true
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
 
 [module/xwindow]
 type = internal/xwindow
@@ -128,16 +118,16 @@ pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = ${colors.foreground}
-label-mode-background = ${colors.primary}
+label-mode-background = ${colors.alert}
 
 ; focused = Active workspace on focused monitor
-label-focused = %icon% %name%
+label-focused = %name%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %name%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
 ; visible = Active workspace on unfocused monitor

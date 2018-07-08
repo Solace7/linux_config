@@ -1,6 +1,3 @@
-2018/07/02-07:22:31.175 15464 Reusing MANIFEST leveldb/MANIFEST-000001
-2018/07/02-07:22:31.175 15464 Recovering log #4
-2018/07/02-07:22:31.196 15464 Reusing old log leveldb/000004.log 
-2018/07/02-07:27:31.232 16158 Level-0 table #7: started
-2018/07/02-07:27:31.989 16158 Level-0 table #7: 73820 bytes OK
-2018/07/02-07:27:32.045 16158 Delete type=0 #4
+2018/07/07-16:17:05.308 9717 Reusing MANIFEST leveldb/MANIFEST-000001
+2018/07/07-16:17:05.309 9717 Recovering log #6
+2018/07/07-16:17:05.314 9717 Reusing old log leveldb/000006.log 
