@@ -24528,3 +24528,54 @@ Jul 08 03:11 : client: [51] closed
 Jul 08 03:11 : client: [52] opened from local
 Jul 08 03:12 : client: [52] closed
 Jul 08 03:12 : client: [53] opened from local
+Jul 08 03:22 : client: [53] closed
+Jul 08 03:22 : client: [54] opened from local
+Jul 08 03:23 : client: [54] closed
+Jul 08 03:23 : client: [55] opened from local
+Jul 08 03:23 : client: [55] closed
+Jul 08 03:23 : client: [56] opened from local
+Jul 08 03:24 : client: [56] closed
+Jul 08 03:24 : client: [57] opened from local
+Jul 08 03:24 : client: [57] closed
+Jul 08 03:24 : client: [58] opened from local
+Jul 08 03:24 : client: [58] closed
+Jul 08 03:24 : client: [59] opened from local
+Jul 08 03:25 : client: [59] closed
+Jul 08 03:25 : client: [60] opened from local
+Jul 08 03:25 : client: [60] closed
+Jul 08 03:25 : client: [61] opened from local
+Jul 08 03:26 : client: [61] closed
+Jul 08 03:26 : client: [62] opened from local
+Jul 08 03:26 : client: [62] closed
+Jul 08 03:26 : client: [63] opened from local
+Jul 08 03:45 : client: [63] closed
+Jul 08 03:45 : client: [64] opened from local
+Jul 08 03:46 : client: [64] closed
+Jul 08 03:46 : client: [65] opened from local
+Jul 08 03:46 : client: [65] closed
+Jul 08 03:46 : client: [66] opened from local
+Jul 08 03:46 : client: [66] closed
+Jul 08 03:47 : client: [67] opened from local
+Jul 08 03:47 : client: [67] closed
+Jul 08 03:47 : client: [68] opened from local
+Jul 08 03:49 : client: [68] closed
+Jul 08 03:49 : client: [69] opened from local
+Jul 08 03:49 : client: [69] closed
+Jul 08 03:49 : client: [70] opened from local
+Jul 08 03:49 : client: [70] closed
+Jul 08 03:49 : client: [71] opened from local
+Jul 08 03:51 : client: [71] closed
+Jul 08 03:51 : client: [72] opened from local
+Jul 08 03:51 : client: [72] closed
+Jul 08 03:52 : client: [73] opened from local
+Jul 08 14:55 : client: [73] closed
+Jul 08 14:55 : client: [74] opened from local
+Jul 08 14:56 : client: [74] closed
+Jul 08 14:56 : client: [75] opened from local
+Jul 08 15:00 : client: [75] closed
+Jul 08 15:00 : client: [76] opened from local
+Jul 08 15:21 : client: [0] opened from local
+Jul 08 15:21 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 08 15:21 : avahi: Service 'Music Player' successfully established.
+Jul 08 15:22 : client: [0] closed
+Jul 08 15:22 : client: [1] opened from local

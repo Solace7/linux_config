@@ -177,7 +177,8 @@ bindsym mod1+Left workspace prev_on_output
 #Assign workspaces to screen
 
 #workspace $workspace7 output HDMI-1-1
-workspace $workspace7 output HDMI-0
+#workspace $workspace7 output HDMI-0
+workspace $workspace7 output DP-0
 
 #Assign Applications to Workspaces
 

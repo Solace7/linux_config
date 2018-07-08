@@ -23,10 +23,9 @@ fixed-center = true
 bottom = true
 tray-position = right
 tray-padding = 1
-
 separator = |
 
-background = ${colors.background-alt}
+background = #771f1f1f
 foreground = ${colors.foreground}
 
 line-size = 1
@@ -47,7 +46,7 @@ height = 27
 radius = 2.0
 fixed-center = true
 
-background = ${colors.background-alt}
+background = #991f1f1f
 foreground = ${colors.foreground}
 
 line-size = 2
@@ -74,8 +73,8 @@ dim-value = 1.0
 
 separator = |
 
-tray-position = right
-tray-padding = 2
+;tray-position = right
+;tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -107,20 +106,6 @@ label-indicator-margin = 1
 label-indicator-background = ${colors.background}
 label-indicator-underline = ${colors.secondary}
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-mount-1 = /home
-mount-2 = /home/solace/Windows
-
-format-mounted = <label-mounted>
-
-label-mounted = %mountpoint%%{F-}: %used%/%total% {%percentage_used%%}
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.alert}
-
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -148,12 +133,12 @@ label-mode-background = ${colors.alert}
 
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-background = ${colors.background}
+label-focused-background = ${bar/sol.background}
 label-focused-underline = ${colors.primary}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-background = ${colors.background-alt}
+label-unfocused-background = ${bar/sol.background}
 label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
@@ -383,33 +368,6 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
-
-[module/powermenu]
-type = custom/menu
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close =  cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
 
 [settings]
 screenchange-reload = true

@@ -8,6 +8,7 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
 MONITOR=eDP-1 polybar -c /home/solace/.config/i3/polybar/solconfig sol &
+MONITOR=DP-0 polybar -c /home/solace/.config/i3/polybar/solconfig sol &
 #MONITOR=eDP-1 polybar -c /home/solace/.config/i3/polybar/solconfig system &
 MONITOR=HDMI-1 polybar -c /home/solace/.config/i3/polybar/solconfig sol &
 
