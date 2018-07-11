@@ -289,7 +289,7 @@ type = internal/alsa
 #speaker-soundcard = hw:0
 
 format-volume = <label-volume>
-label-volume = VOL %percentage%%
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "

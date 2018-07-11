@@ -24579,3 +24579,67 @@ Jul 08 15:21 : exception: Failed to read mixer for 'default': no such mixer cont
 Jul 08 15:21 : avahi: Service 'Music Player' successfully established.
 Jul 08 15:22 : client: [0] closed
 Jul 08 15:22 : client: [1] opened from local
+Jul 08 15:54 : client: [0] opened from local
+Jul 08 15:54 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 08 15:54 : avahi: Service 'Music Player' successfully established.
+Jul 08 15:54 : client: [0] closed
+Jul 08 15:54 : client: [1] opened from local
+Jul 08 15:54 : client: [1] closed
+Jul 08 15:54 : client: [2] opened from local
+Jul 08 15:57 : client: [2] closed
+Jul 08 15:57 : client: [3] opened from local
+Jul 08 21:51 : client: [3] closed
+Jul 08 21:51 : client: [4] opened from local
+Jul 09 00:05 : client: [4] closed
+Jul 09 00:05 : client: [5] opened from local
+Jul 09 01:46 : client: [5] closed
+Jul 09 01:46 : client: [6] opened from local
+Jul 09 12:03 : client: [6] closed
+Jul 09 12:03 : client: [7] opened from local
+Jul 09 12:05 : client: [0] opened from local
+Jul 09 12:05 : avahi: Service 'Music Player' successfully established.
+Jul 09 12:05 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 09 12:07 : client: [0] closed
+Jul 09 12:07 : client: [1] opened from local
+Jul 09 12:34 : client: [1] closed
+Jul 09 13:01 : avahi: Service 'Music Player' successfully established.
+Jul 09 13:01 : client: [0] opened from local
+Jul 09 13:01 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 09 21:39 : client: [0] closed
+Jul 09 21:51 : client: [0] opened from local
+Jul 09 21:51 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 09 21:51 : avahi: Service 'Music Player' successfully established.
+Jul 09 21:52 : client: [0] closed
+Jul 09 21:52 : client: [1] opened from local
+Jul 09 21:52 : client: [1] closed
+Jul 09 21:52 : client: [2] opened from local
+Jul 09 21:52 : client: [2] closed
+Jul 09 21:52 : client: [3] opened from local
+Jul 09 21:59 : client: [3] closed
+Jul 09 21:59 : client: [4] opened from local
+Jul 10 02:20 : client: [4] closed
+Jul 10 02:20 : client: [5] opened from local
+Jul 10 03:09 : client: [5] closed
+Jul 10 03:09 : client: [6] opened from local
+Jul 10 03:29 : client: [0] opened from local
+Jul 10 03:29 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 10 03:29 : avahi: Service 'Music Player' successfully established.
+Jul 10 03:29 : client: [0] closed
+Jul 10 03:30 : client: [1] opened from local
+Jul 10 12:26 : client: [0] opened from local
+Jul 10 12:26 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 10 12:26 : avahi: Service 'Music Player' successfully established.
+Jul 10 12:27 : client: [0] closed
+Jul 10 12:27 : client: [1] opened from local
+Jul 10 14:48 : client: [1] closed
+Jul 10 14:49 : client: [0] opened from local
+Jul 10 14:49 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 10 14:49 : avahi: Service 'Music Player' successfully established.
+Jul 10 14:50 : client: [0] closed
+Jul 10 14:50 : client: [0] opened from local
+Jul 10 14:50 : exception: Failed to read mixer for 'default': no such mixer control: PCM
+Jul 10 14:50 : avahi: Service 'Music Player' successfully established.
+Jul 10 14:52 : client: [0] closed
+Jul 10 14:52 : client: [1] opened from local
+Jul 10 14:53 : client: [1] closed
+Jul 10 14:53 : client: [2] opened from local

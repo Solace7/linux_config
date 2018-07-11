@@ -1,0 +1,53 @@
+#!/bin/bash
+#Terminal Tweaks
+
+#Package Handling
+alias search="pacman -Ss"
+alias inst="sudo pacman -Sy"
+alias update="sudo pacman -Syyu"
+alias remp="yay -Rscn"
+alias remclean="yay -c && notify-send 'Unused Packages Removed'"
+alias upgrade="yay && notify-send 'System Package Upgrade Complete'"
+alias reinstall="sudo pacman -S "
+alias pacinfo="pacman -Qi"
+alias whoowns="pacman -Qo"
+
+#AUR Package Handling
+alias searchaur="yay -Ss"
+alias aurupgrade="yay -Syu --devel && notify-send 'AUR Package Upgrade Complete'"
+alias aureinstall="yay -S"
+alias listaur="yay -Qm"
+
+alias tweaksedit="vim /home/solace/.TerminalTweaksArch"
+alias mount-unixtimeshare="sshfs ejwells@unix.ucsc.edu:/afs/cats.ucsc.edu/users/d/ejwells /home/solace/Documents/School/Timeshare"
+alias nvidia_run="DRI_PRIME=1"
+alias governor_check="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
+alias calc="gcalccmd"
+alias jalv="jalv.gtk"
+alias unixtimeshare="ssh ejwells@unix.ucsc.edu"
+alias hack_start="hollywood"
+alias music="tmuxp load .tmuxp/music.yaml"
+alias changelog="pacman -Qc"
+alias rmbadsteamlibs='find ~/.steam/root/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete'
+alias rmbadsteamlibslocal='find ~/.local/share/Steam/ \( -name "libgcc_s.so*" -o -name "libstdc++.so*" -o -name "libxcb.so*" \) -print -delete'
+alias makelink="ln -sr"
+alias zshcfg="atom ~/.zshrc"
+alias srczsh="source ~/.zshrc"
+alias i3cfg="atom /home/solace/.config/i3/config"
+alias tasks="ps -aux"
+alias tattach="tmux attach -t"
+alias jchange="sudo archlinux-java set"
+alias jstatus="sudo archlinux-java status"
+alias gcard="inxi -Gx"
+alias netscan="nmap -sP"
+alias Projects="cd /home/solace/Documents/Projects"
+
+alias l="ls --color=auto"
+alias lg="ls -g"
+alias ll="ls -l"
+alias la="ls -a"
+alias ls="ls --color=auto"
+
+alias wineprefix64="WINEPREFIX=~/.wine WINEARCH=win64 wine wineboot"
+alias wineprefix32="WINEPREFIX=~/prefix32 WINEARCH=win32 wine wineboot"
+alias instaur="yay -Sy --devel"

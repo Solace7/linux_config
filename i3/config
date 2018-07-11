@@ -136,7 +136,7 @@ set $workspace2 ">>"
 set $workspace3 "3"
 set $workspace4 "4"
 set $workspace5 "GAMES"
-set $workspace6 "6"
+set $workspace6 "CODE"
 set $workspace7 "EXT"
 set $workspace8 "8"
 set $workspace9 "COMMS"
@@ -308,8 +308,8 @@ bindsym $mod+minus scratchpad show
 exec xss-lock i3lockscreen &
 
 #exec_always --no-startup-id sh .screenlayout/default.sh
-exec --no-startup-id sh home/solace/config/audio_setup.sh
-exec_always bash /home/solace/.config/i3/rxvtconf.sh
+exec --no-startup-id bash /home/solace/config/audio_setup.sh
+#exec_always bash /home/solace/.config/i3/rxvtconf.sh
 exec_always --no-startup-id res-polybar
 exec --no-startup-id compton --config ~/.config/i3/compton.conf
 #exec --no-startup-id steam-native
