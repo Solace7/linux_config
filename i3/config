@@ -8,8 +8,8 @@ bindsym $mod+Shift+Return exec terminator
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#pick window to kill
-bindsym $mod+x xkill
+#Focus urgent window
+bindsym $mod+x [urgent=latest] focus
 
 #Change focus
 bindsym $mod+Left focus left
@@ -235,7 +235,6 @@ for_window [class="StarMade Main Menu"] floating enable
 for_window [class="StarMade Launcher"] floating enable
 for_window [class="steam.exe"] floating enable
 for_window [class="qjackctl"] floating enable
-#for_window [class="Skype"] floating enable
 for_window [class="net-minecraft-bootstrap-Bootstrap"] floating enable, border normal
 for_window [class="org-schema-game-common-updater-Launcher"] floating enable
 for_window[class="Gnote"] floating enable
@@ -254,6 +253,8 @@ for_window[title="Discord Updater"] floating enable
 for_window[class="TeamViewer"] floating enable
 for_window[title="Player"] floating enable
 for_window[class="MEGAsync"] floating enable
+for_window[title="Mixer"] floating disable
+for_window[title="MIDI take"] floating disable
 
 # Font for window titles.
 font pango: Hack 10
@@ -306,7 +307,7 @@ bindsym $mod+minus scratchpad show
 ##########################
 
 exec xss-lock i3lockscreen &
-exec_always --no-startup-id bash /home/solace/.screenlayout/default.sh
+#exec_always --no-startup-id bash /home/solace/.config/display_setup.sh
 exec bash /home/solace/.config/audio_setup.sh
 #exec_always bash /home/solace/.config/i3/rxvtconf.sh
 exec_always --no-startup-id res-polybar
