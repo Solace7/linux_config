@@ -18,6 +18,7 @@ a2jmidid -ue &
 sleep 10
 cadence --minimized &
 pactl set-default-sink jack_out
+alsactl restore
 notify-send "JACK Audio Connection Kit is connected and set for MIDI"
 echo "Jack Setup Complete" >> /var/log/audiosetuplog
 echo "Peripheral Check" >> /var/log/audiosetuplog
