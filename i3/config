@@ -194,6 +194,7 @@ assign [title="Steam"] $workspace5
 #assign [class="Wine"] $workspace4
 assign [class="RobocraftClient"] $workspace5
 assign [class="MultiMC"] $workspace5
+assign [class="Minecraft "] $workspace5
 
 #On Programming Workspace | workspace6
 assign [class="jetbrains-idea"] $workspace6
@@ -255,6 +256,7 @@ for_window[title="Player"] floating enable
 for_window[class="MEGAsync"] floating enable
 for_window[title="Mixer"] floating disable
 for_window[title="MIDI take"] floating disable
+
 
 # Font for window titles.
 font pango: Hack 10
@@ -319,7 +321,7 @@ exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
 #exec --no-startup-id slack
 #exec --no-startup-id primusrun discord
 exec --no-startup-id discord
-exec --no-startup-id megasync
+#exec --no-startup-id megasync
 #exec --no-startup-id quassel
 #exec --no-startup-id synergy
 #exec --no-startup-id guake
