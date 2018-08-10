@@ -1,9 +1,0 @@
-# GIMP gimp-text-tool options
-
-(foreground (color-rgb 0.749020 0.129412 0.117647))
-(palette "Color History")
-(font "Spectral SC Light")
-(font-size 120.000000)
-(letter-spacing 15.000000)
-
-# end of gimp-text-tool options

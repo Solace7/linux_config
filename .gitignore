@@ -7,6 +7,7 @@ Atom
 Cadence/
 Clementine/
 Dexed.settings
+GIMP/
 Google/
 INRIA/
 Kid3/
@@ -14,6 +15,7 @@ MuseScore/
 Projucer/
 QtProject.conf
 RawTherapee/
+REAPER/
 Riot/
 Slack/
 SuperCollider/
@@ -174,3 +176,6 @@ yad.conf
 yakyak/
 yay/
 zoomus.conf
+filetypesrc
+gprename/
+keditfiletyperc

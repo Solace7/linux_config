@@ -14,10 +14,11 @@ jack_control dps nperiods 3
 jack_control dps period 1024
 sleep 10
 echo "Connecting a2j MIDI" >> /var/log/audiosetuplog
-a2jmidid -ue &
+a2jmidid -ue
 sleep 10
 cadence --minimized &
 pactl set-default-sink jack_out
+pactl set-default-source jack_in
 alsactl restore
 notify-send "JACK Audio Connection Kit is connected and set for MIDI"
 echo "Jack Setup Complete" >> /var/log/audiosetuplog
