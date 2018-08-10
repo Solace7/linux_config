@@ -16,7 +16,6 @@ sleep 10
 echo "Connecting a2j MIDI" >> /var/log/audiosetuplog
 a2jmidid -ue
 sleep 10
-cadence --minimized &
 pactl set-default-sink jack_out
 pactl set-default-source jack_in
 alsactl restore
@@ -28,6 +27,8 @@ if [ -d "/proc/asound/Mic" ]; then
 		samson_mic
 		samson_speaker
 fi
+
+cadence --minimized &
 
 echo "Done" >> /var/log/audiosetuplog
 
