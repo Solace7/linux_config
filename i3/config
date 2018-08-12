@@ -224,7 +224,7 @@ assign [class="Natron"] $workspace11
 assign [class="Blender"] $workspace11
 assign [class="Shotcut"] $workspace11
 assign [class="Krita"] $workspace11
-
+assign [class="REAPER"] $workspace11
 
 #On External Monitor | workspace7
 assign [class="google-chrome-stable"] $workspace7
