@@ -1,7 +1,7 @@
 #!/bin/bash
 if [ -f "/var/log/audiosetuplog" ]; then
     echo `date` >> /var/log/audiosetuplog
-    echo ""
+    echo -e "\n"
 fi
 
 echo "Starting JACK" >> /var/log/audiosetuplog
@@ -32,8 +32,10 @@ echo "Starting Cadence" >> /var/log/audiosetuplog
 cadence --minimized &
 
 echo "Done" >> /var/log/audiosetuplog
+echo `date` >> /var/log/audiosetuplog
+echo -e "\n"
 
-if [ wc --lines /var/log/audiosetuplog > 32]; then
+if [[ $(wc --lines /var/log/audiosetuplog) > 32 ]]; then
     rm /var/log/audiosetuplog
     touch /var/log/audiosetuplog
 fi
