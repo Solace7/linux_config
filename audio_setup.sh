@@ -38,6 +38,8 @@ echo -e "\n"
 if [[ $(wc --lines /var/log/audiosetuplog) > 32 ]]; then
     rm /var/log/audiosetuplog
     touch /var/log/audiosetuplog
+    echo "Audio Setup Completed. New log file created" >> /var/log/audiosetuplog
+    echo `date` >> /var/log/audiosetuplog
 fi
 
 exit 1
