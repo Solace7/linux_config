@@ -176,9 +176,8 @@ bindsym mod1+Right workspace next_on_output
 bindsym mod1+Left workspace prev_on_output
 #Assign workspaces to screen
 
-#workspace $workspace7 output HDMI-1-1
-#workspace $workspace7 output HDMI-0
-workspace $workspace7 output DP-0
+workspace $workspace7 output HDMI-0
+#workspace $workspace7 output DP-0
 
 #Assign Applications to Workspaces
 
@@ -195,6 +194,8 @@ assign [title="Steam"] $workspace5
 assign [class="RobocraftClient"] $workspace5
 assign [class="MultiMC"] $workspace5
 assign [class="Minecraft "] $workspace5
+assign [title="Warframe"] $workspace5
+assign [class="Lutris"] $workspace5
 
 #On Programming Workspace | workspace6
 assign [class="jetbrains-idea"] $workspace6
@@ -256,7 +257,8 @@ for_window[title="Player"] floating enable
 for_window[class="MEGAsync"] floating enable
 for_window[title="Mixer"] floating disable
 for_window[title="MIDI take"] floating disable
-
+for_window[title="Hold On"] floating disable
+for_window[title="Importing Package"] floating disable
 
 # Font for window titles.
 font pango: Hack 10
@@ -291,11 +293,14 @@ client.unfocused         #2f2f2f                         $background_unfocused  
 client.focused_inactive  #3f3f3f                         #3f3f3f                     #e5e5e5           #ffd700
 client.urgent            #1f1f1f                         #ffd700                     #1f1f1f           #ffd700
 
-hide_edge_borders both#Custom Keybinds
+hide_edge_borders both
+
+#Custom Keybinds
 bindsym $mod+ctrl+l exec i3lockscreen
-bindsym Scroll_Lock exec /home/solace/Documents/Scripts/ledtoggle.sh
-bindym $mod+shift+k exec perl /home/solace/Documents/Scripts/keyboardlock.sh
 bindsym ctrl+Escape exec ksysguard
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad

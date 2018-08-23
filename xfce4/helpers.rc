@@ -1,5 +1,5 @@
-WebBrowser=firefox
-MailReader=thunderbird
+WebBrowser=chromium
+MailReader=evolution
 TerminalEmulator=custom-TerminalEmulator
 FileManager=caja
 
