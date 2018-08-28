@@ -27,8 +27,8 @@ if [ -d "/proc/asound/Mic" ]; then
 		samson_speaker
 fi
 
-echo -e "Starting Cadence \n" >> /var/log/audiosetuplog
-cadence --minimized &
+#echo -e "Starting Cadence \n" >> /var/log/audiosetuplog
+#cadence --minimized &
 
 echo -e "Done \n" >> /var/log/audiosetuplog
 echo `date` >> /var/log/audiosetuplog
