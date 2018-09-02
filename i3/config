@@ -194,6 +194,7 @@ assign [title="Steam"] $workspace5
 assign [class="RobocraftClient"] $workspace5
 assign [class="MultiMC"] $workspace5
 assign [class="Minecraft "] $workspace5
+assign [class="Firestorm-Releasex64 "] $workspace5
 assign [title="Warframe"] $workspace5
 assign [class="Lutris"] $workspace5
 
@@ -296,7 +297,8 @@ client.urgent            #1f1f1f                         #ffd700                
 hide_edge_borders both
 
 #Custom Keybinds
-bindsym $mod+ctrl+l exec i3lockscreen
+#bindsym $mod+ctrl+l exec i3lockscreen
+bindsym $mod+ctrl+l exec dm-tool lock
 bindsym ctrl+Escape exec ksysguard
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
@@ -314,14 +316,14 @@ bindsym $mod+minus scratchpad show
 ##########################
 
 exec xss-lock i3lockscreen &
-exec_always --no-startup-id bash /home/solace/.config/display_setup.sh
-exec bash /home/solace/.config/audio_setup.sh
-#exec_always bash /home/solace/.config/i3/rxvtconf.sh
+exec_always --no-startup-id bash $HOME/.config/display_setup.sh
+exec bash $HOME/.config/audio_setup.sh
+#exec_always bash $HOME/.config/i3/rxvtconf.sh
 exec_always --no-startup-id res-polybar
-exec --no-startup-id compton --config ~/.config/i3/compton.conf
+exec --no-startup-id compton --config $HOME/.config/i3/compton.conf
 #exec --no-startup-id steam-native
-exec --no-startup-id xfce4-power-manager
-#exec_always bash /home/solace/.config/wpg/wp_init.sh
+#exec --no-startup-id xfce4-power-manager
+#exec_always bash $HOME/.config/wpg/wp_init.sh
 exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
 #exec --no-startup-id slack
 #exec --no-startup-id primusrun discord
@@ -332,15 +334,16 @@ exec --no-startup-id discord
 #exec --no-startup-id guake
 #exec --no-startup-id nvdock
 exec --no-startup-id blueman-applet
-exec --no-startup-id pactl
+exec --no-startup-id pnmixer
 exec --no-startup-id nm-applet
 #exec --no-startup-id connman-ui-gtk
 #exec --no-startup-id pamac-tray
-exec --no-startup-id dunst -conf /home/solace/.config/i3/dunstrc
-exec --no-startup-id mpd --no-daemon /home/solace/.config/mpd/mpd.conf
+exec --no-startup-id dunst -conf $HOME/.config/i3/dunstrc
+exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
 exec --no-startup-id redshift-gtk
 exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id copyq
+exec --no-startup-id tint2
+#exec --no-startup-id copyq
 #exec thunderbird
-#exec_always --no-startup-id conky -c /home/solace/.config/conky/solconky/solconky.conkyrc
-#exec_always --no-startup-id conky -c /home/solace/.config/conky/horical/horical.conkyrc
+#exec_always --no-startup-id conky -c $HOME/.config/conky/solconky/solconky.conkyrc
+#exec_always --no-startup-id conky -c $HOME/.config/conky/horical/horical.conkyrc

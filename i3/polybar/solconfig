@@ -27,7 +27,6 @@ separator = |
 monitor = eDP-1
 monitor-fallback = eDP-1-1
 
-
 background = #771f1f1f
 foreground = ${colors.foreground}
 
@@ -38,9 +37,9 @@ font-0 = Hack:size=10;1
 font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10
 
-modules-right = cpugov memory alsa
+modules-right = 
 modules-center = mpd 
-modules-left = xwindow
+modules-left = cpugov memory alsa
 
 [bar/sol]
 width = 100%
@@ -97,7 +96,8 @@ width = 100%
 height = 27
 radius = 2.0
 fixed-center = true
-monitor = DP-0
+monitor = HDMI-0
+;monitor = DP-0
 
 
 background = #991f1f1f
@@ -209,7 +209,7 @@ label-urgent-background = ${colors.alert}
 [module/mpd]
 type = internal/mpd
 host = /home/solace/.config/mpd/socket
-format-online = <label-song>
+format-online = <icon-play> <label-song> <icon-pause>
 label-offline = 🎜 mpd is offline
 format-stopped = Music Stopped
 
@@ -219,7 +219,7 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song= %artist% - %title%
+label-song= 🎜  %artist% - %title% 🎜 
 label-song-maxlen = 35
 label-song-ellipsis = true
 
