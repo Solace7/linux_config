@@ -208,6 +208,7 @@ assign [class="Processing"] $workspace6
 
 #On Communication Workspace | workspace9
 assign [class="PB for Desktop"] $workspace9
+assign [class="Android Messages"] $workspace9
 assign [class="Slack"] $workspace9
 assign [class="discord"] $workspace9
 assign [class="quassel"] $workspace9
@@ -236,7 +237,7 @@ for_window [class="Plank"] _NET_WM_WINDOW_TYPE_DOCK
 for_window [class="Steam"] floating enable�
 for_window [class="StarMade Main Menu"] floating enable
 for_window [class="StarMade Launcher"] floating enable
-for_window [class="steam.exe"] floating enable
+for_window [title="steam"] floating enable
 for_window [class="qjackctl"] floating enable
 for_window [class="net-minecraft-bootstrap-Bootstrap"] floating enable, border normal
 for_window [class="org-schema-game-common-updater-Launcher"] floating enable
@@ -323,27 +324,15 @@ exec_always --no-startup-id res-polybar
 exec --no-startup-id compton --config $HOME/.config/i3/compton.conf
 #exec --no-startup-id steam-native
 #exec --no-startup-id xfce4-power-manager
-#exec_always bash $HOME/.config/wpg/wp_init.sh
 exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
-#exec --no-startup-id slack
-#exec --no-startup-id primusrun discord
+exec --no-startup-id android-messages
 exec --no-startup-id discord
-#exec --no-startup-id megasync
-#exec --no-startup-id quassel
-#exec --no-startup-id synergy
-#exec --no-startup-id guake
-#exec --no-startup-id nvdock
-exec --no-startup-id blueman-applet
-exec --no-startup-id pnmixer
+exec --no-startup-id blueberry-tray
 exec --no-startup-id nm-applet
-#exec --no-startup-id connman-ui-gtk
-#exec --no-startup-id pamac-tray
 exec --no-startup-id dunst -conf $HOME/.config/i3/dunstrc
 exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
-exec --no-startup-id redshift-gtk
+#exec --no-startup-id redshift-gtk
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id tint2
-#exec --no-startup-id copyq
-#exec thunderbird
 #exec_always --no-startup-id conky -c $HOME/.config/conky/solconky/solconky.conkyrc
 #exec_always --no-startup-id conky -c $HOME/.config/conky/horical/horical.conkyrc
