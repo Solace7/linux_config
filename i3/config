@@ -321,7 +321,7 @@ exec_always --no-startup-id bash $HOME/.config/display_setup.sh
 exec bash $HOME/.config/audio_setup.sh
 #exec_always bash $HOME/.config/i3/rxvtconf.sh
 exec_always --no-startup-id res-polybar
-exec --no-startup-id compton --config $HOME/.config/i3/compton.conf
+exec --no-startup-id compton --config $HOME/.config/compton.conf
 #exec --no-startup-id steam-native
 #exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
@@ -329,7 +329,7 @@ exec --no-startup-id android-messages
 exec --no-startup-id discord
 exec --no-startup-id blueberry-tray
 exec --no-startup-id nm-applet
-exec --no-startup-id dunst -conf $HOME/.config/i3/dunstrc
+exec --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
 exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
 #exec --no-startup-id redshift-gtk
 exec --no-startup-id kdeconnect-indicator
