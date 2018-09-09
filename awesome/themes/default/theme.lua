@@ -16,15 +16,15 @@ theme.wallpaper = themes_path.."default/background.png"
 
 theme.font          = "Hack 8"
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
+theme.bg_normal     = "#1f1f1f"
+theme.bg_focus      = "#3f3f3f"
+theme.bg_urgent     = "#ffd700"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#cacaca"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
+theme.fg_focus      = "#cacaca"
+theme.fg_urgent     = "#1f1f1f"
 theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(0)
@@ -33,11 +33,13 @@ theme.border_normal = "#000000"
 theme.border_focus  = "#535d6c"
 theme.border_marked = "#91231c"
 
-theme.titlebar_bg_focus = theme.bg_normal
+theme.titlebar_bg_focus = theme.bg_focus
 theme.titlebar_fg_focus = theme.fg_normal
+theme.taglist_fg_urgent = theme.fg_urgent
 
-theme.taglist_bg_focus = theme.bg_normal
+theme.taglist_bg_focus = theme.bg_focus
 theme.taglist_fg_focus = theme.fg_normal
+theme.taglist_fg_urgent = theme.fg_urgent
 
 theme.tasklist_bg_focus = theme.bg_normal
 theme.tasklist_fg_focus = theme.fg_normal
@@ -64,11 +66,10 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 
--- Variables set for theming notifications:
--- notification_font
--- notification_[bg|fg]
--- notification_[width|height|margin]
--- notification_[border_color|border_width|shape|opacity]
+notification_font = "Hack 8" 
+notification_width = 3 
+notification_height = 2 
+notification_icon_size = 0 
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
