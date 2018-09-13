@@ -1,4 +1,3 @@
-
 set nocompatible              " be iMproved, required
 set laststatus=2	      " Always show statusline
 set encoding=utf-8	      " Necessary to show Unicode glyphs
@@ -12,6 +11,7 @@ set background=dark
 set wrap linebreak nolist
 set number
 set termguicolors
+hi Normal          ctermfg=252 ctermbg=none
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize

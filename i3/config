@@ -332,9 +332,8 @@ exec --no-startup-id discord --start-minimized
 exec --no-startup-id blueberry-tray
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
---exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
+exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
 exec --no-startup-id redshift-gtk
 exec --no-startup-id kdeconnect-indicator
-exec --no-startup-id tint2
 #exec_always --no-startup-id conky -c $HOME/.config/conky/solconky/solconky.conkyrc
 #exec_always --no-startup-id conky -c $HOME/.config/conky/horical/horical.conkyrc

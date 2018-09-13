@@ -8,13 +8,13 @@
 ;=====================================================
 
 [colors]
-background = #2f2f2f
-background-alt = #1f1f1f
-foreground = #cacaca
+background = ${xrdb:background:#222}
+background-alt = ${xrdb:color8:#333}
+foreground = ${xrdb:foreground:#ccc}
 foreground-alt = #cacaca
-primary = #ffd700
-secondary = #bf211e
-alert = #bf211e
+primary = ${xrdb:color3:#eb0}
+secondary = ${xrdb:color1:#f50}
+alert = ${xrdb:color1:#e90}
 
 [bar/system]
 width = 100%
@@ -34,7 +34,7 @@ line-size = 1
 line-color = ${colors.foreground}
 
 font-0 = Fira Code:size=10;1
-font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
+font-1 = Fantasque Sans Mono:size=10
 font-2 = FontAwesome:size=10
 
 modules-right = 
@@ -50,7 +50,7 @@ monitor = eDP-1
 monitor-fallback = eDP-1-1
 
 
-background = #991f1f1f
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
