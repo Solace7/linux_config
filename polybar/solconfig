@@ -14,20 +14,21 @@ foreground = ${xrdb:foreground:#ccc}
 foreground-alt = #cacaca
 primary = ${xrdb:color3:#eb0}
 secondary = ${xrdb:color1:#f50}
+tertiary = ${xrdb:color15:#edb}
 alert = ${xrdb:color1:#e90}
 
 [bar/system]
 width = 100%
-height = 27
+height = 25
 fixed-center = true
 bottom = true
 tray-position = right
 tray-padding = 1
-separator = |
+separator =" ╬ " 
 monitor = eDP-1
 monitor-fallback = eDP-1-1
 
-background = #771f1f1f
+background =${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 1
@@ -35,11 +36,11 @@ line-color = ${colors.foreground}
 
 font-0 = Fira Code:size=10;1
 font-1 = Fantasque Sans Mono:size=10
-font-2 = FontAwesome:size=10
+font-2 = FontAwesome:size=14
 
-modules-right = 
+modules-right = alsa backlight
 modules-center = mpd 
-modules-left = cpugov memory alsa
+modules-left = cpugov cpu memory
 
 [bar/sol]
 width = 100%
@@ -66,21 +67,16 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = Fira Code:size=10;1
-font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
-font-2 = FontAwesome:size=10
+font-1 = Fantasque Sans Mono:size=10
+font-2 = FontAwesome:size=12
 
 modules-left = i3
 modules-center = date
-modules-right =  cpu temperature wifi eth battery
+modules-right = temperature battery
 
 dim-value = 1.0
 
-separator = |
-
-;tray-position = right
-;tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
+separator = "║"
 
 ;wm-restack = i3
 
@@ -100,7 +96,7 @@ monitor = HDMI-0
 ;monitor = DP-0
 
 
-background = #991f1f1f
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 2
@@ -121,7 +117,7 @@ font-2 = FontAwesome:size=10
 
 modules-left = i3
 modules-center = date
-modules-right =  memory cpu cpufreq temperature
+modules-right =  cpufreq temperature
 
 dim-value = 1.0
 
@@ -223,59 +219,69 @@ label-song= 🎜  %artist% - %title% 🎜
 label-song-maxlen = 35
 label-song-ellipsis = true
 
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label> <bar>
-label = BL
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
-
-[module/backlight-acpi]
-inherit = module/xbacklight
+[module/backlight]
 type = internal/backlight
 card = intel_backlight
+
+format = <ramp>
+label = <%percentage%%>
+
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
 
 [module/cpu]
 type = internal/cpu
 interval = 2
 
-format = <label>
-format-prefix = " "
+format = <ramp-coreload>
+format-prefix = "CPU "
 format-prefix-foreground = ${colors.foreground-alt}
 ;format-underline = #f90000
-label = CPU %percentage%%
+;label = %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-8 = █
 
 [module/cpufreq]
 type = custom/script
-exec = cpupower frequency-info -fm | grep -oP '(?<=frequency: )([^ ]+ [^ ]+)'
+exec = cpupower frequency-info -fm | grep -oP '(?<=frequency: )([^ ]+ [^ ]+) '
 interval = 2
 
 [module/memory]
 type = internal/memory
 interval = 2
-;format-prefix = " "
+format = RAM <bar-used>
+;format-prefix = ""
 format-prefix-foreground = ${colors.foreground}
-;format-underline = #4bffdc
 label = %gb_used%/%gb_total%
 label-foreground = ${colors.foreground}
 
+bar-used-indicator = 
+bar-used-width = 15
+bar-used-foreground-0 = ${colors.tertiary}
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ┃
+bar-used-empty = ║	
+bar-used-empty-foreground = #444444
 
 [module/wifi]
 type = internal/network
 interface = wlp2s0
 interval = 3.0
 
-format-connected = <ramp-signal> <label-connected>
+format-connected = <label-connected>
 ;format-connected-underline = #9f78e1
 label-connected =   WiFi
 ;%essid%
@@ -286,13 +292,6 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -326,15 +325,13 @@ date-alt = " %Y-%m-%d"
 time = %l:%M:%S %P
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #cacaca
+format-underline = ${colors.tertiary}
 
 label = %date% %time%
 
 [module/alsa]
 type = internal/alsa
-master-soundcard = hw:PCH
+#master-soundcard = hw:PCH
 #speaker-soundcard = hw:0
 
 format-volume = <label-volume>
@@ -367,8 +364,6 @@ type = internal/battery
 battery = BAT0
 adapter = AC0
 full-at = 98
-
-#time-format=%H:%M
 
 format-charging = <animation-charging> <label-charging>
 label-charging= %time%, %percentage%% CHR ⚡
@@ -413,9 +408,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [settings]

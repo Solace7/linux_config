@@ -7,12 +7,12 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 #Launch bar1 and bar2
-polybar -c $HOME/.config/polybar/solconfig sol &
-polybar -c $HOME/.config/polybar/solconfig system &
+polybar -r -c $HOME/.config/polybar/solconfig sol &
+polybar -r -c $HOME/.config/polybar/solconfig system &
 
 if [ `xrandr --query | grep '\bconnected\b' | wc --lines` > 1 ]; then
 	echo "External Polybar"
-	polybar -c $HOME/.config/polybar/solconfig ext &
+	polybar -r -c $HOME/.config/polybar/solconfig ext &
 fi
 
 notify-send "Polybar Initialized"
