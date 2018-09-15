@@ -1,6 +1,6 @@
 #!/bin/bash
 echo -e `date` "\n" >> /var/log/audiosetuplog
-#alsactl store
+alsactl store
 echo "Starting JACK" >> /var/log/audiosetuplog
 jack_control start | tee -a /var/log/audiosetuplog
 jack_control ds alsa | tee -a /var/log/audiosetuplog
@@ -17,7 +17,7 @@ pactl set-default-sink jack_out
 echo "jack_out set as default sink" >> /var/log/audiosetuplog
 pactl set-default-source jack_in
 echo "jack_in set as default source" >> /var/log/audiosetuplog
-#alsactl restore
+alsactl restore
 notify-send "JACK Audio Connection Kit is connected and set for MIDI"
 echo "Jack Setup Complete" >> /var/log/audiosetuplog
 echo "Peripheral Check" >> /var/log/audiosetuplog

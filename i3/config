@@ -135,14 +135,14 @@ floating_minimum_size 100 x 100
 #Workspace Variables
 set $workspace1 "HOME"
 set $workspace2 ">>"
-set $workspace3 "3"
-set $workspace4 "4"
+set $workspace3 ">>>"
+set $workspace4 ">>>>"
 set $workspace5 "GAMES"
 set $workspace6 "DEVLEOP"
 set $workspace7 "EXT"
-set $workspace8 "8"
+set $workspace8 "><"
 set $workspace9 "COMMS"
-set $workspace10 "10"
+set $workspace10 "><"
 set $workspace11 "CREATE"
 
 
@@ -236,7 +236,8 @@ assign [class="google-chrome-stable"] $workspace7
 
 #Window Options/Properties
 for_window [class="Plank"] _NET_WM_WINDOW_TYPE_DOCK
-for_window [class="Steam"] floating enable�
+for_window [class="Steam"] floating enable
+for_window [title="Starting Unity..."] floating enable
 for_window [class="StarMade Main Menu"] floating enable
 for_window [class="StarMade Launcher"] floating enable
 for_window [title="steam"] floating enable
@@ -326,7 +327,8 @@ exec_always --no-startup-id res-polybar
 exec --no-startup-id compton --config $HOME/.config/compton.conf
 #exec --no-startup-id steam-native
 exec --no-startup-id xfce4-power-manager
-exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
+#exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
+exec_always --no-startup-id sh ~/Documents/Scripts/pscircle.sh
 exec --no-startup-id android-messages
 exec --no-startup-id discord --start-minimized
 exec --no-startup-id blueberry-tray
@@ -334,6 +336,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
 exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
 exec --no-startup-id redshift-gtk
+exec --no-startup-id pamac-tray
 exec --no-startup-id kdeconnect-indicator
 #exec_always --no-startup-id conky -c $HOME/.config/conky/solconky/solconky.conkyrc
 #exec_always --no-startup-id conky -c $HOME/.config/conky/horical/horical.conkyrc

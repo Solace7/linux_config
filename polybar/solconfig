@@ -315,8 +315,11 @@ label-padding = 2
 
 [module/alsa]
 type = internal/alsa
-#master-soundcard = hw:PCH
-#speaker-soundcard = hw:0
+master-soundcard = default
+
+master-mixer = Master
+
+mapped = true
 
 format-volume = <label-volume>
 label-volume =  %percentage%%
