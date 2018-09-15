@@ -1,95 +1,109 @@
-;=====================================================
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains alot of information
-;
-;=====================================================
+;---------------------------------------------------------
+;												GLOBAL
+;---------------------------------------------------------
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+;---------------------------------------------------------
+;												COLORS
+;---------------------------------------------------------
 
 [colors]
 background = ${xrdb:background:#222}
-background-alt = ${xrdb:color8:#333}
-foreground = ${xrdb:foreground:#ccc}
-foreground-alt = #cacaca
+background-alt = ${xrdb:foreground:#edb}
+foreground = ${xrdb:foreground:#edb}
+foreground-alt = ${xrdb:background:#222}
 primary = ${xrdb:color3:#eb0}
 secondary = ${xrdb:color1:#f50}
 tertiary = ${xrdb:color15:#edb}
 alert = ${xrdb:color1:#e90}
 
+;---------------------------------------------------------
+;												BARS
+;---------------------------------------------------------
+
 [bar/system]
 width = 100%
-height = 25
+height = 23
 fixed-center = true
 bottom = true
 tray-position = right
 tray-padding = 1
-separator =" ╬ " 
-monitor = eDP-1
-monitor-fallback = eDP-1-1
+separator ="  "
+monitor = eDP-1-1
+monitor-fallback = eDP-1
 
 background =${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size = 0
 line-color = ${colors.foreground}
 
-font-0 = Fira Code:size=10;1
-font-1 = Fantasque Sans Mono:size=10
-font-2 = FontAwesome:size=14
-
-modules-right = alsa backlight
-modules-center = mpd 
+modules-right = alsa
+modules-center = mpd
 modules-left = cpugov cpu memory
+
+;---------------------------------------------------------
+;	 										SYSTEM BAR FONTS
+;---------------------------------------------------------
+
+; font-N = <fontconfig pattern>;<vertical offset>
+font-0 = "Fira Code:size=10:style=light"
+font-1 = "Fantasque Sans Mono:size=10"
+font-2 = "MesloLGS Nerd Font Mono:size=15;3"
 
 [bar/sol]
 width = 100%
-height = 27
+height = 23
 radius = 2.0
 fixed-center = true
 monitor = eDP-1
 monitor-fallback = eDP-1-1
 
-
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
-line-color = #f00
+line-size = 0
+line-color = ${colors.foreground}
 
-border-size = 1
-border-color = #00000000
+border-size = 0
 
 padding-left = 0
-padding-right = 1
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
 
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = Fira Code:size=10;1
-font-1 = Fantasque Sans Mono:size=10
-font-2 = FontAwesome:size=12
-
-modules-left = i3
-modules-center = date
-modules-right = temperature battery
+modules-left = i3 right_section
+modules-center = left_section date right_section
+modules-right = left_section temperature battery
 
 dim-value = 1.0
 
-separator = "║"
-
-;wm-restack = i3
+;separator = "║"
 
 enable-ipc = true
 
-;override-redirect = true
+;---------------------------------------------------------
+; 											SOL BAR FONTS
+;---------------------------------------------------------
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+; font-N = <fontconfig pattern>;<vertical offset>
+font-0 = "Fira Code:size=10:style=light"
+font-1 = "Fantasque Sans Mono:size=10"
+font-2 = "MesloLGS Nerd Font Mono:size=15;3"
 
 [bar/ext]
 width = 100%
-height = 27
+height = 23
 radius = 2.0
 fixed-center = true
 monitor = HDMI-0
@@ -99,107 +113,72 @@ monitor = HDMI-0
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 2
-line-color = #f00
+line-size = 0
+line-color = ${colors.foreground}
 
-border-size = 1
-border-color = #00000000
+border-size = 0
 
 padding-left = 0
-padding-right = 1
+padding-right = 0
+module-margin-left = 0
+module-margin-right = 0
 
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = Hack:size=10;1
-font-1 = Montseratt:fontformat=truetype:size=8:antialias=false;0
-font-2 = FontAwesome:size=10
-
-modules-left = i3
-modules-center = date
-modules-right =  cpufreq temperature
+modules-left = i3 right_section
+modules-center = left_section date right_section
+modules-right =  left_section cpufreq right_cutout left_section temperature
 
 dim-value = 1.0
 
-separator = |
-
-;tray-position = right
-;tray-padding = 2
-;tray-transparent = true
-;tray-background = #0063ff
-
-;wm-restack = i3
+;separator = " "
 
 enable-ipc = true
 
-;override-redirect = true
+;---------------------------------------------------------
+;											EXT BAR FONTS
+;---------------------------------------------------------
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+;font-N = <fontconfig pattern>;<vertical offset>
+font-0 = "Fira Code:size=10:style=light"
+font-1 = "Fantasque Sans Mono:size=10"
+font-2 = "MesloLGS Nerd Font Mono:size=15;3"
 
-
-[module/xwindow]
-type = internal/xwindow
-label = %title%
-
-label-maxlen = 45
-
-[module/xkeyboard]
-type = internal/xkeyboard
-format = <label-indicator>
-blacklist-0 = scroll lock
-
-;label-layout = %name%
-;label-layout-underline = ${colors.secondary}
-
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.background}
-label-indicator-underline = ${colors.secondary}
+;---------------------------------------------------------
+;												MODULES
+;---------------------------------------------------------
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
+
 index-sort = true
 wrapping-scroll = false
-
-;ws-icon-1 = 1;
-;ws-icon-2 = 2;
-;ws-icon-3 = 3;
-;ws-icon-4 = 4;
-;ws-icon-5 = 5;
-;ws-icon-6 = 6;
-;ws-icon-7 = 7;
-;ws-icon-8 = 8;
-;ws-icon-9 = 9;
-;ws-icon-10 = 10;
-;ws-icon-11 = 11;
 
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 2
-label-mode-foreground = ${colors.foreground}
-label-mode-background = ${colors.alert}
-
 ; focused = Active workspace on focused monitor
 label-focused = %name%
-label-focused-background = ${bar/sol.background}
-label-focused-underline = ${colors.primary}
+label-focus-font = 4
+label-focused-background = ${colors.tertiary}
+label-focused-foreground = ${colors.secondary}
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %name%
-label-unfocused-background = ${bar/sol.background}
-label-unfocused-padding = 1
+label-unfocused-font = 4
+label-unfocused-background = ${colors.tertiary}
+label-unfocused-foreground = ${colors.background}
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-foreground = ${self.label-focused-foreground}
+label-visible-padding = 2
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %name%
-label-urgent-padding = 1
+label-urgent-padding = 2
 label-urgent-background = ${colors.alert}
 
 [module/mpd]
@@ -215,7 +194,7 @@ icon-play = 
 icon-pause = 
 icon-next = 
 
-label-song= 🎜  %artist% - %title% 🎜 
+label-song= 🎜  %artist% - %title% 🎜
 label-song-maxlen = 35
 label-song-ellipsis = true
 
@@ -255,25 +234,28 @@ ramp-coreload-8 = █
 [module/cpufreq]
 type = custom/script
 exec = cpupower frequency-info -fm | grep -oP '(?<=frequency: )([^ ]+ [^ ]+) '
+
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground-alt}
 interval = 2
 
 [module/memory]
 type = internal/memory
 interval = 2
-format = RAM <bar-used>
-;format-prefix = ""
+format = <bar-used>
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground}
 label = %gb_used%/%gb_total%
 label-foreground = ${colors.foreground}
 
-bar-used-indicator = 
-bar-used-width = 15
+bar-used-indicator =
+bar-used-width = 16
 bar-used-foreground-0 = ${colors.tertiary}
 bar-used-foreground-1 = #557755
 bar-used-foreground-2 = #f5a70a
 bar-used-foreground-3 = #ff5555
 bar-used-fill = ┃
-bar-used-empty = ║	
+bar-used-empty = ║
 bar-used-empty-foreground = #444444
 
 [module/wifi]
@@ -325,9 +307,11 @@ date-alt = " %Y-%m-%d"
 time = %l:%M:%S %P
 time-alt = %H:%M:%S
 
-format-underline = ${colors.tertiary}
+format-background = ${colors.foreground}
+format-foreground = ${colors.background}
 
 label = %date% %time%
+label-padding = 2
 
 [module/alsa]
 type = internal/alsa
@@ -352,11 +336,11 @@ bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
-bar-volume-indicator-font = 2
+bar-volume-indicator-font = 4
 bar-volume-fill = ─
-bar-volume-fill-font = 2
+bar-volume-fill-font = 4
 bar-volume-empty = ─
-bar-volume-empty-font = 2
+bar-volume-empty-font = 4
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
@@ -365,63 +349,96 @@ battery = BAT0
 adapter = AC0
 full-at = 98
 
+format-charging-background = ${colors.background-alt}
+format-charging-foreground = ${colors.foreground-alt}
+
+format-discharging-background = ${colors.background-alt}
+format-discharging-foreground = ${colors.foreground-alt}
+
+format-full-background = ${colors.background-alt}
+format-full-foreground = ${colors.foreground-alt}
+
+label-charging-padding = 1
 format-charging = <animation-charging> <label-charging>
-label-charging= %time%, %percentage%% CHR ⚡
+label-charging= %time%, %percentage%% CHR
 format-charging-underline = ${colors.secondary}
 
+label-discharging-padding = 1
 format-discharging = <ramp-capacity> <label-discharging>
 label-discharging = %time%, %percentage%% DIS
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = "FULL ⚡ "
+label-full-padding = 1
+format-full-prefix = "FULL "
 format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 1
-hwmon-path = //sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon0/temp1_input
 
 warn-temperature = 60
+
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground-alt}
+
+format-warn-background = ${colors.background-alt}
+format-warn-foreground = ${colors.foreground-alt}
 
 format = <ramp> <label>
 format-underline = ${colors.secondary}
 format-warn = <ramp> <label-warn>
 format-warn-underline = ${self.format-underline}
 
-label = %temperature-c%
-label-warn = %temperature-c%
+label = %temperature-c% 
+label-padding = 2
+label-warn = %temperature-c% 
+label-warn-padding = 2
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
+;---------------------------------------------------------
+;											 POWERLINE SYMBOLS 
+;---------------------------------------------------------
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
+
+[module/right_section]
+type = custom/text
+content = 
+
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+
+[module/left_section]
+type = custom/text
+content = 
+
+[module/left_cutout]
+type = custom/text
+content = 
+
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+
+[module/right_cutout]
+type = custom/text
+content = 
 
 ; vim:ft=dosini
