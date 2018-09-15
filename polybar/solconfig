@@ -84,7 +84,7 @@ module-margin-right = 0
 
 modules-left = i3 right_section
 modules-center = left_section date right_section
-modules-right = left_section temperature battery
+modules-right = left_section temperature right_cutout left_section battery
 
 dim-value = 1.0
 
