@@ -1,5 +1,11 @@
 #!/bin/bash
-echo -e `date` "\n" >> $HOME/.local$HOME/.local/var/log/audiosetuplog
+if [ -f "/home/sgreyowl/.local/var/log/audiosetuplog" ]; then
+  echo -e `date` "\n" >> $HOME/.local/var/log/audiosetuplog
+else
+  touch $HOME/.local/var/log/audiosetuplog
+  echo -e `date` "\n" >> $HOME/.local/var/log/audiosetuplog
+fi
+
 #alsactl store
 echo "Starting JACK" >> $HOME/.local/var/log/audiosetuplog
 jack_control start | tee -a $HOME/.local/var/log/audiosetuplog
