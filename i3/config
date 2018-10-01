@@ -192,6 +192,7 @@ assign [class="PokeMMO"] $workspace5
 assign [class="explorer.exe"] $workspace5
 assign [class="Steam.exe"] $workspace5
 assign [title="Steam"] $workspace5
+assign [title="Runelite"] $workspace5
 #assign [class="Wine"] $workspace4
 assign [class="RobocraftClient"] $workspace5
 assign [class="MultiMC"] $workspace5
@@ -230,9 +231,11 @@ assign [class="Blender"] $workspace11
 assign [class="Shotcut"] $workspace11
 assign [class="Krita"] $workspace11
 assign [class="REAPER"] $workspace11
+assign [title="Mixer"] $workspace2
 
 #On External Monitor | workspace7
 assign [class="google-chrome-stable"] $workspace7
+assign [class="chromium"] $workspace7
 
 #Window Options/Properties
 for_window [class="Plank"] _NET_WM_WINDOW_TYPE_DOCK
@@ -277,8 +280,8 @@ bindsym $mod+d exec rofi -show
 #font pango:Nimbus Mono L 8
 
 # Pulse Audio controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%i #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+ #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%- #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle # mute sound
 
 # Sreen brightness controls
@@ -302,11 +305,8 @@ hide_edge_borders both
 
 #Custom Keybinds
 #bindsym $mod+ctrl+l exec i3lockscreen
-bindsym $mod+ctrl+l exec dm-tool lock
+bindsym $mod+ctrl+l exec betterlockscreen -l blur -t "S_Greyowl is Away"
 bindsym ctrl+Escape exec ksysguard
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 5%-
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -325,18 +325,21 @@ exec bash $HOME/.config/audio_setup.sh
 #exec_always bash $HOME/.config/i3/rxvtconf.sh
 exec_always --no-startup-id res-polybar
 exec --no-startup-id compton --config $HOME/.config/compton.conf
-#exec --no-startup-id steam-native
+exec --no-startup-id steam-native
 exec --no-startup-id xfce4-power-manager
-#exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
-exec_always --no-startup-id sh ~/Documents/Scripts/pscircle.sh
-exec --no-startup-id android-messages
+exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
+#exec_always --no-startup-id sh ~/Documents/Scripts/pscircle.sh
+#exec --no-startup-id android-messages
 exec --no-startup-id discord --start-minimized
-exec --no-startup-id blueberry-tray
+exec --no-startup-id slack
+exec --no-startup-id evolution
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
 exec --no-startup-id mpd --no-daemon $HOME/.config/mpd/mpd.conf
 exec --no-startup-id redshift-gtk
 exec --no-startup-id pamac-tray
 exec --no-startup-id kdeconnect-indicator
+exec --no-startup-id blueman-applet
+exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
 #exec_always --no-startup-id conky -c $HOME/.config/conky/solconky/solconky.conkyrc
 #exec_always --no-startup-id conky -c $HOME/.config/conky/horical/horical.conkyrc

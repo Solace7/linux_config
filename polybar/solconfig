@@ -38,7 +38,6 @@ fixed-center = true
 bottom = true
 tray-position = right
 tray-padding = 1
-separator ="  "
 monitor = eDP-1-1
 monitor-fallback = eDP-1
 
@@ -50,7 +49,7 @@ line-color = ${colors.foreground}
 
 modules-right = alsa
 modules-center = mpd
-modules-left = cpugov cpu memory
+modules-left = cpugov right_section left_cutout cpufreq right_section
 
 ;---------------------------------------------------------
 ;	 										SYSTEM BAR FONTS
@@ -58,7 +57,7 @@ modules-left = cpugov cpu memory
 
 ; font-N = <fontconfig pattern>;<vertical offset>
 font-0 = "Fira Code:size=10:style=light"
-font-1 = "Fantasque Sans Mono:size=10"
+font-1 = "Fantasque Sans Mono Regular Nerd Font Complete:size=10"
 font-2 = "MesloLGS Nerd Font Mono:size=15;3"
 
 [bar/sol]
@@ -84,11 +83,9 @@ module-margin-right = 0
 
 modules-left = i3 right_section
 modules-center = left_section date right_section
-modules-right = left_section temperature right_cutout left_section battery
+modules-right = left_section wifi right_cutout left_section temperature right_cutout left_section battery
 
 dim-value = 1.0
-
-;separator = "║"
 
 enable-ipc = true
 
@@ -98,7 +95,7 @@ enable-ipc = true
 
 ; font-N = <fontconfig pattern>;<vertical offset>
 font-0 = "Fira Code:size=10:style=light"
-font-1 = "Fantasque Sans Mono:size=10"
+font-1 = "Fantasque Sans Mono Regular Nerd Font Complete:size=10"
 font-2 = "MesloLGS Nerd Font Mono:size=15;3"
 
 [bar/ext]
@@ -139,7 +136,7 @@ enable-ipc = true
 
 ;font-N = <fontconfig pattern>;<vertical offset>
 font-0 = "Fira Code:size=10:style=light"
-font-1 = "Fantasque Sans Mono:size=10"
+font-1 = "Fantasque Sans Mono Regular Nerd Font Complete:size=10"
 font-2 = "MesloLGS Nerd Font Mono:size=15;3"
 
 ;---------------------------------------------------------
@@ -187,6 +184,11 @@ host = /home/solace/.config/mpd/socket
 format-online = <icon-play> <label-song> <icon-pause>
 label-offline = 🎜 mpd is offline
 format-stopped = Music Stopped
+
+label-online-background = ${colors.background-alt}
+label-online-foreground = ${colors.foreground-alt}
+label-offline-background = ${colors.background-alt}
+label-offline-foreground = ${colors.foreground-alt}
 
 icon-prev = 
 icon-stop = 
@@ -264,16 +266,16 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <label-connected>
-;format-connected-underline = #9f78e1
 label-connected =   WiFi
-;%essid%
-label-disconnected-foreground=${colors.primary}
-label-connected-foreground=${colors.foreground}
+label-connected-padding = 1 
+label-connected-foreground=${colors.foreground-alt}
+label-connected-background = ${colors.background-alt}
 
-format-disconnected =
-;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground=${colors.foreground-alt}
+label-disconnected-background = ${colors.background-alt}
+format-disconnected = <label-disconnected>
+label-disconnected = DOWN
+label-disconnected-padding = 1
 
 [module/eth]
 type = internal/network
@@ -296,6 +298,9 @@ format-disconnected-prefix =
 type = custom/script
 exec = cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 interval = 90
+format-padding = 1
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -307,8 +312,8 @@ date-alt = " %Y-%m-%d"
 time = %l:%M:%S %P
 time-alt = %H:%M:%S
 
-format-background = ${colors.foreground}
-format-foreground = ${colors.background}
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
 label-padding = 2
@@ -316,17 +321,19 @@ label-padding = 2
 [module/alsa]
 type = internal/alsa
 master-soundcard = default
+#speaker-soundcard = default
 
 master-mixer = Master
+#speaker-mixer = Speaker
 
-mapped = true
+#mapped = true
 
 format-volume = <label-volume>
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
+format-muted-foreground = ${root.foreground}
 label-muted = sound muted
 
 bar-volume-width = 5
@@ -373,7 +380,7 @@ format-discharging-underline = ${self.format-charging-underline}
 
 label-full-padding = 1
 format-full-prefix = "FULL "
-format-full-prefix-foreground = ${colors.foreground}
+format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
