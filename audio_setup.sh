@@ -8,17 +8,18 @@ fi
 
 #alsactl store
 echo "Starting JACK" >> $HOME/.local/var/log/audiosetuplog
-jack_control start | tee -a $HOME/.local/var/log/audiosetuplog
-jack_control ds alsa | tee -a $HOME/.local/var/log/audiosetuplog
 
 if [ -d "/proc/asound/CODEC" ]; then
     #Audio Interface
     jack_control dps device hw:CODEC | tee -a $HOME/.local/var/log/audiosetuplog
 else
     #Internal Audio
-    jack_control dps device hw:PCH | tee -a $HOME/.local$HOME/.local/var/log/audiosetuplog
+    jack_control dps device hw:PCH | tee -a $HOME/.local/var/log/audiosetuplog
 
 fi
+
+jack_control start | tee -a $HOME/.local/var/log/audiosetuplog
+jack_control ds alsa | tee -a $HOME/.local/var/log/audiosetuplog
 
 jack_control dps rate 44100 | tee -a $HOME/.local/var/log/audiosetuplog
 jack_control dps nperiods 3 | tee -a $HOME/.local/var/log/audiosetuplog
