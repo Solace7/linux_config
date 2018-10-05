@@ -83,7 +83,7 @@ module-margin-right = 0
 
 modules-left = i3 right_section
 modules-center = left_section date right_section
-modules-right = left_section wifi right_cutout left_section temperature right_cutout left_section battery
+modules-right = left_section wifi wifi_usb eth right_cutout left_section temperature right_cutout left_section battery
 
 dim-value = 1.0
 
@@ -263,6 +263,23 @@ bar-used-empty-foreground = #444444
 [module/wifi]
 type = internal/network
 interface = wlp2s0
+interval = 3.0
+
+format-connected = <label-connected>
+label-connected =   WiFi
+label-connected-padding = 1 
+label-connected-foreground=${colors.foreground-alt}
+label-connected-background = ${colors.background-alt}
+
+label-disconnected-foreground=${colors.foreground-alt}
+label-disconnected-background = ${colors.background-alt}
+format-disconnected = <label-disconnected>
+label-disconnected = DOWN
+label-disconnected-padding = 1
+
+[module/wifi_usb]
+type = internal/network
+interface = wlp0s20f0u1
 interval = 3.0
 
 format-connected = <label-connected>
