@@ -11,11 +11,13 @@ echo "Starting JACK" >> $HOME/.local/var/log/audiosetuplog
 
 if [ -d "/proc/asound/CODEC" ]; then
     #Audio Interface
+    echo "Audio Interface Detected" >> $HOME/.local/var/log/audiosetuplog
     jack_control dps device hw:CODEC | tee -a $HOME/.local/var/log/audiosetuplog
+    #Separate outputs to connect via JACK
+    um2_ouputs &
 else
     #Internal Audio
     jack_control dps device hw:PCH | tee -a $HOME/.local/var/log/audiosetuplog
-
 fi
 
 jack_control start | tee -a $HOME/.local/var/log/audiosetuplog
@@ -39,8 +41,8 @@ echo "Jack Setup Complete" >> $HOME/.local/var/log/audiosetuplog
 echo "Peripheral Check" >> $HOME/.local/var/log/audiosetuplog
 if [ -d "/proc/asound/Mic" ]; then
 		echo "Samson Meteor Mic is Connected" >> $HOME/.local/var/log/audiosetuplog
-		samson_mic
-		samson_speaker
+		samson_mic &
+#		samson_speaker
 fi
 
 echo -e "Starting Cadence \n" >> $HOME/.local/var/log/audiosetuplog

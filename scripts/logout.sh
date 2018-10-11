@@ -6,9 +6,9 @@ ESCAPE=$(zenity --width=300 --height=200 --list --text="Select exit action" --ti
 		"reboot")
 			systemctl reboot;;
 		"suspend")
-			systemctl suspend;;
+			betterlockscreen -s blur -t "S_Greyowl is Away";;
 		"lock")
-			dm-tool lock;;
+			betterlockscreen -l blur -t "S_Greyowl is Away";;
 		"exit")
             if [ $DESKTOP_SESSION == "i3" ]; then
                 i3-msg exit
