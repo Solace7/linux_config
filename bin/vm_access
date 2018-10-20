@@ -1,5 +1,0 @@
-#!/bin/bash
-
-VBoxManage startvm CentOS --type headless
-
-ssh -p 2222 svirtual@127.0.0.1 
