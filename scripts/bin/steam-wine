@@ -1,0 +1,1 @@
+wine ~/.wine/drive_c/Program\ Files/Steam/Steam.exe  > /dev/null 2>&1 &

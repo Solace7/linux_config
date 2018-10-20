@@ -1,0 +1,3 @@
+#!/bin/bash
+betterlockscreen -u /home/solace/lock.png -r 1920x1080
+betterlockscreen -l

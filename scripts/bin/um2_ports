@@ -1,0 +1,3 @@
+alsa_out -j "UM2 Headphones" -d hw:CODEC -q 2 2>&1 1> /dev/null &
+alsa_in -j "UM2 IN" -d hw:CODEC -q 2 2>&1 1> /dev/null &
+echo "UM2 Ports Exported to JACK"
