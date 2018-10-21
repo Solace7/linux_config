@@ -59,7 +59,7 @@ bindsym $mod+Shift+r restart
 
 #bindsym $mod+Shift+e exec qtshutdownmenu
 
-bindsym $mod+Shift+e exec $HOME/Documents/Scripts/logout.sh
+bindsym $mod+Shift+e exec $HOME/.config/scripts/logout.sh
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -331,7 +331,7 @@ exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
 #exec_always --no-startup-id sh $HOME/.config/scripts/pscircle.sh
 #exec --no-startup-id android-messages
 exec --no-startup-id discord --start-minimized
-exec --no-startup-id slack
+#exec --no-startup-id slack
 #exec --no-startup-id evolution
 exec --no-startup-id nm-applet
 exec --no-startup-id dunst -conf $HOME/.config/dunst/dunstrc
