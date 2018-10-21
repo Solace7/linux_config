@@ -1,6 +1,6 @@
 #!/bin/bash
 
-LOG=$HOME/.local/var/log/audiosetuplog
+LOG=$HOME/.log/audiosetuplog
 
 if [ -f "/home/sgreyowl/.local/var/log/audiosetuplog" ]; then
   echo -e `date` "\n" >> $LOG
@@ -17,7 +17,7 @@ if [ -d "/proc/asound/CODEC" ]; then
     echo "Audio Interface Detected" >> $LOG
     jack_control dps device hw:CODEC | tee -a $LOG
     #Separate outputs to connect via JACK
-    um2_outputs &
+    um2_ports | tee -a $LOG
 else
     #Internal Audio
     echo "Using Internal Audio Card" >> $LOG
@@ -45,12 +45,12 @@ echo "Jack Setup Complete" >> $LOG
 echo "Peripheral Check" >> $LOG
 if [ -d "/proc/asound/Mic" ]; then
 		echo "Samson Meteor Mic is Connected" >> $LOG
-		samson_mic &
-#		samson_speaker
+		samson_ports | tee -a $LOG
 fi
 
-echo -e "Starting Cadence \n" >> $LOG
+#echo -e "Starting Cadence \n" >> $LOG
 #cadence --minimized &
+#echo -e "Starting Qjackctl \n" >> $LOG
 #qjackctl &
 
 echo -e "Done \n" >> $LOG
