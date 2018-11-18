@@ -1,0 +1,1 @@
+Xephyr -screen 1920x1080 :1 & sleep 1 ; DISPLAY=:1 awesome -c ~/.config/awesome/rcdev.lua

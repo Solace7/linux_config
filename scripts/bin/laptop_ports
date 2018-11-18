@@ -1,0 +1,1 @@
+alsa_out -j Laptop_Speakers -d hw:PCH -q 2 2>&1 1> /dev/null &

@@ -1,0 +1,2 @@
+#!/bin/bash
+gksu python3 /usr/share/icons/ACYLS/scripts/run.py

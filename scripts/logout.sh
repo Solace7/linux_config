@@ -12,6 +12,8 @@ ESCAPE=$(zenity --width=300 --height=200 --list --text="Select exit action" --ti
 		"exit")
             if [ $DESKTOP_SESSION == "i3" ]; then
                 i3-msg exit
+            elif [ $DESKTOP_SESSION == "awesome" ]; then
+                awesome-client 'awesome.quit()'
             fi
             ;;
            *)

@@ -1,0 +1,5 @@
+-i3layout saving
+-Look into userspace cpu govenor
+-Add dropdown menus to polybar? Calendar for date, networkmanager-dmenu for Wifi
+-Edit AwesomeWM to my liking
+-lock on lid close
