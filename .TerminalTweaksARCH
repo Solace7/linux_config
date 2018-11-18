@@ -49,5 +49,4 @@ alias ll="ls -l"
 alias la="ls -a"
 alias ls="ls --color=auto"
 
-alias wineprefix64="WINEPREFIX=~/.wine WINEARCH=win64 wine wineboot"
-alias wineprefix32="WINEPREFIX=~/prefix32 WINEARCH=win32 wine wineboot"
+alias rm="rm -I"

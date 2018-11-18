@@ -1,0 +1,6 @@
+[submodule "awesome/lain"]
+	path = awesome/lain
+	url = https://github.com/lcpz/lain.git
+[submodule "awesome/redflat"]
+	path = awesome/redflat
+	url = https://github.com/worron/redflat.git

@@ -7,7 +7,6 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
-local xrdb = xresources.get_current_theme()
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_xdg_config_home() .. "awesome/themes/"
 
@@ -15,32 +14,32 @@ local theme = {}
 
 theme.wallpaper = themes_path.."default/background.png"
 
-theme.font          = "Fira Code 8"
+theme.font          = "Hack 8"
 
-theme.bg_normal     = xrdb.background
-theme.bg_focus      = "#1f1f1f"
-theme.bg_urgent     = xrdb.color11
+theme.bg_normal     = "#1f1f1f"
+theme.bg_focus      = "#3f3f3f"
+theme.bg_urgent     = "#ffd700"
 theme.bg_minimize   = "#444444"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = xrdb.foreground
-theme.fg_focus      = xrdb.foreground
-theme.fg_urgent     = xrdb.foreground
-theme.fg_minimize   = xrdb.foreground
+theme.fg_normal     = "#cacaca"
+theme.fg_focus      = "#cacaca"
+theme.fg_urgent     = "#1f1f1f"
+theme.fg_minimize   = "#ffffff"
 theme.fg_systray    = theme.fg_normal
 
---theme.useless_gap   = dpi(0)
+theme.useless_gap   = dpi(0)
 theme.border_width  = dpi(1)
-theme.border_normal = theme.bg_normal
-theme.border_focus  = theme.bg_focus
-theme.border_marked = theme.bg_urgent
+theme.border_normal = "#000000"
+theme.border_focus  = "#535d6c"
+theme.border_marked = "#91231c"
 
 theme.titlebar_bg_focus = theme.bg_focus
-theme.titlebar_fg_focus = theme.fg_focus
+theme.titlebar_fg_focus = theme.fg_normal
 theme.taglist_fg_urgent = theme.fg_urgent
 
 theme.taglist_bg_focus = theme.bg_focus
-theme.taglist_fg_focus = theme.fg_focus
+theme.taglist_fg_focus = theme.fg_normal
 theme.taglist_fg_urgent = theme.fg_urgent
 
 theme.tasklist_bg_focus = theme.bg_normal
@@ -59,7 +58,6 @@ theme.tasklist_fg_focus = theme.fg_normal
 -- Example:
 --theme.taglist_bg_focus = "#ff0000"
 
-
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
@@ -69,7 +67,7 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 
-notification_font = "Fira Code 8" 
+notification_font = "Hack 8" 
 notification_width = 3 
 notification_height = 2 
 notification_icon_size = 0 

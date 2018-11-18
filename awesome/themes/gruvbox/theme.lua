@@ -1,5 +1,5 @@
 ---------------------------
--- Default awesome theme:Edited to My Tastes
+-- Gruvbox Awesome Theme
 -- Edited by: Solace_Greyowl
 ---------------------------
 
@@ -10,10 +10,11 @@ local dpi = xresources.apply_dpi
 local xrdb = xresources.get_current_theme()
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_xdg_config_home() .. "awesome/themes/"
+local themes_dir = themes_path .. "gruvbox"
 
 local theme = {}
 
-theme.wallpaper = themes_path.."default/background.png"
+theme.wallpaper = themes_dir.."/background.png"
 
 theme.font          = "Fira Code 8"
 
@@ -25,7 +26,7 @@ theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = xrdb.foreground
 theme.fg_focus      = xrdb.foreground
-theme.fg_urgent     = xrdb.foreground
+theme.fg_urgent     = xrdb.background
 theme.fg_minimize   = xrdb.foreground
 theme.fg_systray    = theme.fg_normal
 
@@ -39,35 +40,13 @@ theme.titlebar_bg_focus = theme.bg_focus
 theme.titlebar_fg_focus = theme.fg_focus
 theme.taglist_fg_urgent = theme.fg_urgent
 
-theme.taglist_bg_focus = theme.bg_focus
+theme.taglist_bg_focus = "png:"..themes_dir .. "/taglist/taglist_sel.png"
 theme.taglist_fg_focus = theme.fg_focus
 theme.taglist_fg_urgent = theme.fg_urgent
 
-theme.tasklist_bg_focus = theme.bg_normal
+theme.tasklist_bg_focus = "png:"..themes_dir .. "/taglist/tasklist_sel.png"
 theme.tasklist_fg_focus = theme.fg_normal
-
--- There are other variable sets
--- overriding the default one when
--- defined, the sets are:
--- taglist_[bg|fg]_[focus|urgent|occupied|empty|volatile]
--- tasklist_[bg|fg]_[focus|urgent]
--- titlebar_[bg|fg]_[normal|focus]
--- tooltip_[font|opacity|fg_color|bg_color|border_width|border_color]
--- mouse_finder_[color|timeout|animate_timeout|radius|factor]
--- prompt_[fg|bg|fg_cursor|bg_cursor|font]
--- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
--- Example:
---theme.taglist_bg_focus = "#ff0000"
-
-
--- Generate taglist squares:
-local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
-)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
-)
+theme.tasklist_disable_icon = true
 
 notification_font = "Fira Code 8" 
 notification_width = 3 

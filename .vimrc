@@ -24,11 +24,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin '907th/vim-auto-save'
 Plugin 'Lokaltog/vim-powerline'
-Plugin 'javacomplete'
 Plugin 'syntaxconkyrc.vim'
 Plugin 'colorizer'
 Plugin 'morhetz/gruvbox'
 Plugin 'Syntastic'
+Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -50,7 +50,11 @@ syntax on
 colorscheme gruvbox
 
 "YCM Settings
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf = '/home/sgreyowl/.vim/.ycm_extra_conf.py'
+let g:ycm_register_as_syntastic_checker = 1 
+let g:Show_diagnostics_ui = 1
+
 
 "Syntastic Settings
 set statusline+=%#warningmsg#

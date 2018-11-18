@@ -230,8 +230,8 @@ assign [class="Natron"] $workspace11
 assign [class="Blender"] $workspace11
 assign [class="Shotcut"] $workspace11
 assign [class="Krita"] $workspace11
-assign [class="REAPER"] $workspace11
-assign [title="Mixer"] $workspace2
+#assign [class="REAPER"] $workspace11
+#assign [title="Mixer"] $workspace2
 
 #On External Monitor | workspace7
 assign [class="google-chrome-stable"] $workspace7
@@ -323,9 +323,9 @@ exec xss-lock i3lockscreen &
 exec_always --no-startup-id bash $HOME/.config/scripts/display_setup.sh
 exec bash $HOME/.config/scripts/audio_setup.sh
 #exec_always bash $HOME/.config/i3/rxvtconf.sh
-exec_always --no-startup-id res-polybar
+exec_always --no-startup-id $HOME/.config/scripts/bin/res-polybar
 exec --no-startup-id compton --config $HOME/.config/compton.conf
-exec --no-startup-id steam-native
+#exec --no-startup-id steam-native
 exec --no-startup-id xfce4-power-manager
 exec_always --no-startup-id feh --bg-fill ~/wallpaper.png
 #exec_always --no-startup-id sh $HOME/.config/scripts/pscircle.sh
@@ -341,5 +341,3 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id kdeconnect-indicator
 exec --no-startup-id blueman-applet
 exec --no-startup-id /usr/lib/xfce-polkit/xfce-polkit
-#exec_always --no-startup-id conky -c $HOME/.config/conky/solconky/solconky.conkyrc
-#exec_always --no-startup-id conky -c $HOME/.config/conky/horical/horical.conkyrc
