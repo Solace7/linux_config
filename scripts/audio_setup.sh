@@ -36,6 +36,11 @@ else
     jack_control dps device hw:PCH | tee -a $LOG
 fi
 
+jack_control dps rate 48000 | tee -a $LOG
+jack_control eps realtime true
+jack_control dps nperiods 3 | tee -a $LOG
+jack_control dps period 512 | tee -a $LOG
+
 jack_control start | tee -a $LOG
 
 if jack_control status | grep "stopped"
@@ -44,10 +49,6 @@ then
     exit
 fi
 
-jack_control dps rate 48000 | tee -a $LOG
-jack_control eps realtime true
-jack_control dps nperiods 3 | tee -a $LOG
-jack_control dps period 256 | tee -a $LOG
 sleep 10
 
 if [jack_control status | grep "stopped" ]; then
