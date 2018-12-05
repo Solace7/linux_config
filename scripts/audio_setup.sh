@@ -26,10 +26,6 @@ jack_control ds alsa | tee -a $LOG
 if [ -d "/proc/asound/CODEC" ]; then
     echo "Audio Interface Detected" >> $LOG
     jack_control dps device hw:CODEC | tee -a $LOG
-    #laptop ports to jack patchbay
-#    laptop-ports & >> $LOG
-    #Separate outputs to connect via JACK
-    #um2_ports & >> $LOG
 else
     #Internal Audio
     echo "Using Internal Audio Card" >> $LOG
@@ -39,22 +35,18 @@ fi
 jack_control dps rate 48000 | tee -a $LOG
 jack_control eps realtime true
 jack_control dps nperiods 3 | tee -a $LOG
-jack_control dps period 512 | tee -a $LOG
+jack_control dps period 1024 | tee -a $LOG
 
 jack_control start | tee -a $LOG
 
 if jack_control status | grep "stopped"
 then
+    echo "JACK Failed to Start" >> $LOG
     notify-send -u critical "JACK Failed to Start"
     exit
 fi
 
 sleep 10
-
-if [jack_control status | grep "stopped" ]; then
-    notify-send -u "JACK Failed to Start"
-    exit
-fi
 
 echo -e "Connecting a2j MIDI \n" >> $LOG
 killall -9 a2jmidid
