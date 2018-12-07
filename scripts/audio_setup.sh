@@ -26,10 +26,14 @@ jack_control ds alsa | tee -a $LOG
 if [ -d "/proc/asound/CODEC" ]; then
     echo "Audio Interface Detected" >> $LOG
     jack_control dps device hw:CODEC | tee -a $LOG
+    jack_control dps playback hw:CODEC | tee -a $LOG
+    jack_control dps capture hw:CODEC | tee -a $LOG
 else
     #Internal Audio
     echo "Using Internal Audio Card" >> $LOG
     jack_control dps device hw:PCH | tee -a $LOG
+    jack_control dps playback hw:PCH | tee -a $LOG
+    jack_control dps capture hw:PCH | tee -a $LOG
 fi
 
 jack_control dps rate 48000 | tee -a $LOG
