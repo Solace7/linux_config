@@ -38,9 +38,12 @@ rules.floating_clients = {
       "Wpa_gui",
       "pinentry",
       "veromix",
-      "xtightvncviewer"
+      "xtightvncviewer",
+      "file_progress"
     },
-
+    type = {
+        "dialog",
+    },
     name = {
       "Event Tester",  -- xev.
     },
@@ -52,7 +55,36 @@ rules.floating_clients = {
 
 rules.COMMS = {
     class = {
-        "discord"
+        "discord",
+        "Android Messages"
+    }
+}
+
+rules.CREATE = {
+    class = {
+        "gimp-2.10",
+        "Inkscape",
+        "Natron",
+        "Blender",
+        "Krita",
+        "REAPER"
+    }
+}
+
+rules.DEVELOP = {
+    class = {
+        "jetbrains-idea",
+        "jetbrains-clion",
+        "jetbrains-toolbox",
+        "jetbrains-studio"
+    }
+}
+
+rules.GAMES = {
+    class = {
+        "Steam",
+        "MultiMC",
+        "Lutris"
     }
 }
 
@@ -64,11 +96,23 @@ function rules:enable()
         },
         {
             rule_any = self.floating_clients,
-            properties = { floating = true, ontop = true, placement = centered} 
+            properties = { floating = true, ontop = true, placement = awful.placement.centered} 
         },
         {
             rule_any = rules.COMMS,
             properties = { tag = "COMMS" }
+        },
+        {
+            rule_any = rules.CREATE,
+            properties = { tag = "CREATE" }
+        },
+        {
+            rule_any = rules.DEVELOP,
+            properties = { tag = "DEVELOP" }
+        },
+        {
+            rule_any = rules.GAMES,
+            properties = { tag = "GAMES" }
         },
         {
             rule_any = { type = { "normal", "dialog" }},

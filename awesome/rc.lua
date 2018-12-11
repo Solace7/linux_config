@@ -2,6 +2,7 @@
 local gears = require("gears")
 local gfs = ("gears.filesystem")
 local awful = require("awful")
+local naughty = require("naughty")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
@@ -21,30 +22,10 @@ local timestamp = require("redflat.timestamp")
 local env = require("modules.env-config")
 
 ----------------------------------{{{ERROR HANDLING}}}----------------------------------
-
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
-if awesome.startup_errors then
-		awful.spawn("notify-send -u critical " .. awesome.startup_errors)
-end
-
--- Handle runtime errors after startup
-do
-    local in_error = false
-    awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
-        if in_error then return end
-        in_error = true
-
-		awful.spawn("notify-send -u critical " .. toString(err))
-			in_error = false
-	end)
-end
--- }}}
+local errorcheck = require("modules.errorcheck")
+errorcheck:check()
 
 env:init({ theme = "gruvbox" })
-
-scripts_folder = "/home/sgreyowl/.config/scripts/"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -56,8 +37,6 @@ awful.layout.layouts = {
 }
 
 redflat.layout.map.notification = true
-
--- }}}
 
 -- {{{ Helper functions
 local function client_menu_toggle_fn()
@@ -73,31 +52,6 @@ local function client_menu_toggle_fn()
     end
 end
 -- }}}
-
------------------------
--------{{WIBAR}}-------
------------------------
-
--- Separator Widget
-widgseparator = wibox.widget.textbox(" | ")
-
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
--- Create a textclock widget
-mytextclock = wibox.widget.textclock("%H:%M:%S § %Y-%m-%d",1)
-
--- CPU Governor Widget
-cpugovernor = awful.widget.watch('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor', 60, function(widget, stdout)
-    for line in stdout:gmatch("[^\r\n]+") do
-        if line:match("performance") then 
-            widget:set_markup('<span color="#FABD2F">' .. " " .. '</span>')
-        else if line:match("powersave") then
-            widget:set_markup('<span color="#FB4934">' .. " " .. '</span>')
-            end
-        end
-    end
-end)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -140,40 +94,146 @@ local tasklist_buttons = gears.table.join(
                                           end),
                      awful.button({ }, 5, function ()
                                               awful.client.focus.byidx(-1)
-                                          end))
+                                          end)
+)
 
-local function set_wallpaper(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then
-            wallpaper = wallpaper(s)
+-------------------------
+-------{{WIDGETS}}-------
+-------------------------
+
+-- Separator Widget
+widgetseparator = wibox.widget.textbox(" | ")
+
+-- Keyboard map indicator and switcher
+mykeyboardlayout = awful.widget.keyboardlayout()
+
+-- Create a textclock widget
+mytextclock = wibox.widget.textclock("%H:%M:%S § %Y-%m-%d",1)
+
+-- CPU Governor Widget
+cpugovernor = awful.widget.watch('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor', 60, function(widget, stdout)
+    for line in stdout:gmatch("[^\r\n]+") do
+        if line:match("performance") then 
+            widget:set_image(env.icon_dir .. "/status/scalable/cpu-frequency-indicator-performance.svg")
+        else if line:match("powersave") then
+            widget:set_image(env.icon_dir .. "/status/scalable/cpu-frequency-indicator-powersave.svg")
+            end
         end
-        gears.wallpaper.maximized(wallpaper, s, true)
+        cpugov_t = awful.tooltip({
+            objects = { cpugovernor },
+            timer_function = function()
+                return line
+            end,
+        })
     end
-end
 
-    --Systemtray widget
-    local systemtray = wibox.widget.systray()
+end, wibox.widget.imagebox())
 
-    --Volume widget
-    local volume = lain.widget.alsa({
-        settings = function()
-            widget:set_markup(" " .. volume_now.level .. " ")
+--Systemtray widget
+local systemtray = wibox.widget.systray()
+
+--{{Network widget
+local wifi_icon = wibox.widget.imagebox()
+local eth_icon = wibox.widget.imagebox()
+local nm = lain.widget.net({
+        notify = "on",
+        wifi_state = "on",
+        eth_state = "on",
+    settings = function()
+        local eth0 = net_now.devices.enp3s0
+        if eth0 then
+            if eth0.ethernet then
+                eth_icon:set_image(env.icon_dir .. "/status/scalable/network-wired.svg")
+            else
+                eth_icon:set_image()
+            end
         end
-    })
-
-    local mpdwidget = lain.widget.mpd({
-        settings = function()
-            host = "~/.config/mpd/socket"
-            widget:set_markup(">" .. state .. "<")
+        local wlan0 = net_now.devices["wlp2s0"]
+        if wlan0 then
+            if wlan0.wifi then
+                local signal = wlan0.signal
+                if signal < -83 then
+                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-weak.svg")
+                elseif signal < -70 then
+                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-ok.svg")
+                elseif signal < -53 then
+                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-good.svg")
+                elseif signal >= -53 then
+                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-excellent.svg")
+                end
+            else
+                wifi_icon:set_image()
+            end
         end
-    })
+        widget:set_markup(signal)
+    end
+})
+wifi_icon:buttons(awful.util.table.join(
+    awful.button({}, 1, function() awful.spawn.with_shell("networkmanager_dmenu") end)))
 
+--}}
+--Pacman need update widgets
+--if [[ pacman -Qu | grep -v ignored  | wc -l ]] > 0
 
+local watchpacman = wibox.widget.imagebox()
 
-    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
+paccheck = awful.widget.watch('pacman -Qu | grep -v ignored | wc -l ', 60, function(widget, stdout)
+    for line in stdout:gmatch("[^\r\n]+") do
+        awful.spawn("notify-send " .. line)
+        if line > 0 then 
+            watchpacman:set_image(env.icon_dir .. "/status/scalable/aptdaemon-upgrade.svg")
+        else
+            watchpacman:set_image(env.icon_dir .. "/status/scalable/software-installed.svg")
+            end
+        end
+end)
+
+--MPD Widget
+local mpd = lain.widget.mpd({
+--     host = "~/.config/mpd/socket",
+     music_dir = "~/Music/My Music",
+     timeout = 1,
+     followtag = true,
+settings = function ()
+        local elapsed = mpd_now.elapsed
+        local duration = mpd_now.time
+        if mpd_now.state == "play" then
+                widget:set_markup("🎝 " .. mpd_now.title .. " - " .. mpd_now.artist)
+        elseif mpd_now.state == "pause" then
+            widget:set_markup("MPD PAUSED")                
+        else
+            widget:set_markup("MPD OFFLINE")
+        end
+    mpd_notification_preset = {
+        title = "Now Playing",
+        timeout = 6,
+        text = string.format("%s | (%s) \n%s", mpd_now.artist, mpd_now.album, mpd_now.title)
+    }
+    end
+})
+
+mpdwidget = wibox.container.background(mpd.widget)
+mpdwidget:buttons(awful.util.table.join(
+    awful.button({}, 1, function() awful.spawn.with_shell("terminator -l Music") end)))
+
+--Volume widget
+local volume = lain.widget.alsa({
+    settings = function()
+        widget:set_markup(" " .. volume_now.level .. " ")
+    end
+})
+
+--Temperature widget
+local tempwidget = lain.widget.temp({
+    settings = function()
+        if coretemp_now > 60 then
+            widget:set_markup('<span color="#FB4934">' .. coretemp_now .. "°C" .. '</span>')
+        else 
+            widget:set_markup(coretemp_now .. "°C")
+        end
+    end
+})
+
     -- We need one layoutbox per screen.
  local layoutbox = {}
  layoutbox.buttons = awful.util.table.join(
@@ -207,9 +267,7 @@ awful.tag(
 --------------------------------
 -------{{END WORKSPACES}}-------
 --------------------------------
-    -- Wallpaper
-    set_wallpaper(s)
-
+env.wallpaper(s)
 ------------------------------
 ---------{{TITLEBAR}}---------
 ------------------------------
@@ -249,14 +307,13 @@ awful.tag(
             mytextclock,
         { -- Right Widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            mpdwidget,
             env.wrapper(layoutbox[s], "layoutbox",layoutbox.buttons),
         },
     }
 
-
     --TODO
-    --Show Temp, CPU(All 8 threads), jack_control status and MEM usage
+    --CPU (All 8 threads), jack_control status and MEM usage
     -- create second wibar
     s.botpanel = awful.wibar({ position = "bottom", screen = s, height=beautiful.panel_height })
     s.botpanel:setup {
@@ -265,14 +322,23 @@ awful.tag(
         {-- Left Widgets
             layout = wibox.layout.fixed.horizontal,
             cpugovernor,
-            widgseparator,
+            widgetseparator,
+            tempwidget,
+            widgetseparator,
             s.mytasklist,
         },
-        --Middle Wdigets
-            mpdwidget,
-        {-- Right Widgets
+            --Middle Wdigets
+              nil,
+            {-- Right Widgets
             layout = wibox.layout.fixed.horizontal,
+--            TODO battwidget,
+            widgetseparator,
             volume,
+            widgetseparator,
+            nm,
+            wifi_icon,
+            eth_icon,
+            watchpacman,
             systemtray,
         },
     }
@@ -295,6 +361,8 @@ globalkeys = gears.table.join(
               {description="show help", group="awesome"}),
     awful.key({ env.mod,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
+    awful.key({ "Control",         }, "space", function() naughty.notifications.die(naughty.notificationClosedReason.dismissedByUser) end,
+              {description = "destroy notification", group = "awesome"}),
 
     --Switching Windows
     awful.key({ env.mod,           }, "Right",
@@ -374,7 +442,7 @@ globalkeys = gears.table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ env.mod,           }, "k", function () awful.screen.focus_bydirection("right") end,
               {description = "focus the previous screen", group = "screen"}),
-    awful.key({ env.mod, "Control" }, "j",   awful.client.movetoscreen,
+    awful.key({ env.mod, "Shift" }, "j",   awful.client.movetoscreen,
               {description = "move to next screen, cycling", group = "client"}),
 
     -- Standard program
@@ -382,7 +450,7 @@ globalkeys = gears.table.join(
               {description = "open a env.terminal", group = "launcher"}),
     awful.key({ env.mod, "Shift" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
-    awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. scripts_folder .. "logout.sh") end,
+    awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. env.scripts_folder .. "logout.sh") end,
               {description = "quit awesome", group = "awesome"}),
     awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'S_Greyowl is Away'") end,
               {description = "lock awesome", group = "awesome"}),
@@ -550,6 +618,10 @@ rules:enable()
 ----------------------------------{{{SIGNALS}}}----------------------------------
 local signals = require("modules.signals")
 signals:listen({ env = env })
+
+    --Screen handling
+    screen.connect_signal("list", function() awful.spawn("/home/sgreyowl/.config/scripts/display_setup.sh") end )
+
     -- Add a titlebar if titlebars_enabled is set to true in the rules.
     client.connect_signal("request::titlebars", function(c)
         -- buttons for the titlebar

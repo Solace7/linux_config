@@ -9,6 +9,7 @@ local dpi = xresources.apply_dpi
 
 local xrdb = xresources.get_current_theme()
 local gfs = require("gears.filesystem")
+local naughty = require("naughty")
 local themes_path = gfs.get_xdg_config_home() .. "awesome/themes/"
 local themes_dir = themes_path .. "gruvbox"
 
@@ -38,11 +39,11 @@ theme.fg_urgent     = theme.color.background
 theme.fg_minimize   = theme.color.selected_text
 theme.fg_systray    = theme.color.selected_text 
 
---theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
+--[[theme.useless_gap   = dpi(5)
+theme.border_width  = dpi(2)
 theme.border_normal = theme.color.bg_normal
-theme.border_focus  = theme.color.bg_focus
-theme.border_marked = theme.bg_urgent
+theme.border_focus  = theme.color.selected
+theme.border_marked = theme.bg_urgent]]--
 
 theme.titlebar_bg_focus = theme.color.bg_focus
 theme.titlebar_fg_focus = theme.color.fg_focus
@@ -62,10 +63,19 @@ theme.hotkeys_modifiers_fg = xrdb.color7
 theme.tooltip_border_color = theme.fg_normal
 theme.tooltip_fg = theme.fg_normal
 
-notification_font = "Fira Code 8" 
-notification_width = 7
-notification_height = 7 
-notification_icon_size = 1
+theme.notification_font = "Fira Code 10" 
+theme.notification_width = 275
+theme.notification_height = 70
+theme.notification_icon_size = 1
+theme.notification_bg = theme.color.background
+theme.notification_fg = theme.color.foreground
+
+naughty.config.presets.critical = {
+    fg = theme.fg_normal,
+    bg = theme.bg_normal,
+    border_width = 1,
+    border_color = "#ff0000",
+}
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
@@ -73,6 +83,7 @@ notification_icon_size = 1
 theme.menu_submenu_icon = themes_dir.."/submenu.png"
 theme.menu_height = dpi(15)
 theme.menu_width  = dpi(100)
+
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_dir.."/titlebar/close_normal.png"
@@ -161,7 +172,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = "Numix"
+theme.icon_theme = "suru-plus-aspormauros"
 
 return theme
 

@@ -21,19 +21,19 @@ function autostart.run()
     
     --Run only once
     run_once("compton --config /home/sgreyowl/.config/compton.conf")
+    run_once("conky -c ~/.config/conky/solui")
     run_once("mpd --no-daemon /home/sgreyowl/.config/mpd/mpd.conf")
-    run_once("dunst -conf /home/sgreyowl/.config/dunst/dunstrc")
+--    run_once("dunst -conf /home/sgreyowl/.config/dunst/dunstrc")
     run_once("/home/sgreyowl/.config/scripts/audio_setup.sh")
     run_once("/usr/lib/xfce-polkit/xfce-polkit")
     run_once("xfce4-power-manager")
-    run_once("blueman-applet")
-    run_once("nm-applet")
-    run_once("pamac-tray")
+    run_once("redshift")
     
     --}}} COMMS Workspace {{{--
     commsrun = true
     commsStartup = {
     	"discord",
+        "android-messages",
     }
     if commsrun then
     	for app = 1, #commsStartup do
