@@ -22,8 +22,7 @@ local timestamp = require("redflat.timestamp")
 local env = require("modules.env-config")
 
 ----------------------------------{{{ERROR HANDLING}}}----------------------------------
-local errorcheck = require("modules.errorcheck")
-errorcheck:check()
+errorcheck = require("modules.errorcheck")
 
 env:init({ theme = "gruvbox" })
 
@@ -53,7 +52,6 @@ local function client_menu_toggle_fn()
 end
 -- }}}
 
--- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ env.mod }, 1, function(t)
@@ -100,149 +98,45 @@ local tasklist_buttons = gears.table.join(
 -------------------------
 -------{{WIDGETS}}-------
 -------------------------
+local widgets = require("modules.widgets")
+widgets:init({ env = env })
 
 -- Separator Widget
-widgetseparator = wibox.widget.textbox(" | ")
+local widgetseparator = widgets.widgetseparator
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+local mykeyboardlayout = widgets.mykeyboardlayout
 
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock("%H:%M:%S § %Y-%m-%d",1)
+local mytextclock = widgets.mytextclock
 
 -- CPU Governor Widget
-cpugovernor = awful.widget.watch('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor', 60, function(widget, stdout)
-    for line in stdout:gmatch("[^\r\n]+") do
-        if line:match("performance") then 
-            widget:set_image(env.icon_dir .. "/status/scalable/cpu-frequency-indicator-performance.svg")
-        else if line:match("powersave") then
-            widget:set_image(env.icon_dir .. "/status/scalable/cpu-frequency-indicator-powersave.svg")
-            end
-        end
-        cpugov_t = awful.tooltip({
-            objects = { cpugovernor },
-            timer_function = function()
-                return line
-            end,
-        })
-    end
+local cpugovernor = widgets.cpugovernor
 
-end, wibox.widget.imagebox())
-
+--Power widget
+local powwidget = widgets.battwidget 
 --Systemtray widget
 local systemtray = wibox.widget.systray()
 
 --{{Network widget
-local wifi_icon = wibox.widget.imagebox()
-local eth_icon = wibox.widget.imagebox()
-local nm = lain.widget.net({
-        notify = "on",
-        wifi_state = "on",
-        eth_state = "on",
-    settings = function()
-        local eth0 = net_now.devices.enp3s0
-        if eth0 then
-            if eth0.ethernet then
-                eth_icon:set_image(env.icon_dir .. "/status/scalable/network-wired.svg")
-            else
-                eth_icon:set_image()
-            end
-        end
-        local wlan0 = net_now.devices["wlp2s0"]
-        if wlan0 then
-            if wlan0.wifi then
-                local signal = wlan0.signal
-                if signal < -83 then
-                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-weak.svg")
-                elseif signal < -70 then
-                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-ok.svg")
-                elseif signal < -53 then
-                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-good.svg")
-                elseif signal >= -53 then
-                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-excellent.svg")
-                end
-            else
-                wifi_icon:set_image()
-            end
-        end
-        widget:set_markup(signal)
-    end
-})
-wifi_icon:buttons(awful.util.table.join(
-    awful.button({}, 1, function() awful.spawn.with_shell("networkmanager_dmenu") end)))
+local wifi_icon = widgets.wifi_icon
+local eth_icon = widgets.eth_icon
 
 --}}
 --Pacman need update widgets
 --if [[ pacman -Qu | grep -v ignored  | wc -l ]] > 0
 
-local watchpacman = wibox.widget.imagebox()
-
-paccheck = awful.widget.watch('pacman -Qu | grep -v ignored | wc -l ', 60, function(widget, stdout)
-    for line in stdout:gmatch("[^\r\n]+") do
-        awful.spawn("notify-send " .. line)
-        if line > 0 then 
-            watchpacman:set_image(env.icon_dir .. "/status/scalable/aptdaemon-upgrade.svg")
-        else
-            watchpacman:set_image(env.icon_dir .. "/status/scalable/software-installed.svg")
-            end
-        end
-end)
+local watchpacman = widgets.watchpacman
 
 --MPD Widget
-local mpd = lain.widget.mpd({
---     host = "~/.config/mpd/socket",
-     music_dir = "~/Music/My Music",
-     timeout = 1,
-     followtag = true,
-settings = function ()
-        local elapsed = mpd_now.elapsed
-        local duration = mpd_now.time
-        if mpd_now.state == "play" then
-                widget:set_markup("🎝 " .. mpd_now.title .. " - " .. mpd_now.artist)
-        elseif mpd_now.state == "pause" then
-            widget:set_markup("MPD PAUSED")                
-        else
-            widget:set_markup("MPD OFFLINE")
-        end
-    mpd_notification_preset = {
-        title = "Now Playing",
-        timeout = 6,
-        text = string.format("%s | (%s) \n%s", mpd_now.artist, mpd_now.album, mpd_now.title)
-    }
-    end
-})
-
-mpdwidget = wibox.container.background(mpd.widget)
-mpdwidget:buttons(awful.util.table.join(
-    awful.button({}, 1, function() awful.spawn.with_shell("terminator -l Music") end)))
-
+local mpd = widgets.mpd 
 --Volume widget
-local volume = lain.widget.alsa({
-    settings = function()
-        widget:set_markup(" " .. volume_now.level .. " ")
-    end
-})
+local volume = widgets.volume
 
 --Temperature widget
-local tempwidget = lain.widget.temp({
-    settings = function()
-        if coretemp_now > 60 then
-            widget:set_markup('<span color="#FB4934">' .. coretemp_now .. "°C" .. '</span>')
-        else 
-            widget:set_markup(coretemp_now .. "°C")
-        end
-    end
-})
-
+local tempwidget = widgets.tempwidget 
     -- We need one layoutbox per screen.
- local layoutbox = {}
- layoutbox.buttons = awful.util.table.join(
-                       awful.button({ }, 1, function () awful.layout.inc( 1) end),
-                       awful.button({ }, 3, function () redflat.widget.layoutbox:toggle_menu(mouse.screen.selected_tag) end),
-                       awful.button({ }, 4, function () awful.layout.inc( 1) end),
-                       awful.button({ }, 5, function () awful.layout.inc(-1) end)
-                       )
-
+ local layoutbox = widgets.layoutbox 
 -----------Screen Setup-----------
 awful.screen.connect_for_each_screen(function(s)
 ----------------------------
@@ -331,14 +225,16 @@ env.wallpaper(s)
               nil,
             {-- Right Widgets
             layout = wibox.layout.fixed.horizontal,
---            TODO battwidget,
+            powwidget,
             widgetseparator,
             volume,
             widgetseparator,
-            nm,
             wifi_icon,
             eth_icon,
+            widgetseparator,
+            paccheck,
             watchpacman,
+            widgetseparator,
             systemtray,
         },
     }
