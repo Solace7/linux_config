@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Numix-DarkGold
+Comment=A modern flat theme (Dark Gold variant)
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Numix-DarkGold
+IconTheme=Numix
+MetacityTheme=Numix-DarkGold
+ButtonLayout=:minimize,maximize,close
