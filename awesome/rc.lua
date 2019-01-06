@@ -1,6 +1,6 @@
--- Standard awesome library
-local gears = require("gears")
+
 local gfs = ("gears.filesystem")
+local gears = require("gears")
 local awful = require("awful")
 local naughty = require("naughty")
 require("awful.autofocus")
@@ -16,7 +16,7 @@ require("awful.hotkeys_popup.keys")
 -- Extra plugins!
 local lain = require("lain")
 
---Credit to Worron for the Following--
+--Credit to Worron @github.com/worron for the Following--
 local redflat = require("redflat")
 local timestamp = require("redflat.timestamp")
 local env = require("modules.env-config")
@@ -128,8 +128,6 @@ local eth_icon = widgets.eth_icon
 
 local watchpacman = widgets.watchpacman
 
---MPD Widget
-local mpd = widgets.mpd 
 --Volume widget
 local volume = widgets.volume
 
@@ -177,11 +175,11 @@ env.wallpaper(s)
     --Change Volume on Scrollwheel up/down
     volume.widget:buttons(awful.util.table.join(
         awful.button({ }, 4, function()
-            awful.spawn("amixer -q sset Master 5%+") --scroll up
+            awful.spawn("amixer -c 0 -q sset Master 5%+") --scroll up
             volume.update()
         end),
         awful.button({ }, 5, function()
-            awful.spawn("amixer -q sset Master 5%-") --scroll down
+            awful.spawn("amixer -c 0 -q sset Master 5%-") --scroll down
             volume.update()
         end)
     ))
@@ -201,7 +199,7 @@ env.wallpaper(s)
             mytextclock,
         { -- Right Widgets
             layout = wibox.layout.fixed.horizontal,
-            mpdwidget,
+            widgets.mpdwidget,
             env.wrapper(layoutbox[s], "layoutbox",layoutbox.buttons),
         },
     }
@@ -257,8 +255,8 @@ globalkeys = gears.table.join(
               {description="show help", group="awesome"}),
     awful.key({ env.mod,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
-    awful.key({ "Control",         }, "space", function() naughty.notifications.die(naughty.notificationClosedReason.dismissedByUser) end,
-              {description = "destroy notification", group = "awesome"}),
+--[[    awful.key({ "Control",         }, "space", function() naughty.destroy(naughty.notifications[0],naughty.notificationClosedReason.silent) end,
+              {description = "destroy notification", group = "awesome"}),--]]
 
     --Switching Windows
     awful.key({ env.mod,           }, "Right",
@@ -513,10 +511,7 @@ local rules = require("modules.rules")
 rules:enable()
 ----------------------------------{{{SIGNALS}}}----------------------------------
 local signals = require("modules.signals")
-signals:listen({ env = env })
-
-    --Screen handling
-    screen.connect_signal("list", function() awful.spawn("/home/sgreyowl/.config/scripts/display_setup.sh") end )
+    signals:listen({ env = env })
 
     -- Add a titlebar if titlebars_enabled is set to true in the rules.
     client.connect_signal("request::titlebars", function(c)

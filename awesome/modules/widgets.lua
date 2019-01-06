@@ -1,5 +1,8 @@
 local awful = require("awful")
 local wibox = require("wibox")
+local redflat = require("redflat")
+local beautiful = require("beautiful")
+local gears = require("gears.shape")
 
 --Include plugins from lain library
 local lain = require("lain")
@@ -47,8 +50,16 @@ function widgets:init(args)
     
     self.battwidget = lain.widget.bat({
         settings = function()
-            widget:set_markup("")
+            if(bat_now.perc < 25) then 
+                widget:set_markup("  POW")
+            else if(bat_now.perc < 50) then
+                widget:set_markup("  POW")
+            else
+                widget:set_markup("  POW")
+            end
+            end
             if(bat_now.status == "Charging") then
+                widget:set_markup("  CHRG")
                 battimeleft = "Full in: " .. bat_now.time
             else
                 battimeleft = "Time Left: " .. bat_now.time
@@ -109,7 +120,7 @@ function widgets:init(args)
                         wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-excellent.svg")
                     end
                 else
-                    wifi_icon:set_image()
+                    wifi_icon:set_image(env.icon_dir .. "status/scalable/network-wireless-offline.svg")
                 end
             end
         end
@@ -127,22 +138,18 @@ function widgets:init(args)
     self.watchpacman = wibox.widget.imagebox()
     
     local paccheck = awful.widget.watch('pacman -Qu | grep -v ignored | wc -l ', 60, function(widget, stdout)
-        for line in stdout:gmatch("[^\r\n]+") do
-            awful.spawn("notify-send " .. line)
-            awful.spawn("notify-send " .. line)
-            if line > 0 then 
+            if stdout > 0 then 
                 awful.spawn("notify-send 'There are '" .. line .. "' package(s) to be upgraded ' ")
                 watchpacman:set_image(env.icon_dir .. "/status/scalable/aptdaemon-upgrade.svg")
             else
                 awful.spawn("notify-send 'all good' ")
                 watchpacman:set_image(env.icon_dir .. "/status/scalable/software-installed.svg")
-                end
             end
     end)
     
     --MPD Widget
     local mpd = lain.widget.mpd({
-    --     host = "~/.config/mpd/socket",
+--         host = "~/.config/mpd/socket",
          music_dir = "~/Music/My Music",
          timeout = 1,
          followtag = true,
@@ -150,7 +157,7 @@ function widgets:init(args)
             local elapsed = mpd_now.elapsed
             local duration = mpd_now.time
             if mpd_now.state == "play" then
-                    widget:set_markup("🎝 " .. mpd_now.title .. " - " .. mpd_now.artist)
+                    widget:set_markup("🎝 " .. mpd_now.title .. " - " .. mpd_now.artist .. " ")
             elseif mpd_now.state == "pause" then
                 widget:set_markup("MPD PAUSED")                
             else
@@ -170,11 +177,12 @@ function widgets:init(args)
     
     --Volume widget
     self.volume = lain.widget.alsa({
+        cmd = "amixer -c 0",
         settings = function()
             widget:set_markup(" " .. volume_now.level .. " ")
         end
     })
-    
+ 
     --Temperature widget
     self.tempwidget = lain.widget.temp({
         settings = function()

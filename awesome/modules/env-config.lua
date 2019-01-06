@@ -35,9 +35,9 @@ function env:init(args)
 	self.themedir = awful.util.get_configuration_dir() .. "themes/" .. theme
     self.scripts_folder = "/home/sgreyowl/.config/scripts/"
 
-	self.sloppy_focus = false
+	self.sloppy_focus = true
 	self.color_border = false
-	self.set_slave = true
+	self.set_slave = false
 
 	-- theme setup
 	beautiful.init(env.themedir .. "/theme.lua")

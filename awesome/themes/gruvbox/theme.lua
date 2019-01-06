@@ -24,7 +24,9 @@ theme.color = {
     selected        = xrdb.foreground,
     alert           = xrdb.color11,
     focused         = "#1f1f1f",
-    selected_text   = xrdb.foreground
+    selected_text   = xrdb.foreground,
+    gold            = xrdb.color11,
+    blue            = xrdb.color4
 }
 
 theme.bg_normal     = theme.color.background
@@ -39,8 +41,8 @@ theme.fg_urgent     = theme.color.background
 theme.fg_minimize   = theme.color.selected_text
 theme.fg_systray    = theme.color.selected_text
 
---[[theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(2)
+--[[theme.useless_gap   = dpi(5)
 theme.border_normal = theme.color.bg_normal
 theme.border_focus  = theme.color.selected
 theme.border_marked = theme.bg_urgent]]--
@@ -75,6 +77,7 @@ naughty.config.presets.critical = {
     bg = theme.bg_normal,
     border_width = 1,
     border_color = "#ff0000",
+    timeout = 0
 }
 
 -- Variables set for theming the menu:

@@ -18,9 +18,15 @@ rules.all_clients = {
     buttons = clientbuttons,
     titlebars_enables = true,
     screen = awful.screen.preferred,
-    --placement = awful.placement.no_overlap+awful.placement.no_offscreen
-    --focus = awful.client.focus.filter,
-    --raise = true,
+    placement = awful.placement.no_offscreen+awful.placement.under_mouse,
+    focus = awful.client.focus.filter,
+    raise = true,
+}
+
+rules.notitlebar = {
+    class = {
+        "GLava"
+    },
 }
 
 rules.floating_clients = {
@@ -39,7 +45,8 @@ rules.floating_clients = {
       "pinentry",
       "veromix",
       "xtightvncviewer",
-      "file_progress"
+      "file_progress",
+      "terminator"
     },
     type = {
         "dialog",
@@ -50,6 +57,12 @@ rules.floating_clients = {
     role = {
       "AlarmWindow",  -- Thunderbird's calendar.
       "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+    }
+}
+
+rules.nofloat = {
+    name = {
+        "MIDI take"
     }
 }
 
@@ -67,7 +80,7 @@ rules.CREATE = {
         "Natron",
         "Blender",
         "Krita",
-        "REAPER"
+--        "REAPER"
     }
 }
 
@@ -96,6 +109,7 @@ function rules:enable()
         },
         {
             rule_any = self.floating_clients,
+            except_any = self.nofloat ,
             properties = { floating = true, ontop = true, placement = awful.placement.centered} 
         },
         {
@@ -116,6 +130,7 @@ function rules:enable()
         },
         {
             rule_any = { type = { "normal", "dialog" }},
+            except_any = self.notitlebar ,
             properties = { titlebars_enabled = true }
         }
     }

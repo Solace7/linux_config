@@ -16,15 +16,16 @@ function run_once(cmd)
   awful.spawn.with_shell(string.format("pgrep -u $USER -x %s > /dev/null || (%s)", findme, cmd))
 end
 
-function autostart.run()    
+function autostart.run()
     --}}}Background Stuff {{{--
     
     --Run only once
     run_once("compton --config /home/sgreyowl/.config/compton.conf")
-    run_once("conky -c ~/.config/conky/solui")
-    run_once("mpd --no-daemon /home/sgreyowl/.config/mpd/mpd.conf")
+    run_once("/home/sgreyowl/.config/conky/solui.sh")
+    --run_once("mpd --no-daemon /home/sgreyowl/.config/mpd/mpd.conf")
+    run_once("mopidy")
 --    run_once("dunst -conf /home/sgreyowl/.config/dunst/dunstrc")
-    run_once("/home/sgreyowl/.config/scripts/audio_setup.sh")
+--    run_once("/home/sgreyowl/.config/scripts/audio_setup.sh")
     run_once("/usr/lib/xfce-polkit/xfce-polkit")
     run_once("xfce4-power-manager")
     run_once("redshift")

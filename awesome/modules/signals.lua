@@ -56,7 +56,11 @@ function signals:listen(args)
             end
         end 
     end)
+    --Screen handling
+    screen.connect_signal("list", function() awful.spawn("/home/sgreyowl/.config/scripts/display_setup.sh") end )
    
 end
+
+
 
 return signals
