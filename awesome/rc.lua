@@ -101,11 +101,13 @@ local tasklist_buttons = gears.table.join(
 local widgets = require("modules.widgets")
 widgets:init({ env = env })
 
+function round(num, decimalPlaces)
+    local mult = 10^(decimalPlaces or 0)
+    return math.floor(num * mult + 0.5) /mult
+end
+
 -- Separator Widget
 local widgetseparator = widgets.widgetseparator
-
--- Keyboard map indicator and switcher
-local mykeyboardlayout = widgets.mykeyboardlayout
 
 -- Create a textclock widget
 local mytextclock = widgets.mytextclock
@@ -113,28 +115,39 @@ local mytextclock = widgets.mytextclock
 -- CPU Governor Widget
 local cpugovernor = widgets.cpugovernor
 
---Power widget
+-- Memory Widget
+local memwidget = lain.widget.mem({
+    settings = function()
+        widget:set_markup(round((mem_now.used/1024),2).. "GB/" .. round(mem_now.total/1024,2) .. "GB")
+    end
+})
+
+--Temperature widget
+local tempwidget = widgets.tempwidget 
+
+-- Keyboard map indicator and switcher
+local mykeyboardlayout = widgets.mykeyboardlayout
+
+-- Power widget
 local powwidget = widgets.battwidget 
---Systemtray widget
-local systemtray = wibox.widget.systray()
+
+-- Volume widget
+local volwidget = widgets.volume
 
 --{{Network widget
 local wifi_icon = widgets.wifi_icon
 local eth_icon = widgets.eth_icon
-
 --}}
---Pacman need update widgets
---if [[ pacman -Qu | grep -v ignored  | wc -l ]] > 0
 
+-- Pacman need update widgets
+-- if [[ pacman -Qu | grep -v ignored  | wc -l ]] > 0
 local watchpacman = widgets.watchpacman
 
---Volume widget
-local volume = widgets.volume
+-- Systemtray widget
+local systemtray = wibox.widget.systray()
 
---Temperature widget
-local tempwidget = widgets.tempwidget 
-    -- We need one layoutbox per screen.
- local layoutbox = widgets.layoutbox 
+-- We need one layoutbox per screen.
+local layoutbox = widgets.layoutbox 
 -----------Screen Setup-----------
 awful.screen.connect_for_each_screen(function(s)
 ----------------------------
@@ -173,14 +186,14 @@ env.wallpaper(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     --Change Volume on Scrollwheel up/down
-    volume.widget:buttons(awful.util.table.join(
+    volwidget.widget:buttons(awful.util.table.join(
         awful.button({ }, 4, function()
             awful.spawn("amixer -c 0 -q sset Master 5%+") --scroll up
-            volume.update()
+            volwidget.update()
         end),
         awful.button({ }, 5, function()
             awful.spawn("amixer -c 0 -q sset Master 5%-") --scroll down
-            volume.update()
+            volwidget.update()
         end)
     ))
 
@@ -215,6 +228,8 @@ env.wallpaper(s)
             layout = wibox.layout.fixed.horizontal,
             cpugovernor,
             widgetseparator,
+            memwidget.widget,
+            widgetseparator,
             tempwidget,
             widgetseparator,
             s.mytasklist,
@@ -225,7 +240,7 @@ env.wallpaper(s)
             layout = wibox.layout.fixed.horizontal,
             powwidget,
             widgetseparator,
-            volume,
+            volwidget,
             widgetseparator,
             wifi_icon,
             eth_icon,
