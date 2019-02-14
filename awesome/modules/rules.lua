@@ -18,14 +18,15 @@ rules.all_clients = {
     buttons = clientbuttons,
     titlebars_enables = true,
     screen = awful.screen.preferred,
-    placement = awful.placement.no_offscreen+awful.placement.under_mouse,
+    placement = awful.placement.no_offscreen + awful.placement.no_overlap,
     focus = awful.client.focus.filter,
     raise = true,
 }
 
+
 rules.notitlebar = {
     class = {
-        "GLava"
+        "GLava",
     },
 }
 

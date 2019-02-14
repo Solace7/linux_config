@@ -10,7 +10,8 @@ local dpi = xresources.apply_dpi
 local xrdb = xresources.get_current_theme()
 local gfs = require("gears.filesystem")
 local naughty = require("naughty")
-local awesome_themes = gfs.get_xdg_config_home() .. "awesome/themes/"
+local confdir = gfs.get_xdg_config_home() .. "awesome/"
+local awesome_themes = confdir .. "themes/"
 local theme_path = awesome_themes .. "gruvbox"
 
 local theme = {}
@@ -159,6 +160,7 @@ theme.widget.layoutbox.icon = {
 	cornernw          = theme_path .. "/layouts/cornernw.svg",
 	cornerse          = theme_path .. "/layouts/cornerse.svg",
 	cornersw          = theme_path .. "/layouts/cornersw.svg",
+        treetile          = confdir    .. "/treetile/layout_icon.png",
 	unknown           = theme_path .. "/common/unknown.svg",
 }
 

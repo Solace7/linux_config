@@ -29,7 +29,6 @@ env:init({ theme = "gruvbox" })
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.fair,
-    awful.layout.suit.magnifier,
     awful.layout.suit.max,
     redflat.layout.grid,
     redflat.layout.map,
@@ -270,8 +269,8 @@ globalkeys = gears.table.join(
               {description="show help", group="awesome"}),
     awful.key({ env.mod,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
---[[    awful.key({ "Control",         }, "space", function() naughty.destroy(naughty.notifications[0],naughty.notificationClosedReason.silent) end,
-              {description = "destroy notification", group = "awesome"}),--]]
+    awful.key({ "Control",         }, "space", naughty.destroy_all_notifications,
+              {description = "destroy notification", group = "awesome"}),
 
     --Switching Windows
     awful.key({ env.mod,           }, "Right",
@@ -351,7 +350,7 @@ globalkeys = gears.table.join(
               {description = "focus the next screen", group = "screen"}),
     awful.key({ env.mod,           }, "k", function () awful.screen.focus_bydirection("right") end,
               {description = "focus the previous screen", group = "screen"}),
-    awful.key({ env.mod, "Shift" }, "j",   awful.client.movetoscreen,
+    awful.key({ env.mod,   "Shift" }, "j",   awful.client.movetoscreen,
               {description = "move to next screen, cycling", group = "client"}),
 
     -- Standard program
@@ -363,19 +362,6 @@ globalkeys = gears.table.join(
               {description = "quit awesome", group = "awesome"}),
     awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'S_Greyowl is Away'") end,
               {description = "lock awesome", group = "awesome"}),
-
-    awful.key({ env.mod,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
-              {description = "increase master width factor", group = "layout"}),
-    awful.key({ env.mod,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
-              {description = "decrease master width factor", group = "layout"}),
-    awful.key({ env.mod, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
-              {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ env.mod, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
-              {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ env.mod, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
-              {description = "increase the number of columns", group = "layout"}),
-    awful.key({ env.mod, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
-              {description = "decrease the number of columns", group = "layout"}),
 
     awful.key({ env.mod, "Control" }, "-",
               function ()
@@ -394,19 +380,19 @@ globalkeys = gears.table.join(
     awful.key({},"XF86AudioLowerVolume",
         function()
             awful.spawn("amixer -q sset Master 5%-")
-            volume.update()
+            volwidget.update()
         end,
     	{description = "Lower volume by 5%", group="client"}),
     awful.key({},"XF86AudioRaiseVolume",
         function()
             awful.spawn("amixer -q sset Master 5%+")
-            volume.update()
+            volwidget.update()
         end,
     	{description = "Raise volume by 5%", group="client"}),
     awful.key({}, "XF86AudioMute",
         function()
             awful.spawn("amixer -q sset Master toggle")
-            volume.update()
+            volwidget.update()
         end,
     	{description = "Mute audio", group="client"})
 )
@@ -418,10 +404,24 @@ clientkeys = gears.table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ env.mod, "Shift"   }, "q",      function (c) c:kill()                         end,
+     awful.key({ env.mod, "Shift"   }, "q",      function (c) c:kill()                         end,
               {description = "close focused client", group = "client"}),
-    awful.key({ env.mod, "Shift" }, "space",  awful.client.floating.toggle                     ,
-              {description = "toggle floating", group = "client"}),
+     awful.key({ env.mod, "Shift" }, "space",  awful.client.floating.toggle)                     ,
+     
+     awful.key({ env.mod,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
+               {description = "increase master width factor", group = "layout"}),
+     awful.key({ env.mod,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
+               {description = "decrease master width factor", group = "layout"}),
+     awful.key({ env.mod, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+               {description = "increase the number of master clients", group = "layout"}),
+     awful.key({ env.mod, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+               {description = "decrease the number of master clients", group = "layout"}),
+     awful.key({ env.mod, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
+               {description = "increase the number of columns", group = "layout"}),
+     awful.key({ env.mod, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
+               {description = "decrease the number of columns", group = "layout"}),
+     awful.key({ env.mod,           }, "space", function () awful.layout.inc( 1)                end,
+          {description = "toggle floating", group = "client"}),
     awful.key({ env.mod, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
 

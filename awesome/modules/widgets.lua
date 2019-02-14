@@ -25,6 +25,9 @@ function widgets:init(args)
     
     -- Create a textclock widget
     self.mytextclock = wibox.widget.textclock("%H:%M:%S § %Y-%m-%d",1)
+
+    self.monthcal = awful.widget.calendar_popup.month()
+    self.monthcal:attach(self.mytextclock,"tm" ,{on_hover=false})
     
     -- CPU Governor Widget
     self.cpugovernor = awful.widget.watch('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor', 60, function(widget, stdout)
@@ -118,9 +121,11 @@ function widgets:init(args)
                         wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-good.svg")
                     elseif signal >= -53 then
                         wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-excellent.svg")
+                    else
+                        wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-offline.svg")
                     end
                 else
-                    wifi_icon:set_image(env.icon_dir .. "status/scalable/network-wireless-offline.svg")
+                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-offline.svg")
                 end
             end
         end
@@ -130,21 +135,23 @@ function widgets:init(args)
 
     wifi_icon:buttons(awful.util.table.join(
         awful.button({}, 1, function() awful.spawn.with_shell("networkmanager_dmenu") end)))
-    
-    --}}
-    --Pacman need update widgets
-    --if [[ pacman -Qu | grep -v ignored  | wc -l ]] > 0
-    
+     
     self.watchpacman = wibox.widget.imagebox()
     
     local paccheck = awful.widget.watch('pacman -Qu | grep -v ignored | wc -l ', 60, function(widget, stdout)
-            if stdout > 0 then 
+            if tonumber(stdout) > 0 then 
                 awful.spawn("notify-send 'There are '" .. line .. "' package(s) to be upgraded ' ")
                 watchpacman:set_image(env.icon_dir .. "/status/scalable/aptdaemon-upgrade.svg")
             else
                 awful.spawn("notify-send 'all good' ")
                 watchpacman:set_image(env.icon_dir .. "/status/scalable/software-installed.svg")
             end
+            watchpacman_t = awful.tooltip({
+                objects = { self.watchpacman },
+                timer_function = function()
+                    return stdout
+                end,
+            })
     end)
     
     --MPD Widget
