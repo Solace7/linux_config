@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#alsa_out -j "Meteor Speaker" -d hw:Mic -q 1 2>&1 1> /dev/null &
+alsa_in -j "Meteor Mic" -d hw:Mic -q 2 2>&1 1> /dev/null &
+echo "Samson Ports Exported to JACK"
+notify-send "Samson Ports Exported to JACK"
+

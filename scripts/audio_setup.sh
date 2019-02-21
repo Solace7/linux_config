@@ -36,6 +36,12 @@ else
     jack_control dps capture hw:PCH | tee -a $LOG
 fi
 
+echo "Peripheral Check" >> $LOG
+if [ -d "/proc/asound/Mic" ]; then
+        echo "Samson Meteor Mic is Connected" >> $LOG
+#		samson_ports & >> $LOG
+fi
+
 jack_control dps rate 48000 | tee -a $LOG
 jack_control eps realtime true
 jack_control dps nperiods 3 | tee -a $LOG
@@ -65,11 +71,6 @@ echo "jack_in set as default source" >> $LOG
 
 notify-send "JACK Audio Connection Kit is connected and set for MIDI"
 echo "Jack Setup Complete" >> $LOG
-echo "Peripheral Check" >> $LOG
-if [ -d "/proc/asound/Mic" ]; then
-		echo "Samson Meteor Mic is Connected" >> $LOG
-#		samson_ports & >> $LOG
-fi
 
 #echo -e "Starting Cadence \n" >> $LOG
 #cadence --minimized &

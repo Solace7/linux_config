@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Check if VM Is already on, if not
+VBoxManage startvm CentOS --type headless &
+sleep 5
+#else
+echo "Remoting in..."
+ssh -p 2222 svirtual@127.0.0.1 
+
+#Ask if you want to shutdown
+#Shutdown VM When finished
+VBoxManage controlvm CentOS poweroff
+
+echo "VM Has Shutdown"
