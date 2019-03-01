@@ -1,5 +1,0 @@
-#!/bin/sh
-#Generated with love at Tue Aug 28 17:27:19 2018 by JetBrains Toolbox 1.10.4088 (Jul 24 2018)
-
-"/opt/JetBrains/apps/Rider/ch-0/181.5550.7/bin/rider.sh" "$@"
-

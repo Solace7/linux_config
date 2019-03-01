@@ -27,7 +27,7 @@ function env:init(args)
 	local theme = args.theme or "default"
 
 	-- environment vars
-	self.terminal = args.terminal or "terminator"
+	self.terminal = args.terminal or "termite"
     self.editor = args.editor or "vim"
 	self.mod = args.mod or "Mod4"
 	self.fm = args.fm or "nemo"

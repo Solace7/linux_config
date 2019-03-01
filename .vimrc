@@ -10,7 +10,7 @@ set expandtab
 set background=dark
 set wrap linebreak nolist
 set number
-set termguicolors
+set spell spelllang=en_us
 hi Normal          ctermfg=252 ctermbg=none
 filetype off                  " required
 
@@ -48,6 +48,9 @@ let g:auto_save_events = ["InsertLeave"]
 
 syntax on
 colorscheme gruvbox
+
+"Instant Markdown Settings
+let g:instant_markdown_slow = 1
 
 "YCM Settings
 let g:ycm_server_python_interpreter = '/usr/bin/python3'

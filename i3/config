@@ -321,7 +321,7 @@ bindsym $mod+minus scratchpad show
 
 exec xss-lock i3lockscreen &
 exec_always --no-startup-id bash $HOME/.config/scripts/display_setup.sh
-exec bash $HOME/.config/scripts/audio_setup.sh
+#exec bash $HOME/.config/scripts/audio_setup.sh
 #exec_always bash $HOME/.config/i3/rxvtconf.sh
 exec_always --no-startup-id $HOME/.config/scripts/bin/res-polybar
 exec --no-startup-id compton --config $HOME/.config/compton.conf

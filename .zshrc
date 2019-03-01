@@ -20,7 +20,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/.config/scripts:$HOME/.config/scripts/bin:$PATH"
+export PATH="$HOME/bin/:$HOME/.config/scripts/:$HOME/.config/scripts/bin/:$PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 source $HOME/.TerminalTweaksARCH

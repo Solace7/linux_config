@@ -67,6 +67,12 @@ rules.nofloat = {
     }
 }
 
+rules.fullscreen = {
+    class = {
+        "edex-ui"
+    }
+}
+
 rules.COMMS = {
     class = {
         "discord",
@@ -112,6 +118,10 @@ function rules:enable()
             rule_any = self.floating_clients,
             except_any = self.nofloat ,
             properties = { floating = true, ontop = true, placement = awful.placement.centered} 
+        },
+        {
+            rule_any = rules.fullscreen,
+            properties = { fullscreen = true}
         },
         {
             rule_any = rules.COMMS,

@@ -1,9 +1,28 @@
 #exclude all of the things except the things I dont want excluded
 
+tint2/
+fcitx/
+eDEX-UI/
 .IdeaIC2017.2/
 .screenlayout
 Atom
+Franz/
+Hacknet/
+Meltytech/
+Modartt/
+sitala/
+sonata/
+awesome.old/
+Android Open Source Project/
+calibre/
+cef_user_data/
+discordcanary/
+discordptb/
+google-musicmanager/
 atril/
+mc/
+linuxsampler.org/
+mpd/playlists/
 mintmenu/
 mate/
 xfce4/

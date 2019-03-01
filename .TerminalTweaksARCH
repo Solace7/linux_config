@@ -50,3 +50,5 @@ alias la="ls -a"
 alias ls="ls --color=auto"
 
 alias rm="rm -I"
+
+alias youtube-to-m4a="youtube-dl -x --audio-format m4a"

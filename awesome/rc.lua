@@ -271,6 +271,8 @@ globalkeys = gears.table.join(
               {description = "go back", group = "tag"}),
     awful.key({ "Control",         }, "space", naughty.destroy_all_notifications,
               {description = "destroy notification", group = "awesome"}),
+--    awful.key({ "Control",         }, "Print", function() awful.spawn("scrot -s -e ' mv $f ~/Pictures/Screenshots/") end,
+             -- {description = "take a screenshot",   group = "awesome"}),
 
     --Switching Windows
     awful.key({ env.mod,           }, "Right",

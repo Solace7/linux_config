@@ -166,9 +166,9 @@ function widgets:init(args)
             if mpd_now.state == "play" then
                     widget:set_markup("🎝 " .. mpd_now.title .. " - " .. mpd_now.artist .. " ")
             elseif mpd_now.state == "pause" then
-                widget:set_markup("MPD PAUSED")                
+                widget:set_markup("MPD PAUSED ")                
             else
-                widget:set_markup("MPD OFFLINE")
+                widget:set_markup("MPD OFFLINE ")
             end
         mpd_notification_preset = {
             title = "Now Playing",

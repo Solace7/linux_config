@@ -29,3 +29,6 @@ data.location=~/.task
 #include /usr/share/doc/task/rc/solarized-light-256.theme
 #include /usr/share/doc/task/rc/no-color.theme
 
+report.conky.filter=status:pending
+report.conky.labels= ID, Todo, Due
+report.conky.columns=id.number,description.count,due

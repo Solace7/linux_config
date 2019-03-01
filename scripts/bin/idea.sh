@@ -1,0 +1,1 @@
+/opt/JetBrains/apps/IDEA-U/ch-0/183.5153.38/bin/idea.sh
