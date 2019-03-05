@@ -18,7 +18,7 @@ local theme = {}
 theme.panel_height = 26
 theme.wallpaper = theme_path.."/background.png"
 
-theme.font          = "Fira Code 8"
+theme.font          = "Fira Code 9"
 
 theme.color = {
     background      = xrdb.background,

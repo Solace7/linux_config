@@ -145,8 +145,8 @@ local watchpacman = widgets.watchpacman
 -- Systemtray widget
 local systemtray = wibox.widget.systray()
 
--- We need one layoutbox per screen.
-local layoutbox = widgets.layoutbox 
+--TODO Layoutbox
+
 -----------Screen Setup-----------
 awful.screen.connect_for_each_screen(function(s)
 ----------------------------
@@ -175,8 +175,6 @@ env.wallpaper(s)
 ------------------------------
 ---------{{TITLEBAR}}---------
 ------------------------------
-
-    layoutbox[s] = redflat.widget.layoutbox({ screen = s })
 
     -- Create a taglist widget
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.noempty, taglist_buttons)
@@ -212,7 +210,6 @@ env.wallpaper(s)
         { -- Right Widgets
             layout = wibox.layout.fixed.horizontal,
             widgets.mpdwidget,
-            env.wrapper(layoutbox[s], "layoutbox",layoutbox.buttons),
         },
     }
 
@@ -269,7 +266,7 @@ globalkeys = gears.table.join(
               {description="show help", group="awesome"}),
     awful.key({ env.mod,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
-    awful.key({ "Control",         }, "space", naughty.destroy_all_notifications,
+    awful.key({ env.mod, "Control" }, "space", naughty.destroy_all_notifications,
               {description = "destroy notification", group = "awesome"}),
 --    awful.key({ "Control",         }, "Print", function() awful.spawn("scrot -s -e ' mv $f ~/Pictures/Screenshots/") end,
              -- {description = "take a screenshot",   group = "awesome"}),

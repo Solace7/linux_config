@@ -16,11 +16,11 @@ rules.all_clients = {
     border_color = beautiful.border_normal,
     keys = clientkeys,
     buttons = clientbuttons,
-    titlebars_enables = true,
-    screen = awful.screen.preferred,
-    placement = awful.placement.no_offscreen + awful.placement.no_overlap,
     focus = awful.client.focus.filter,
     raise = true,
+    titlebars_enables = true,
+    screen = awful.screen.preferred,
+    placement = awful.placement.no_offscreen+awful.placement.no_overlap,
 }
 
 
@@ -116,7 +116,7 @@ function rules:enable()
         },
         {
             rule_any = self.floating_clients,
-            except_any = self.nofloat ,
+            --except_any = self.nofloat ,
             properties = { floating = true, ontop = true, placement = awful.placement.centered} 
         },
         {

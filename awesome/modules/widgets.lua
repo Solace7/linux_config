@@ -202,13 +202,5 @@ function widgets:init(args)
     })
     
         -- We need one layoutbox per screen.
-     self.layoutbox = {}
-     self.layoutbox.buttons = awful.util.table.join(
-                           awful.button({ }, 1, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 3, function () redflat.widget.layoutbox:toggle_menu(mouse.screen.selected_tag) end),
-                           awful.button({ }, 4, function () awful.layout.inc( 1) end),
-                           awful.button({ }, 5, function () awful.layout.inc(-1) end)
-                           )
-    
     end
 return widgets
