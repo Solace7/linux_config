@@ -36,12 +36,6 @@ else
     jack_control dps capture hw:PCH | tee -a $LOG
 fi
 
-echo "Peripheral Check" >> $LOG
-if [ -d "/proc/asound/Mic" ]; then
-        echo "Samson Meteor Mic is Connected" >> $LOG
-#		samson_ports & >> $LOG
-fi
-
 jack_control dps rate 48000 | tee -a $LOG
 jack_control eps realtime true
 jack_control dps nperiods 3 | tee -a $LOG
