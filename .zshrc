@@ -24,11 +24,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="$HOME/bin/:$HOME/.config/scripts/:$HOME/.config/scripts/bin/:$PATH"
-
-# export MANPATH="/usr/local/man:$MANPATH"
-source $HOME/.TerminalTweaksARCH
-export EDITOR='vim'
 source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias)
 
