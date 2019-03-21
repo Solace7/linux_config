@@ -31,7 +31,7 @@ function autostart.run()
     run_once("redshift")
     
     --}}} COMMS Workspace {{{--
-    commsrun = true
+    commsrun = false
     commsStartup = {
     	"discord",
         "android-messages",
