@@ -41,7 +41,7 @@ function env:init(args)
 
 	-- theme setup
 	beautiful.init(env.themedir .. "/theme.lua")
-    self.icon_dir = "/usr/share/icons/suru-plus-aspromauros"
+    self.icon_dir = "/usr/share/icons/Suru++-Asprómauros"
 end
 -- Wallpaper setup
 --------------------------------------------------------------------------------

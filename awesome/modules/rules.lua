@@ -18,7 +18,6 @@ rules.all_clients = {
     buttons = clientbuttons,
     focus = awful.client.focus.filter,
     raise = true,
-    titlebars_enables = true,
     screen = awful.screen.preferred,
     placement = awful.placement.no_offscreen+awful.placement.no_overlap,
 }
@@ -54,10 +53,12 @@ rules.floating_clients = {
     },
     name = {
       "Event Tester",  -- xev.
+      "sforzando (GUI)",
     },
     role = {
       "AlarmWindow",  -- Thunderbird's calendar.
       "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+      "toolbox_window", -- e.g. Dia's toolbox
     }
 }
 
