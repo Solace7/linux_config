@@ -359,7 +359,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. env.scripts_folder .. "logout.sh") end,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'S_Greyowl is Away'") end,
+    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'Greyowl is Away'") end,
               {description = "lock awesome", group = "awesome"}),
 
     awful.key({ env.mod, "Control" }, "-",

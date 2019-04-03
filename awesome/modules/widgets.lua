@@ -33,9 +33,9 @@ function widgets:init(args)
     self.cpugovernor = awful.widget.watch('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor', 60, function(widget, stdout)
         for line in stdout:gmatch("[^\r\n]+") do
             if line:match("performance") then 
-                widget:set_image(env.icon_dir .. "/status/scalable/cpu-frequency-indicator-performance.svg")
+                widget:set_image(env.themedir .. "/cpu-frequency-indicator-performance.svg")
             else if line:match("powersave") then
-                widget:set_image(env.icon_dir .. "/status/scalable/cpu-frequency-indicator-powersave.svg")
+                widget:set_image(env.themedir .. "/cpu-frequency-indicator-powersave.svg")
                 end
             end
             cpugov_t = awful.tooltip({
@@ -104,7 +104,7 @@ function widgets:init(args)
             local eth0 = net_now.devices.enp3s0
             if eth0 then
                 if eth0.ethernet then
-                    eth_icon:set_image(env.icon_dir .. "/status/scalable/network-wired.svg")
+                    eth_icon:set_image(env.icon_dir .. "/status/symbolic/network-wired.svg")
                 else
                     eth_icon:set_image()
                 end
@@ -114,18 +114,18 @@ function widgets:init(args)
                 if wlan0.wifi then
                     local signal = wlan0.signal
                     if signal < -83 then
-                        wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-weak.svg")
+                        wifi_icon:set_image(env.icon_dir .. "/status/symbolic/network-wireless-signal-weak.svg")
                     elseif signal < -70 then
-                        wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-ok.svg")
+                        wifi_icon:set_image(env.icon_dir .. "/status/symbolic/network-wireless-signal-ok.svg")
                     elseif signal < -53 then
-                        wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-good.svg")
+                        wifi_icon:set_image(env.icon_dir .. "/status/symbolic/network-wireless-signal-good.svg")
                     elseif signal >= -53 then
-                        wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-signal-excellent.svg")
+                        wifi_icon:set_image(env.icon_dir .. "/status/symbolic/network-wireless-signal-excellent.svg")
                     else
-                        wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-offline.svg")
+                        wifi_icon:set_image(env.icon_dir .. "/status/symbolic/network-wireless-offline.svg")
                     end
                 else
-                    wifi_icon:set_image(env.icon_dir .. "/status/scalable/network-wireless-offline.svg")
+                    wifi_icon:set_image(env.icon_dir .. "/status/symbolic/network-wireless-offline.svg")
                 end
             end
         end
@@ -141,10 +141,10 @@ function widgets:init(args)
     local paccheck = awful.widget.watch('pacman -Qu | grep -v ignored | wc -l ', 60, function(widget, stdout)
             if tonumber(stdout) > 0 then 
                 awful.spawn("notify-send 'There are '" .. line .. "' package(s) to be upgraded ' ")
-                watchpacman:set_image(env.icon_dir .. "/status/scalable/aptdaemon-upgrade.svg")
+                watchpacman:set_image(env.icon_dir .. "/apps/aptdaemon-upgrade.svg")
             else
                 awful.spawn("notify-send 'all good' ")
-                watchpacman:set_image(env.icon_dir .. "/status/scalable/software-installed.svg")
+                watchpacman:set_image(env.icon_dir .. "/status/symbolic/software-installed.svg")
             end
             watchpacman_t = awful.tooltip({
                 objects = { self.watchpacman },
