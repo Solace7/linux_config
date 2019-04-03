@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Numix-DarkBlue
-Comment=A modern flat theme (Dark Blue variant)
+Name=Numix-DarkGruv
+Comment=A modern flat theme (Gruvbox variant)
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Numix-DarkBlue
+GtkTheme=Numix-DarkGruv
 IconTheme=Numix
-MetacityTheme=Numix-DarkBlue
+MetacityTheme=Numix-DarkGruv
 ButtonLayout=:minimize,maximize,close
