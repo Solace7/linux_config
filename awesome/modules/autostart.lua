@@ -1,5 +1,6 @@
 --Acquire environment
 local awful = require("awful")
+local gears = require("gears")
 
 local autostart = {}
 
@@ -20,7 +21,7 @@ function autostart.run()
     --}}}Background Stuff {{{--
     
     --Run only once
-    run_once("compton --config /home/sgreyowl/.config/compton.conf")
+    run_once("compton --config " .. gears.filesystem.get_xdg_config_home() ..".compton.conf")
     run_once("/home/sgreyowl/.config/conky/solui.sh")
     --run_once("mpd --no-daemon /home/sgreyowl/.config/mpd/mpd.conf")
 --    run_once("mopidy")
@@ -31,7 +32,7 @@ function autostart.run()
     run_once("redshift")
     
     --}}} COMMS Workspace {{{--
-    commsrun = true
+    commsrun = false
     commsStartup = {
     	"discord",
         "android-messages",
