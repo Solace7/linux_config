@@ -25,7 +25,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(thefuck --alias)
 
 if [[ $TERM == xterm-termite ]]; then
