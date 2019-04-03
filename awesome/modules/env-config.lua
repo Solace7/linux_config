@@ -48,7 +48,11 @@ end
 env.wallpaper = function(s)
 	if beautiful.wallpaper then
 		if awful.util.file_readable(beautiful.wallpaper) then
-			gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+            if s.geometry.width == 1080 then
+                gears.wallpaper.maximized(beautiful.wallpaper_portrait, s, true)
+            else
+			    gears.wallpaper.maximized(beautiful.wallpaper, s, true)
+            end
 		else
 			gears.wallpaper.set(beautiful.color.bg)
 		end

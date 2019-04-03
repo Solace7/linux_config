@@ -17,6 +17,7 @@ local theme_path = awesome_themes .. "gruvbox"
 local theme = {}
 theme.panel_height = 26
 theme.wallpaper = theme_path.."/background.png"
+theme.wallpaper_portrait = theme_path.."/background_portrait.png"
 
 theme.font          = "Fira Code 9"
 
