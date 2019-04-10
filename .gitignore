@@ -1,5 +1,9 @@
 #exclude all of the things except the things I dont want excluded
-
+BetterDiscord/
+gedit/
+polybar
+totem/
+wpg/
 tint2/
 fcitx/
 eDEX-UI/
