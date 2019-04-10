@@ -358,7 +358,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. env.scripts_folder .. "logout.sh") end,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'Greyowl is Away'") end,
+    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'Eli will be back'") end,
               {description = "lock awesome", group = "awesome"}),
 
     awful.key({ env.mod, "Control" }, "-",
@@ -571,5 +571,5 @@ local signals = require("modules.signals")
 local autostart = require("modules.autostart")
 if timestamp.is_startup() then
     awful.spawn.with_shell("/home/sgreyowl/.config/scripts/display_setup.sh")
-    autostart.run()
+    autostart:run(env)
 end

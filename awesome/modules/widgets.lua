@@ -164,7 +164,7 @@ function widgets:init(args)
             local elapsed = mpd_now.elapsed
             local duration = mpd_now.time
             if mpd_now.state == "play" then
-                    widget:set_markup("🎝 " .. mpd_now.title .. " - " .. mpd_now.artist .. " ")
+                    widget:set_markup( mpd_now.title .. " - " .. mpd_now.artist .. " ")
             elseif mpd_now.state == "pause" then
                 widget:set_markup("MPD PAUSED ")                
             else

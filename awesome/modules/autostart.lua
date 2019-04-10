@@ -17,19 +17,18 @@ function run_once(cmd)
   awful.spawn.with_shell(string.format("pgrep -u $USER -x %s > /dev/null || (%s)", findme, cmd))
 end
 
-function autostart.run()
+function autostart:run()
+
     --}}}Background Stuff {{{--
     
     --Run only once
-    run_once("compton --config " .. gears.filesystem.get_xdg_config_home() ..".compton.conf")
-    run_once("/home/sgreyowl/.config/conky/solui.sh")
-    --run_once("mpd --no-daemon /home/sgreyowl/.config/mpd/mpd.conf")
---    run_once("mopidy")
---    run_once("dunst -conf /home/sgreyowl/.config/dunst/dunstrc")
---    run_once("/home/sgreyowl/.config/scripts/audio_setup.sh")
+    run_once("compton --config " .. gears.filesystem.get_xdg_config_home() .."/.compton.conf")
+    run_once(gears.filesystem.get_xdg_config_home() .. "conky/solui.sh")
+    run_once(gears.filesystem.get_xdg_config_home() .. "/scripts/defaultdisplay.sh")
     run_once("/usr/lib/xfce-polkit/xfce-polkit")
     run_once("xfce4-power-manager")
     run_once("redshift")
+    run_once("synergyc --debug INFO --name OP7040-ELI --enable-crypto 10.4.140.84:24800")
     
     --}}} COMMS Workspace {{{--
     commsrun = false
