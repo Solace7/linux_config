@@ -239,10 +239,6 @@ env.wallpaper(s)
             widgetseparator,
             wifi_icon,
             eth_icon,
-            widgetseparator,
-            paccheck,
-            watchpacman,
-            widgetseparator,
             systemtray,
         },
     }
@@ -432,15 +428,8 @@ clientkeys = gears.table.join(
         {description = "minimize", group = "client"}),
     awful.key({ env.mod,           }, "m",
         function (c)
-            local l = awful.layout.getname(awful.layout.get(awful.screen.focused()))
-            if(l == "max") then
-                awful.layout.set(awful.layout.suit.tile)
-            else
-                awful.layout.set(awful.layout.suit.max)
-            end
-
-            --c.maximized = not c.maximized
-            --c:raise()
+            c.maximized = not c.maximized
+            c:raise()
         end ,
         {description = "(un)maximize", group = "tag"}),
     awful.key({ env.mod, "Control" }, "m",
