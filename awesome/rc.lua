@@ -29,6 +29,7 @@ env:init({ theme = "gruvbox" })
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile,
+    awful.layout.suit.tile.top,
 	awful.layout.suit.fair,
     awful.layout.suit.max,
 }
@@ -354,7 +355,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. env.scripts_folder .. "logout.sh") end,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("sh betterlockscreen -l blur -t 'Eli will be back'") end,
+    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("i3lock-fancy-dualmonitor -f Hurtmit-Light-Nerd-Font-Complete-Mono") end,
               {description = "lock awesome", group = "awesome"}),
 
     awful.key({ env.mod, "Control" }, "-",
