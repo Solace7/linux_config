@@ -1,5 +1,5 @@
 ---------------------------
--- Gruvbox Awesome Theme
+-- Xresources Awesome Theme
 -- Edited by: Solace_Greyowl
 ---------------------------
 
@@ -12,7 +12,7 @@ local gfs = require("gears.filesystem")
 local naughty = require("naughty")
 local confdir = gfs.get_xdg_config_home() .. "awesome/"
 local awesome_themes = confdir .. "themes/"
-local theme_path = awesome_themes .. "gruvbox"
+local theme_path = awesome_themes .. "xresources"
 
 local theme = {}
 theme.panel_height = 26

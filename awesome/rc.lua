@@ -18,13 +18,13 @@ local lain = require("lain")
 
 --Credit to Worron @github.com/worron for the Following--
 local redflat = require("redflat")
-local timestamp = require("redflat.timestamp")
+local startup = require("redflat.startup")
 local env = require("modules.env-config")
 
 ----------------------------------{{{ERROR HANDLING}}}----------------------------------
 errorcheck = require("modules.errorcheck")
 
-env:init({ theme = "gruvbox" })
+env:init({ theme = "xresources" })
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -559,7 +559,7 @@ local signals = require("modules.signals")
     end)
 ----------------------------------{{AUTOSTART}}----------------------------------
 local autostart = require("modules.autostart")
-if timestamp.is_startup() then
+if startup.is_startup then
     awful.spawn.with_shell("/home/sgreyowl/.config/scripts/display_setup.sh")
     autostart:run(env)
 end
