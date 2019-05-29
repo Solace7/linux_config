@@ -22,15 +22,15 @@ function autostart:run()
     --}}}Background Stuff {{{--
     
     --Run only once
-    run_once("compton --config " .. gears.filesystem.get_xdg_config_home() .."/.compton.conf")
+    run_once("compton --config " .. gears.filesystem.get_xdg_config_home() .."/compton.conf")
     run_once(gears.filesystem.get_xdg_config_home() .. "conky/solui.sh")
     run_once("/usr/lib/xfce-polkit/xfce-polkit")
     run_once("xfce4-power-manager")
     run_once("redshift")
-    run_once("synergyc --debug INFO --name OP7040-ELI --enable-crypto 10.4.140.84:24800")
+    run_once("glava")
     
     --}}} COMMS Workspace {{{--
-    commsrun = false
+    commsrun = true
     commsStartup = {
     	"discord",
         "android-messages",
