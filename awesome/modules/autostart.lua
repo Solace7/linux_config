@@ -24,7 +24,6 @@ function autostart:run()
     --Run only once
     run_once("compton --config " .. gears.filesystem.get_xdg_config_home() .."/.compton.conf")
     run_once(gears.filesystem.get_xdg_config_home() .. "conky/solui.sh")
-    run_once(gears.filesystem.get_xdg_config_home() .. "/scripts/defaultdisplay.sh")
     run_once("/usr/lib/xfce-polkit/xfce-polkit")
     run_once("xfce4-power-manager")
     run_once("redshift")

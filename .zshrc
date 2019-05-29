@@ -11,7 +11,8 @@ if which tmux >/dev/null 2>&1; then
     done
 fi
 
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
+ZSH_THEME="af-magic"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
