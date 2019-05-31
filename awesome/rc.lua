@@ -430,6 +430,7 @@ clientkeys = gears.table.join(
     awful.key({ env.mod,           }, "m",
         function (c)
             c.maximized = not c.maximized
+	    c.ontop = not c.ontop
             c:raise()
         end ,
         {description = "(un)maximize", group = "tag"}),
