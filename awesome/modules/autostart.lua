@@ -33,7 +33,6 @@ function autostart:run()
     commsrun = true
     commsStartup = {
     	"discord",
-        "android-messages",
     }
     if commsrun then
     	for app = 1, #commsStartup do

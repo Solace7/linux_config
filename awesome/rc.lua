@@ -1,5 +1,3 @@
-
-local gfs = ("gears.filesystem")
 local gears = require("gears")
 local awful = require("awful")
 local naughty = require("naughty")
@@ -21,8 +19,10 @@ local redflat = require("redflat")
 local startup = require("redflat.startup")
 local env = require("modules.env-config")
 
+startup:activate()
 ----------------------------------{{{ERROR HANDLING}}}----------------------------------
 errorcheck = require("modules.errorcheck")
+
 
 env:init({ theme = "xresources" })
 
@@ -30,6 +30,8 @@ env:init({ theme = "xresources" })
 awful.layout.layouts = {
     awful.layout.suit.tile,
     awful.layout.suit.tile.top,
+    awful.layout.suit.tile.right,
+    awful.layout.suit.tile.left,
 	awful.layout.suit.fair,
     awful.layout.suit.max,
 }
@@ -182,6 +184,10 @@ env.wallpaper(s)
     -- Create a tasklist widget
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
+    local layoutbox = widgets.layoutbox
+    layoutbox[s] = redflat.widget.layoutbox({ screen = s })
+
+
     --Change Volume on Scrollwheel up/down
     volwidget.widget:buttons(awful.util.table.join(
         awful.button({ }, 4, function()
@@ -210,6 +216,7 @@ env.wallpaper(s)
         { -- Right Widgets
             layout = wibox.layout.fixed.horizontal,
             widgets.mpdwidget,
+            env.wrapper(layoutbox[s], "layoutbox",layoutbox.buttons),
         },
     }
 
@@ -547,11 +554,11 @@ local signals = require("modules.signals")
                 layout  = wibox.layout.flex.horizontal
             },
             { -- Right
-               --[[ awful.titlebar.widget.floatingbutton (c),
+                awful.titlebar.widget.floatingbutton (c),
                 awful.titlebar.widget.maximizedbutton(c),
                 awful.titlebar.widget.stickybutton   (c),
                 awful.titlebar.widget.ontopbutton    (c),
-                awful.titlebar.widget.closebutton    (c),]]--
+                awful.titlebar.widget.closebutton    (c),
                 layout = wibox.layout.fixed.horizontal()
             },
             layout = wibox.layout.align.horizontal
@@ -560,6 +567,6 @@ local signals = require("modules.signals")
 ----------------------------------{{AUTOSTART}}----------------------------------
 local autostart = require("modules.autostart")
 if startup.is_startup then
-     --awful.spawn.with_shell("/home/sgreyowl/.config/scripts/display_setup.sh")
+    awful.spawn.with_shell("/home/sgreyowl/.config/scripts/display_setup.sh")
     autostart:run(env)
 end
