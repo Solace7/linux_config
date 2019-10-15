@@ -108,36 +108,44 @@ function round(num, decimalPlaces)
 end
 
 -- Separator Widget
-local widgetseparator = widgets.widgetseparator
+--local widgetseparator = widgets.widgetseparator
+local separators = lain.util.separators
+local arrow_r = separators.arrow_right
+local arrow_l = separators.arrow_left
+
 
 -- Create a textclock widget
-local mytextclock = widgets.mytextclock
-
+local mytextclock_widget = widgets.mytextclock
+local mytextclock = wibox.container.background(wibox.container.margin(wibox.widget {mytextclock_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#1d2021")
 -- CPU Governor Widget
-local cpugovernor = widgets.cpugovernor
+local cpugovernor_widget = widgets.cpugovernor
+local cpugovernor = wibox.container.background(wibox.container.margin(wibox.widget {cpugovernor_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
 
 -- Memory Widget
-local memwidget = lain.widget.mem({
+local memory_widget = lain.widget.mem({
     settings = function()
         widget:set_markup(round((mem_now.used/1024),2).. "GB/" .. round(mem_now.total/1024,2) .. "GB")
     end
 })
+local memwidget = wibox.container.background(wibox.container.margin(wibox.widget {memory_widget.widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
 
 --Temperature widget
-local tempwidget = widgets.tempwidget 
-
--- Keyboard map indicator and switcher
-local mykeyboardlayout = widgets.mykeyboardlayout
+local temperature_widget = widgets.tempwidget 
+local tempwidget = wibox.container.background(wibox.container.margin(wibox.widget {temperature_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
 
 -- Power widget
-local powwidget = widgets.battwidget 
+local power_widget = widgets.battwidget 
+local powwidget = wibox.container.background(wibox.container.margin(wibox.widget {power_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#cc241d")
 
 -- Volume widget
-local volwidget = widgets.volume
+local volume_widget = widgets.volume
+local volwidget = wibox.container.background(wibox.container.margin(wibox.widget {volume_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#d79921")
 
 --{{Network widget
-local wifi_icon = widgets.wifi_icon
-local eth_icon = widgets.eth_icon
+local wifi_icon_widget = widgets.wifi_icon
+local eth_icon_widget = widgets.eth_icon
+local wifi_icon = wibox.container.background(wibox.container.margin(wibox.widget {wifi_icon_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#98971a")
+local eth_widget = wibox.container.background(wibox.container.margin(wibox.widget {eth_icon_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#98971a")
 --}}
 
 -- Pacman need update widgets
@@ -151,6 +159,15 @@ local systemtray = wibox.widget.systray()
 
 -----------Screen Setup-----------
 awful.screen.connect_for_each_screen(function(s)
+
+s.drop_urxvt = lain.util.quake{
+    settings = function(c)
+        c.sticky = true
+        c.ontop = true
+        app = "urxvt"
+        argname = "--name %s"
+    end
+}
 ----------------------------
 -------{{WORKSPACES}}-------
 ----------------------------
@@ -230,11 +247,11 @@ env.wallpaper(s)
         {-- Left Widgets
             layout = wibox.layout.fixed.horizontal,
             cpugovernor,
-            widgetseparator,
+            arrow_r("#3f3f3f","alpha"),
             memwidget.widget,
-            widgetseparator,
+            arrow_r("#3f3f3f","alpha"),
             tempwidget,
-            widgetseparator,
+            arrow_r("#3f3f3f","alpha"),
             s.mytasklist,
         },
             --Middle Wdigets
@@ -242,11 +259,12 @@ env.wallpaper(s)
             {-- Right Widgets
             layout = wibox.layout.fixed.horizontal,
             powwidget,
-            widgetseparator,
+            arrow_r("#cc241d","#d79921"),
             volwidget,
-            widgetseparator,
+            arrow_r("#d79921","#98971a"),
             wifi_icon,
             eth_icon,
+            arrow_r("#98971a","alpha"),
             systemtray,
         },
     }
@@ -265,8 +283,10 @@ root.buttons(gears.table.join(
 --------------------------
 
 globalkeys = gears.table.join(
-    awful.key({ env.mod,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
+    awful.key({ env.mod,           }, "s", hotkeys_popup.show_help,
+              {description="show help", group="awesome"}),    
+    awful.key({ env.mod,           }, "z", function() awful.screen.focused().drop_urxvt:toggle() end,
+    {description="dropdown urxvt terminal",group="awesome"}),    
     awful.key({ env.mod,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
     awful.key({ env.mod, "Control" }, "space", naughty.destroy_all_notifications,
@@ -362,7 +382,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. env.scripts_folder .. "logout.sh") end,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("i3lock-fancy-dualmonitor -f Hurtmit-Light-Nerd-Font-Complete-Mono") end,
+    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("betterlockscreen -l") end,
               {description = "lock awesome", group = "awesome"}),
 
     awful.key({ env.mod, "Control" }, "-",

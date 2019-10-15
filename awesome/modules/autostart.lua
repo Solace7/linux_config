@@ -26,13 +26,15 @@ function autostart:run()
     run_once(gears.filesystem.get_xdg_config_home() .. "conky/solui.sh")
     run_once("/usr/lib/xfce-polkit/xfce-polkit")
     run_once("xfce4-power-manager")
-    run_once("redshift")
+    run_once("redshift-gtk")
     run_once("glava")
+    run_once(gears.filesystem.get_xdg_config_home() .. "/rxvtconf.sh")
     
     --}}} COMMS Workspace {{{--
     commsrun = true
     commsStartup = {
     	"discord",
+        "skype",
     }
     if commsrun then
     	for app = 1, #commsStartup do

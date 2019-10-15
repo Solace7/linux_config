@@ -77,7 +77,8 @@ rules.fullscreen = {
 rules.COMMS = {
     class = {
         "discord",
-        "Android Messages"
+        "Android Messages",
+        "skype"
     }
 }
 

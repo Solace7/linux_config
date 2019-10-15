@@ -109,7 +109,7 @@ function widgets:init(args)
                     eth_icon:set_image()
                 end
             end
-            local wlan0 = net_now.devices["wlp2s0"]
+            local wlan0 = net_now.devices["wlp0s26u1u2"]
             if wlan0 then
                 if wlan0.wifi then
                     local signal = wlan0.signal
@@ -180,8 +180,8 @@ function widgets:init(args)
    
     --mpd widget
     self.mpdwidget = wibox.container.background(mpd.widget)
-    self.mpdwidget:buttons(awful.util.table.join(
-        awful.button({}, 1, function() awful.spawn.with_shell("terminator -l Music") end)))
+   --[[ self.mpdwidget:buttons(awful.util.table.join(
+        awful.button({}, 1, function() awful.spawn.with_shell("terminator -l Music") end)))]]--
     
     --Layoutbox widget
     local layoutbox = widgets.layoutbox
