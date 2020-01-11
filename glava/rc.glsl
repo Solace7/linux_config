@@ -13,7 +13,7 @@
    as a 2D sampler.
    
    See documentation for more details. */
-#request mod radial
+#request mod bars
 
 /* Window hints */
 #request setfloating  false
@@ -49,9 +49,9 @@
 
 /* Window geometry (x, y, width, height) */
 //radial
-#request setgeometry 560 140 800 800
+//#request setgeometry 560 140 800 800
 //bars
-//#request setgeometry 0 475 1900 600
+#request setgeometry 0 540 1920 300
 
 
 /* Window background color (RGB format).
@@ -139,7 +139,7 @@
 
    If GLava is minimized or completely obscured, it will not
    render regardless of this option. */
-#request setfullscreencheck false
+#request setfullscreencheck true
 
 /* Enable/disable printing framerate every second. 'FPS' stands
    for 'Frames Per Second', and 'UPS' stands for 'Updates Per

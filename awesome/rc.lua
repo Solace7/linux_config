@@ -116,7 +116,7 @@ local arrow_l = separators.arrow_left
 
 -- Create a textclock widget
 local mytextclock_widget = widgets.mytextclock
-local mytextclock = wibox.container.background(wibox.container.margin(wibox.widget {mytextclock_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#1d2021")
+local mytextclock = wibox.container.background(wibox.container.margin(wibox.widget {mytextclock_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
 -- CPU Governor Widget
 local cpugovernor_widget = widgets.cpugovernor
 local cpugovernor = wibox.container.background(wibox.container.margin(wibox.widget {cpugovernor_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
@@ -135,17 +135,17 @@ local tempwidget = wibox.container.background(wibox.container.margin(wibox.widge
 
 -- Power widget
 local power_widget = widgets.battwidget 
-local powwidget = wibox.container.background(wibox.container.margin(wibox.widget {power_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#cc241d")
+local powwidget = wibox.container.background(wibox.container.margin(wibox.widget {power_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
 
 -- Volume widget
 local volume_widget = widgets.volume
-local volwidget = wibox.container.background(wibox.container.margin(wibox.widget {volume_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#d79921")
+local volwidget = wibox.container.background(wibox.container.margin(wibox.widget {volume_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#1d2120")
 
 --{{Network widget
 local wifi_icon_widget = widgets.wifi_icon
 local eth_icon_widget = widgets.eth_icon
-local wifi_icon = wibox.container.background(wibox.container.margin(wibox.widget {wifi_icon_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#98971a")
-local eth_widget = wibox.container.background(wibox.container.margin(wibox.widget {eth_icon_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#98971a")
+local wifi_icon = wibox.container.background(wibox.container.margin(wibox.widget {wifi_icon_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
+local eth_widget = wibox.container.background(wibox.container.margin(wibox.widget {eth_icon_widget, layout=wibox.layout.fixed.horizontal}, 1, 1), "#3f3f3f")
 --}}
 
 -- Pacman need update widgets
@@ -209,11 +209,11 @@ env.wallpaper(s)
     volwidget.widget:buttons(awful.util.table.join(
         awful.button({ }, 4, function()
             awful.spawn("amixer -c 0 -q sset Master 5%+") --scroll up
-            volwidget.update()
+            volwidget.widget.update()
         end),
         awful.button({ }, 5, function()
             awful.spawn("amixer -c 0 -q sset Master 5%-") --scroll down
-            volwidget.update()
+            volwidget.widget.update()
         end)
     ))
 
@@ -249,7 +249,7 @@ env.wallpaper(s)
             cpugovernor,
             arrow_r("#3f3f3f","alpha"),
             memwidget.widget,
-            arrow_r("#3f3f3f","alpha"),
+            arrow_r("#alpha","#3f3f3f"),
             tempwidget,
             arrow_r("#3f3f3f","alpha"),
             s.mytasklist,
@@ -258,13 +258,14 @@ env.wallpaper(s)
               nil,
             {-- Right Widgets
             layout = wibox.layout.fixed.horizontal,
+            arrow_l("alpha","#3f3f3f"),
             powwidget,
-            arrow_r("#cc241d","#d79921"),
+            arrow_r("#3f3f3f","alpha"),
             volwidget,
-            arrow_r("#d79921","#98971a"),
+            arrow_r("alpha","#3f3f3f"),
             wifi_icon,
             eth_icon,
-            arrow_r("#98971a","alpha"),
+            arrow_r("#3f3f3f","alpha"),
             systemtray,
         },
     }
@@ -382,7 +383,7 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ env.mod, "Shift"   }, "e", function () awful.spawn("sh " .. env.scripts_folder .. "logout.sh") end,
               {description = "quit awesome", group = "awesome"}),
-    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("betterlockscreen -l") end,
+    awful.key({ env.mod, "Control"   }, "l", function () awful.spawn("/home/greyowl/bin/lockscreen.sh") end,
               {description = "lock awesome", group = "awesome"}),
 
     awful.key({ env.mod, "Control" }, "-",

@@ -137,7 +137,7 @@ function widgets:init(args)
         awful.button({}, 1, function() awful.spawn.with_shell("networkmanager_dmenu") end)))
      
     self.watchpacman = wibox.widget.imagebox()
-    
+--[[    
     local paccheck = awful.widget.watch('pacman -Qu | grep -v ignored | wc -l ', 60, function(widget, stdout)
             if tonumber(stdout) > 0 then 
                 awful.spawn("notify-send 'There are '" .. line .. "' package(s) to be upgraded ' ")
@@ -153,7 +153,7 @@ function widgets:init(args)
                 end,
             })
     end)
-    
+    ]]--
     --MPD Widget
     local mpd = lain.widget.mpd({
 --         host = "~/.config/mpd/socket",
