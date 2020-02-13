@@ -6,7 +6,7 @@ alias search="pacman -Ss"
 alias inst="sudo pacman -Sy --needed"
 alias update="sudo pacman -Syyu"
 alias remp="yay -Rscn"
-alias remclean="yay -Sc && notify-send 'Unused Packages Removed'"
+alias remclean="paccache -rk 1 && yay -Sc && notify-send 'Unused Packages Removed'"
 alias upgrade="yay && notify-send 'System Package Upgrade Complete'"
 alias reinstall="sudo pacman -S "
 alias pacinfo="pacman -Qi"
@@ -20,7 +20,6 @@ alias aureinstall="yay -S"
 alias listaur="yay -Qm"
 
 alias tweaksedit="vim $HOME/.TerminalTweaksArch"
-alias mount-unixtimeshare="sshfs ejwells@unix.ucsc.edu:/afs/cats.ucsc.edu/users/d/ejwells /home/solace/Documents/School/Timeshare"
 alias nvidia_run="DRI_PRIME=1"
 alias governor_check="cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor"
 alias calc="gcalccmd"
@@ -43,12 +42,27 @@ alias gcard="inxi -Gx"
 alias netscan="nmap -sP"
 alias Projects="cd /home/solace/Documents/Projects"
 
-alias l="ls --color=auto"
-alias lg="ls -g"
-alias ll="ls -l"
-alias la="ls -a"
-alias ls="ls --color=auto"
+#Find with saner defaults
+alias find='fd'
+
+#Add a space after watch so that it expands aliases
+alias watch='watch '
+
+#alias l="ls --color=auto"
+alias l="exa -lahF"
+#alias ll="ls -l"
+alias ll="exa -l"
+#alias la="ls -a"
+alias la="exa -a"
+#alias ls="ls --color=auto"
+alias ls="exa"
 
 alias rm="rm -I"
 
 alias youtube-to-m4a="youtube-dl --add-metadata -x --audio-format m4a -o '%(title)s.%(ext)s' --restrict-filenames"
+
+j() {
+    [ $# -gt 0 ] && fasd_cd -d "$*" && return
+    local dir
+    dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+}
