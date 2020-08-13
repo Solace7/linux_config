@@ -15,18 +15,18 @@ hi Normal          ctermfg=252 ctermbg=none
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 Plug '907th/vim-auto-save'
 Plug 'Lokaltog/vim-powerline'
-Plug 'colorizer'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
-Plug 'Valloric/YouCompleteMe'
-call pluge#end()            " required
+Plug 'dense-analysis/ale'
+Plug 'norcalli/nvim-colorizer.lua'
+call plug#end()            " required
 let g:auto_save_events = ["InsertLeave"]
 syntax on
 colorscheme gruvbox
