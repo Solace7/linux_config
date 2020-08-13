@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'dense-analysis/ale'
+Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()            " required
 let g:auto_save_events = ["InsertLeave"]
 syntax on
