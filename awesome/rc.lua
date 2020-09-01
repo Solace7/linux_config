@@ -208,12 +208,12 @@ env.wallpaper(s)
     --Change Volume on Scrollwheel up/down
     volwidget.widget:buttons(awful.util.table.join(
         awful.button({ }, 4, function()
-            awful.spawn("amixer -c 0 -q sset Master 5%+") --scroll up
-            volwidget.widget.update()
+            awful.spawn("amixer -c 1 -q sset Master 5%+") --scroll up
+            volume_widget.update()
         end),
         awful.button({ }, 5, function()
-            awful.spawn("amixer -c 0 -q sset Master 5%-") --scroll down
-            volwidget.widget.update()
+            awful.spawn("amixer -c 1 -q sset Master 5%-") --scroll down
+            volume_widget.update()
         end)
     ))
 
@@ -227,12 +227,15 @@ env.wallpaper(s)
         { -- Left Widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
+            arrow_r("#2f2f2f","alpha"),
+            s.mytasklist,
         },
             -- Middle Widgets
-            mytextclock,
         { -- Right Widgets
+            arrow_l("alpha","#2f2f2f"),
+            mytextclock,
+            arrow_r("#2f2f2f","alpha"),
             layout = wibox.layout.fixed.horizontal,
-            widgets.mpdwidget,
             env.wrapper(layoutbox[s], "layoutbox",layoutbox.buttons),
         },
     }
@@ -249,18 +252,14 @@ env.wallpaper(s)
             cpugovernor,
             arrow_r("#3f3f3f","alpha"),
             memwidget.widget,
-            arrow_r("#alpha","#3f3f3f"),
+            arrow_r("alpha","#3f3f3f"),
             tempwidget,
             arrow_r("#3f3f3f","alpha"),
-            s.mytasklist,
         },
             --Middle Wdigets
               nil,
             {-- Right Widgets
             layout = wibox.layout.fixed.horizontal,
-            arrow_l("alpha","#3f3f3f"),
-            powwidget,
-            arrow_r("#3f3f3f","alpha"),
             volwidget,
             arrow_r("alpha","#3f3f3f"),
             wifi_icon,
@@ -398,24 +397,26 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 	awful.key({env.mod}, 			"d", function() awful.spawn("rofi -show") end,
 			  {description = "rofi prompt", group = "launcher"}),
+    awful.key({env.mod},            ";", function() awful.spawn("rofimoji") end,
+            {description = "rofimoji prompt", group = "launcher"}),
 
     --{{{Volume Control
     awful.key({},"XF86AudioLowerVolume",
         function()
             awful.spawn("amixer -q sset Master 5%-")
-            volwidget.update()
+            volume_widget.update()
         end,
     	{description = "Lower volume by 5%", group="client"}),
     awful.key({},"XF86AudioRaiseVolume",
         function()
             awful.spawn("amixer -q sset Master 5%+")
-            volwidget.update()
+            volume_widget.update()
         end,
     	{description = "Raise volume by 5%", group="client"}),
     awful.key({}, "XF86AudioMute",
         function()
             awful.spawn("amixer -q sset Master toggle")
-            volwidget.update()
+            volume_widget.update()
         end,
     	{description = "Mute audio", group="client"})
 )

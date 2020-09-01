@@ -15,7 +15,7 @@ local awesome_themes = confdir .. "themes/"
 local theme_path = awesome_themes .. "xresources"
 
 local theme = {}
-theme.panel_height = 26
+theme.panel_height = 20
 theme.wallpaper = theme_path.."/background.png"
 theme.wallpaper_portrait = theme_path.."/background_portrait.png"
 

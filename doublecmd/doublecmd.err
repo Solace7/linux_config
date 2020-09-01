@@ -1,0 +1,28 @@
+--------------- 06-08-2020, 18:23:33 ---------------
+| DC v0.9.9 beta Rev. 9478 -- x86_64-Linux-gtk2
+| EndeavourOS Linux -- GTK 2.24.32 | PID 121892
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FEB6EF163E2 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 06-08-2020, 18:34:25 ---------------
+| DC v0.9.9 beta Rev. 9478 -- x86_64-Linux-gtk2
+| EndeavourOS Linux -- GTK 2.24.32 | PID 122447
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F779E85F3E2 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 08-08-2020, 17:22:50 ---------------
+| DC v0.9.9 beta Rev. 9478 -- x86_64-Linux-gtk2
+| EndeavourOS Linux -- GTK 2.24.32 | PID 306350
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F294F6C73E2 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 09-08-2020, 13:09:55 ---------------
+| DC v0.9.9 beta Rev. 9478 -- x86_64-Linux-gtk2
+| EndeavourOS Linux -- GTK 2.24.32 | PID 307484
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FE2E77FD3E2 in /usr/lib/libgtk-x11-2.0.so.0
+
