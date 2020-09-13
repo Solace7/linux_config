@@ -20,7 +20,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-eval $(thefuck --alias)
 
 if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
