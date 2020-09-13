@@ -79,7 +79,7 @@ env.wrapper = function(widget, name, buttons)
 		widget:buttons(buttons)
 	end
 
-	return wibox.container.margin(widget, unpack(margin))
+	return wibox.container.margin(widget, margin)
 end
 
 

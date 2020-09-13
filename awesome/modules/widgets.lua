@@ -23,11 +23,18 @@ function widgets:init(args)
     -- Keyboard map indicator and switcher
     self.mykeyboardlayout = awful.widget.keyboardlayout()
     
+    -- Calendar widget
+    
+    self.monthcal = awful.widget.calendar_popup.month()
+    
     -- Create a textclock widget
     self.mytextclock = wibox.widget.textclock("%H:%M:%S § %Y-%m-%d",1)
 
-    self.monthcal = awful.widget.calendar_popup.month()
-    self.monthcal:attach(self.mytextclock,"tm" ,{on_hover=false})
+    self.mytextclock:buttons(awful.util.table.join(
+        awful.button({}, 1, function() 
+            self.monthcal:call_calendar(0,"tm",awful.screen.focused())
+            self.monthcal:toggle()
+        end)))
     
     -- CPU Governor Widget
     self.cpugovernor = awful.widget.watch('cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor', 60, function(widget, stdout)
@@ -53,9 +60,9 @@ function widgets:init(args)
     
     self.battwidget = lain.widget.bat({
         settings = function()
-            if(bat_now.perc < 25) then 
+            --[[if(bat_now.perc < tonumber(25)) then 
                 widget:set_markup("  POW")
-            else if(bat_now.perc < 50) then
+            else if(bat_now.perc < tonumber(50) then
                 widget:set_markup("  POW")
             else
                 widget:set_markup("  POW")
@@ -79,7 +86,7 @@ function widgets:init(args)
             bat_notification_critical_preset = {
                 fg = "#282828",
                 bg = "#fb4934"
-            }
+            } ]]--
         end
     })
     
@@ -109,7 +116,7 @@ function widgets:init(args)
                     eth_icon:set_image()
                 end
             end
-            local wlan0 = net_now.devices["wlp0s26u1u2"]
+            local wlan0 = net_now.devices["wlan0"]
             if wlan0 then
                 if wlan0.wifi then
                     local signal = wlan0.signal
@@ -188,7 +195,7 @@ function widgets:init(args)
 
     --Volume widget
     self.volume = lain.widget.alsa({
-        cmd = "amixer -c 0",
+        cmd = "amixer -c 1",
         settings = function()
             widget:set_markup(" " .. volume_now.level .. " ")
         end

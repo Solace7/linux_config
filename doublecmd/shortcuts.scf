@@ -280,11 +280,19 @@
         <Command>cm_ViewHistoryNext</Command>
       </Hotkey>
       <Hotkey>
+<<<<<<< HEAD
         <Shortcut>Alt+Shift+Enter</Shortcut>
         <Command>cm_CountDirContent</Command>
       </Hotkey>
       <Hotkey>
         <Shortcut>Alt+Shift+F9</Shortcut>
+=======
+        <Shortcut>Shift+Alt+Enter</Shortcut>
+        <Command>cm_CountDirContent</Command>
+      </Hotkey>
+      <Hotkey>
+        <Shortcut>Shift+Alt+F9</Shortcut>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
         <Command>cm_TestArchive</Command>
       </Hotkey>
       <Hotkey>
