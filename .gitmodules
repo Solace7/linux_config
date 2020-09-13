@@ -1,3 +1,6 @@
 [submodule "awesome-config"]
 	path = awesome-config
 	url = https://github.com/Solace7/awesome-config
+[submodule "awesome"]
+	path = awesome
+	url = https://github.com/Solace7/awesome-config
