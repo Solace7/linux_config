@@ -4,3 +4,6 @@
 [submodule "awesome/redflat"]
 	path = awesome/redflat
 	url = https://github.com/worron/redflat.git
+[submodule "awesome-config"]
+	path = awesome-config
+	url = https://github.com/Solace7/awesome-config
