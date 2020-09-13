@@ -4,98 +4,170 @@
     <MainToolbar>
       <Row>
         <Command>
+<<<<<<< HEAD
+          <ID>{0A42EA13-41DF-4D5E-9CB2-9CCA000FB6FB}</ID>
+=======
           <ID>{945A31E7-3D57-48DB-B66C-1C2CF97F70DB}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_refresh</Icon>
           <Command>cm_Refresh</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{56D22ED5-D692-4FE4-A81A-BB35C5705EC6}</ID>
+=======
           <ID>{5C69FC47-72B7-47B6-B688-EF775E345188}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_runterm</Icon>
           <Command>cm_RunTerm</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{005270FD-AF1D-4E41-9687-00721A5BD21F}</ID>
+=======
           <ID>{373C23B4-8ECB-4431-B13D-C1430C81CD77}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_options</Icon>
           <Command>cm_Options</Command>
         </Command>
         <Separator/>
         <Command>
+<<<<<<< HEAD
+          <ID>{2B055C4F-E96C-42D4-937E-A2E74FCB39FF}</ID>
+=======
           <ID>{BDF6B72B-9744-41C2-B6C7-337847DFC903}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_briefview</Icon>
           <Command>cm_BriefView</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{91DBCD70-340C-4DE6-93D0-CCBC5C5D30AE}</ID>
+=======
           <ID>{7FE79431-C328-4A60-8521-9363389B245A}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_columnsview</Icon>
           <Command>cm_ColumnsView</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{D97C5E36-A287-44E5-8477-183EF309BC23}</ID>
+=======
           <ID>{9856DD6A-239E-49BC-BB30-F5A46662BE6E}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_thumbnailsview</Icon>
           <Command>cm_ThumbnailsView</Command>
         </Command>
         <Separator/>
         <Command>
+<<<<<<< HEAD
+          <ID>{BC2E8348-B7C8-4855-97F8-24263FDCF8EE}</ID>
+=======
           <ID>{10527496-6E5E-43CA-9E82-D10929F7BA18}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_flatview</Icon>
           <Command>cm_FlatView</Command>
         </Command>
         <Separator/>
         <Command>
+<<<<<<< HEAD
+          <ID>{F3FFD483-DCFC-4839-8104-3B2278870A10}</ID>
+=======
           <ID>{B6B6A3F6-5174-48C6-B7A0-AF70697E56DC}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_viewhistoryprev</Icon>
           <Command>cm_ViewHistoryPrev</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{FE4A4544-F5EA-4B8C-831E-D1C46A16C5C5}</ID>
+=======
           <ID>{092F87C9-722B-4C82-B22B-542BFD5F778A}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_viewhistorynext</Icon>
           <Command>cm_ViewHistoryNext</Command>
         </Command>
         <Separator/>
         <Command>
+<<<<<<< HEAD
+          <ID>{2547A100-FDB5-483E-9388-90E74E090EA7}</ID>
+=======
           <ID>{9A897D18-6EE6-4ABB-9CB1-2DE6F36DF219}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_markplus</Icon>
           <Command>cm_MarkPlus</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{887A6828-5988-48CA-B973-5B2353CCB9E3}</ID>
+=======
           <ID>{360D87BB-78E5-4EB6-A330-FC37F2C0074A}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_markminus</Icon>
           <Command>cm_MarkMinus</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{E2D74E07-1461-4796-88D8-033082BE4759}</ID>
+=======
           <ID>{7FD0E011-410D-4630-B9E3-62226206CCFF}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_markinvert</Icon>
           <Command>cm_MarkInvert</Command>
         </Command>
         <Separator/>
         <Command>
+<<<<<<< HEAD
+          <ID>{A5346F97-55B6-4C75-90B9-540A0BBF35D6}</ID>
+=======
           <ID>{10453E84-6A64-48AB-969C-A871452FAE52}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_packfiles</Icon>
           <Command>cm_PackFiles</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{06E61C37-0DCD-4FD2-AA31-BCE1DF0FF90D}</ID>
+=======
           <ID>{85C81650-D268-4F3C-BF6A-C715E1870D16}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_extractfiles</Icon>
           <Command>cm_ExtractFiles</Command>
         </Command>
         <Separator/>
         <Command>
+<<<<<<< HEAD
+          <ID>{6D238D7F-D012-4BA3-9912-C505D611AE80}</ID>
+=======
           <ID>{65641274-1939-4E8D-AC5A-2960D17B8848}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_search</Icon>
           <Command>cm_Search</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{EB327382-5045-4F35-9315-07D9F6A145FC}</ID>
+=======
           <ID>{E58512B5-20E5-49B5-9A18-926E34AB5C08}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_multirename</Icon>
           <Command>cm_MultiRename</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{E9F75B81-6A20-4171-AAC5-78FB85885468}</ID>
+=======
           <ID>{D720DB80-FD98-437F-8BBC-29E6950F5B8C}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_syncdirs</Icon>
           <Command>cm_SyncDirs</Command>
         </Command>
         <Command>
+<<<<<<< HEAD
+          <ID>{54F7F0DA-E5FC-436F-8419-4A6B8F6534CB}</ID>
+=======
           <ID>{3E0F6622-F2AD-4862-B51C-22647A668588}</ID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Icon>cm_copyfullnamestoclip</Icon>
           <Command>cm_CopyFullNamesToClip</Command>
         </Command>
@@ -104,6 +176,15 @@
   </Toolbars>
   <MainWindow>
     <Position Save="True">
+<<<<<<< HEAD
+      <Left>2880</Left>
+      <Top>26</Top>
+      <Width>956</Width>
+      <Height>1123</Height>
+      <PixelsPerInch>96</PixelsPerInch>
+      <Maximized>False</Maximized>
+      <Splitter>46.7851542080502</Splitter>
+=======
       <Left>0</Left>
       <Top>20</Top>
       <Width>1676</Width>
@@ -111,6 +192,7 @@
       <PixelsPerInch>88</PixelsPerInch>
       <Maximized>False</Maximized>
       <Splitter>50</Splitter>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
     </Position>
   </MainWindow>
   <Tabs>
@@ -119,16 +201,135 @@
         <ActiveTab>0</ActiveTab>
         <Tab>
           <FileView Type="columns">
+<<<<<<< HEAD
+=======
             <Sortings>
               <Sorting>
                 <Direction>1</Direction>
                 <Function>12</Function>
               </Sorting>
             </Sortings>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
             <History>
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
+<<<<<<< HEAD
+                  <Path Filename="Files">/home/greyowl/Documents/</Path>
+                  <Path Filename="ISO">/home/greyowl/Documents/Files/</Path>
+                  <Path Filename="Win10_1909_English_x64.iso">/home/greyowl/Documents/Files/ISO/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Games">/home/greyowl/Documents/</Path>
+                  <Path Filename="Minecraft">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="Mods">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="1.12.2">/home/greyowl/Documents/Games/Minecraft/Mods/</Path>
+                  <Path Filename="Wawla-1.12.2-2.6.275.jar">/home/greyowl/Documents/Games/Minecraft/Mods/1.12.2/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Phone">/home/greyowl/Documents/</Path>
+                  <Path Filename="Backup">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="Kustom">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="wallpapers">/home/greyowl/Documents/Phone/Backup/Kustom/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Backup/Kustom/wallpapers/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Backup/Kustom/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Games">/home/greyowl/Documents/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="Phone">/home/greyowl/Documents/</Path>
+                  <Path Filename="Root">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Root/</Path>
+                  <Path Filename="Backup">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="20200712.txt">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="Pictures">/home/greyowl/</Path>
+                  <Path Filename="IMG_20160129_145412.jpg">/home/greyowl/Pictures/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Phone">/home/greyowl/Documents/</Path>
+                  <Path Filename="Backup">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="2020-08-01_15-44.novabackup">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Projects">/home/greyowl/Documents/</Path>
+                  <Path Filename="Visual">/home/greyowl/Documents/Projects/</Path>
+                  <Path Filename="Photography">/home/greyowl/Documents/Projects/Visual/</Path>
+                  <Path Filename=".dtrash">/home/greyowl/Documents/Projects/Visual/Photography/</Path>
+                  <Path Filename="files">/home/greyowl/Documents/Projects/Visual/Photography/.dtrash/</Path>
+                  <Path Filename="_MG_7924-534dd44a.JPG">/home/greyowl/Documents/Projects/Visual/Photography/.dtrash/files/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Projects/Visual/Photography/</Path>
+                  <Path Filename="Documents">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/Documents/</Path>
+                  <Path Filename="Music">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/Music/</Path>
+                  <Path Filename=".config">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/.config/</Path>
+                  <Path Filename="Documents">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="Phone">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/Documents/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/Documents/Phone/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Files">/home/greyowl/Documents/</Path>
+                  <Path Filename="ISO">/home/greyowl/Documents/Files/</Path>
+                  <Path Filename="Win10_1909_English_x64.iso">/home/greyowl/Documents/Files/ISO/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Games">/home/greyowl/Documents/</Path>
+                  <Path Filename="Minecraft">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="Mods">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="1.12.2">/home/greyowl/Documents/Games/Minecraft/Mods/</Path>
+                  <Path Filename="Wawla-1.12.2-2.6.275.jar">/home/greyowl/Documents/Games/Minecraft/Mods/1.12.2/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Phone">/home/greyowl/Documents/</Path>
+                  <Path Filename="Backup">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="Kustom">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="wallpapers">/home/greyowl/Documents/Phone/Backup/Kustom/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Backup/Kustom/wallpapers/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Backup/Kustom/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Games">/home/greyowl/Documents/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="Phone">/home/greyowl/Documents/</Path>
+                  <Path Filename="Root">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Phone/Root/</Path>
+                  <Path Filename="Backup">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="20200712.txt">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="Pictures">/home/greyowl/</Path>
+                  <Path Filename="IMG_20160129_145412.jpg">/home/greyowl/Pictures/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Phone">/home/greyowl/Documents/</Path>
+                  <Path Filename="Backup">/home/greyowl/Documents/Phone/</Path>
+                  <Path Filename="2020-08-01_15-44.novabackup">/home/greyowl/Documents/Phone/Backup/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Projects">/home/greyowl/Documents/</Path>
+                  <Path Filename="Visual">/home/greyowl/Documents/Projects/</Path>
+                  <Path Filename="Photography">/home/greyowl/Documents/Projects/Visual/</Path>
+                  <Path Filename=".dtrash">/home/greyowl/Documents/Projects/Visual/Photography/</Path>
+                  <Path Filename="files">/home/greyowl/Documents/Projects/Visual/Photography/.dtrash/</Path>
+                  <Path Filename="_MG_7924-534dd44a.JPG">/home/greyowl/Documents/Projects/Visual/Photography/.dtrash/files/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Projects/Visual/Photography/</Path>
+                  <Path Filename="Documents">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/Documents/</Path>
+                  <Path Filename="Music">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/Music/</Path>
+                  <Path Filename=".config">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/.config/</Path>
+                  <Path Filename=".config">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/</Path>
+                  <Path Filename="..">/run/media/greyowl/bb6b8a9a-88cf-4883-b225-8c9382dfd70d/.config/</Path>
+=======
                   <Path Filename="Mods">/home/greyowl/Documents/Games/Minecraft/</Path>
                   <Path Filename="1.7.10">/home/greyowl/Documents/Games/Minecraft/Mods/</Path>
                   <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/Mods/1.7.10/</Path>
@@ -179,6 +380,7 @@
                   <Path Filename="CoFHWorld-1.12.2-1.4.0.1-universal.jar">/home/greyowl/Documents/Games/Minecraft/CustomPack/serverfiles/mods/</Path>
                   <Path Filename="Documents">/home/greyowl/</Path>
                   <Path Filename="..">/home/greyowl/Documents/</Path>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
                 </Paths>
               </Entry>
             </History>
@@ -202,6 +404,58 @@
               <Entry Active="True">
                 <FileSource Type="FileSystem"/>
                 <Paths>
+<<<<<<< HEAD
+                  <Path Filename="Games">/home/greyowl/Documents/</Path>
+                  <Path Filename="Minecraft">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="RLCraft+v2.8.2+HARDCORE+Config+Pack+(V3)">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/RLCraft+v2.8.2+HARDCORE+Config+Pack+(V3)/</Path>
+                  <Path Filename="RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="resourcepacks">/home/greyowl/Documents/Games/Minecraft/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2/resourcepacks/</Path>
+                  <Path Filename="config">/home/greyowl/Documents/Games/Minecraft/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2/config/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/RLCraft+Server+Pack+1.12.2+-+Beta+v2.8.2/</Path>
+                  <Path Filename="multimc">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="instances">/home/greyowl/Documents/Games/Minecraft/multimc/</Path>
+                  <Path Filename="RLCraft">/home/greyowl/Documents/Games/Minecraft/multimc/instances/</Path>
+                  <Path Filename=".minecraft">/home/greyowl/Documents/Games/Minecraft/multimc/instances/RLCraft/</Path>
+                  <Path Filename="mods">/home/greyowl/Documents/Games/Minecraft/multimc/instances/RLCraft/.minecraft/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/multimc/instances/RLCraft/.minecraft/mods/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/</Path>
+                  <Path Filename="migrate">/home/greyowl/</Path>
+                  <Path Filename="..">/home/greyowl/migrate/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="School">/home/greyowl/Documents/</Path>
+                  <Path Filename="takeout-20170610T203106Z-001">/home/greyowl/Documents/School/</Path>
+                  <Path Filename="takeout-20170610T203106Z-001.tgz">/home/greyowl/Documents/School/takeout-20170610T203106Z-001/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Games">/home/greyowl/Documents/</Path>
+                  <Path Filename="Minecraft">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="Server">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="serverfiles">/home/greyowl/Documents/Games/Minecraft/Server/</Path>
+                  <Path Filename="mods">/home/greyowl/Documents/Games/Minecraft/Server/serverfiles/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/Server/serverfiles/mods/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/Server/serverfiles/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/Server/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/Minecraft/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Games/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/</Path>
+                  <Path Filename="mobile">/home/greyowl/</Path>
+                  <Path Filename="Backup">/home/greyowl/mobile/</Path>
+                  <Path Filename="2020-08-25">/home/greyowl/mobile/Backup/</Path>
+                  <Path Filename="..">/home/greyowl/mobile/Backup/2020-08-25/</Path>
+                  <Path Filename="..">/home/</Path>
+                  <Path Filename="Music">/home/greyowl/</Path>
+                  <Path Filename="..">/home/greyowl/Music/</Path>
+                  <Path Filename="Documents">/home/greyowl/</Path>
+                  <Path Filename="Files">/home/greyowl/Documents/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/Files/</Path>
+                  <Path Filename="..">/home/greyowl/Documents/</Path>
+                  <Path Filename="mobile">/home/greyowl/</Path>
+                  <Path Filename="Backup">/home/greyowl/mobile/</Path>
+                  <Path Filename="mobile">/home/greyowl/</Path>
+=======
                   <Path Filename="instances">/home/greyowl/Documents/Games/Minecraft/multimc/</Path>
                   <Path Filename="FTB Departed">/home/greyowl/Documents/Games/Minecraft/multimc/instances/</Path>
                   <Path Filename=".minecraft">/home/greyowl/Documents/Games/Minecraft/multimc/instances/FTB Departed/</Path>
@@ -252,6 +506,7 @@
                   <Path Filename="mods">/home/greyowl/Documents/Games/Minecraft/multimc/instances/Departed 1.12.2/.minecraft/</Path>
                   <Path Filename="OpenBlocks-1.12.2-1.8.1.jar">/home/greyowl/Documents/Games/Minecraft/multimc/instances/Departed 1.12.2/.minecraft/mods/</Path>
                   <Path Filename="..">/home/greyowl/</Path>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
                 </Paths>
               </Entry>
             </History>
@@ -297,7 +552,11 @@
     <PersonalizedGiga>GB</PersonalizedGiga>
     <PersonalizedTera>TB</PersonalizedTera>
     <MinimizeToTray>True</MinimizeToTray>
+<<<<<<< HEAD
+    <AlwaysShowTrayIcon>True</AlwaysShowTrayIcon>
+=======
     <AlwaysShowTrayIcon>False</AlwaysShowTrayIcon>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
     <Mouse>
       <Selection Enabled="True">
         <Button>0</Button>
@@ -345,6 +604,15 @@
   </Tools>
   <Fonts>
     <Main>
+<<<<<<< HEAD
+      <Name>FiraCode Nerd Font</Name>
+      <Size>10</Size>
+      <Style>0</Style>
+      <Quality>0</Quality>
+    </Main>
+    <Editor>
+      <Name>FiraMono Nerd Font</Name>
+=======
       <Name>default</Name>
       <Size>10</Size>
       <Style>1</Style>
@@ -352,12 +620,17 @@
     </Main>
     <Editor>
       <Name>Monospace</Name>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
       <Size>14</Size>
       <Style>0</Style>
       <Quality>0</Quality>
     </Editor>
     <Viewer>
+<<<<<<< HEAD
+      <Name>FiraMono Nerd Font</Name>
+=======
       <Name>Monospace</Name>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
       <Size>14</Size>
       <Style>0</Style>
       <Quality>0</Quality>
@@ -381,8 +654,13 @@
       <Quality>0</Quality>
     </SearchResults>
     <PathEdit>
+<<<<<<< HEAD
+      <Name>FiraCode Nerd Font</Name>
+      <Size>10</Size>
+=======
       <Name>default</Name>
       <Size>8</Size>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
       <Style>0</Style>
       <Quality>0</Quality>
     </PathEdit>
@@ -393,12 +671,25 @@
       <Quality>0</Quality>
     </FunctionButtons>
     <Log>
+<<<<<<< HEAD
+      <Name>FiraMono Nerd Font</Name>
+=======
       <Name>Monospace</Name>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
       <Size>12</Size>
       <Style>0</Style>
       <Quality>0</Quality>
     </Log>
     <ViewerBook>
+<<<<<<< HEAD
+      <Name>FiraCode Nerd Font</Name>
+      <Size>10</Size>
+      <Style>0</Style>
+      <Quality>0</Quality>
+    </ViewerBook>
+    <Console>
+      <Name>FiraCode Nerd Font</Name>
+=======
       <Name>default</Name>
       <Size>16</Size>
       <Style>1</Style>
@@ -406,6 +697,7 @@
     </ViewerBook>
     <Console>
       <Name>Monospace</Name>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
       <Size>12</Size>
       <Style>0</Style>
       <Quality>0</Quality>
@@ -473,7 +765,11 @@
     <KeyButtons>True</KeyButtons>
     <InterfaceFlat>True</InterfaceFlat>
     <DriveFreeSpace>True</DriveFreeSpace>
+<<<<<<< HEAD
+    <DriveIndicator>False</DriveIndicator>
+=======
     <DriveIndicator>True</DriveIndicator>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
     <ProgressInMenuBar>False</ProgressInMenuBar>
     <PanelOfOperationsInBackground>True</PanelOfOperationsInBackground>
     <HorizontalFilePanels>False</HorizontalFilePanels>
@@ -620,7 +916,11 @@
     <Exclude>False</Exclude>
     <ExcludeDirs/>
     <CustomIcons>0</CustomIcons>
+<<<<<<< HEAD
+    <PixelsPerInch>96</PixelsPerInch>
+=======
     <PixelsPerInch>88</PixelsPerInch>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
     <ShowInMenus Enabled="False">
       <Size>16</Size>
     </ShowInMenus>
@@ -756,7 +1056,11 @@
     <DfltRightGoTo>1</DfltRightGoTo>
     <DfltKeep>5</DfltKeep>
     <DfltSaveDirHistory>False</DfltSaveDirHistory>
+<<<<<<< HEAD
+    <FavTabsLastUniqueID>{A539ACC0-AE04-4746-AB4C-71D959B2ED26}</FavTabsLastUniqueID>
+=======
     <FavTabsLastUniqueID>{A2EBDF70-D192-4235-98FB-28B8B45241FE}</FavTabsLastUniqueID>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
   </FavoriteTabsOptions>
   <Lua>
     <PathToLibrary>liblua5.1.so.0</PathToLibrary>
@@ -779,7 +1083,11 @@
       <Name>Default</Name>
       <CustomView>False</CustomView>
       <FileSystem>&lt;General&gt;</FileSystem>
+<<<<<<< HEAD
+      <PixelsPerInch>96</PixelsPerInch>
+=======
       <PixelsPerInch>88</PixelsPerInch>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
       <CursorBorder Enabled="False">
         <Color>-2147483635</Color>
       </CursorBorder>
@@ -787,7 +1095,11 @@
         <Column>
           <Title>Name</Title>
           <FuncString>[DC().GETFILENAMENOEXT{}]</FuncString>
+<<<<<<< HEAD
+          <Width>587</Width>
+=======
           <Width>364</Width>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -810,7 +1122,11 @@
         <Column>
           <Title>Ext</Title>
           <FuncString>[DC().GETFILEEXT{}]</FuncString>
+<<<<<<< HEAD
+          <Width>50</Width>
+=======
           <Width>46</Width>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Align>0</Align>
           <Font>
             <Name>default</Name>
@@ -833,7 +1149,11 @@
         <Column>
           <Title>Size</Title>
           <FuncString>[DC().GETFILESIZE{}]</FuncString>
+<<<<<<< HEAD
+          <Width>70</Width>
+=======
           <Width>64</Width>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Align>1</Align>
           <Font>
             <Name>default</Name>
@@ -856,7 +1176,11 @@
         <Column>
           <Title>Date</Title>
           <FuncString>[DC().GETFILETIME{}]</FuncString>
+<<<<<<< HEAD
+          <Width>140</Width>
+=======
           <Width>128</Width>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Align>1</Align>
           <Font>
             <Name>default</Name>
@@ -879,7 +1203,11 @@
         <Column>
           <Title>Attr</Title>
           <FuncString>[DC().GETFILEATTR{}]</FuncString>
+<<<<<<< HEAD
+          <Width>100</Width>
+=======
           <Width>92</Width>
+>>>>>>> d2656bc2a389631adedfb1022b62a731fced9181
           <Align>0</Align>
           <Font>
             <Name>default</Name>
