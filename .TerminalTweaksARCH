@@ -43,7 +43,6 @@ alias netscan="nmap -sP"
 alias Projects="cd /home/solace/Documents/Projects"
 
 #Find with saner defaults
-alias find='fd'
 
 #Add a space after watch so that it expands aliases
 alias watch='watch '
