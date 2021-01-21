@@ -20,4 +20,9 @@ printf "Symlinking files...\n"
 (cd $HOME; ln -s $HOME/.config/scripts/bin)
 printf "...done\n"
 # Misc
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+vim +PluginInstall
 
