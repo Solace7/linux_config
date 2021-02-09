@@ -1,18 +1,3 @@
-
-/* The module to use. A module is a set of shaders used to produce
-   the visualizer. The structure for a module is the following:
-   
-   module_name [directory]
-       1.frag [file: fragment shader],
-       2.frag [file: fragment shader],
-       ...
-       
-   Shaders are loaded in numerical order, starting at '1.frag',
-   continuing indefinitely. The results of each shader (except
-   for the final pass) is given to the next shader in the list
-   as a 2D sampler.
-   
-   See documentation for more details. */
 #request mod bars
 
 /* Window hints */
@@ -21,19 +6,6 @@
 #request setfocused   false
 #request setmaximized false
 
-/* Set window background opacity mode. Possible values are:
-   
-   "native" - True transparency provided by the compositor. Can
-              reduce performance on some systems, depending on
-              the compositor used.
-   
-   "xroot"  - Maintain a copy of the root window's pixmap
-              (usually the desktop background) to provide a
-              pseudo-transparent effect. Useful when no compositor
-              is available or native transparency isn't nessecary.
-              Has very little performance impact.
-    
-   "none"   - Disable window opacity completely. */
 #request setopacity "native"
 
 /* Whether to mirror left and right audio input channels from PulseAudio.*/
@@ -51,7 +23,7 @@
 //radial
 //#request setgeometry 560 140 800 800
 //bars
-#request setgeometry 0 540 1920 300
+#request setgeometry 0 -20 1920 75
 
 
 /* Window background color (RGB format).
@@ -105,7 +77,7 @@
 /* PulseAudio source. Can be a number or a name of an audio
    sink or device to record from. Set to "auto" to use the
    default output device. */
-#request setsource "auto"
+#request setsource "0"
 
 /* Buffer swap interval (vsync), set to '0' to prevent
    waiting for refresh, '1' (or more) to wait for the specified
