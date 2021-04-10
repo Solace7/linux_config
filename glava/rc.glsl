@@ -23,7 +23,7 @@
 //radial
 //#request setgeometry 560 140 800 800
 //bars
-#request setgeometry 0 -20 1920 75
+#request setgeometry 0 0 1920 75
 
 
 /* Window background color (RGB format).
@@ -77,7 +77,7 @@
 /* PulseAudio source. Can be a number or a name of an audio
    sink or device to record from. Set to "auto" to use the
    default output device. */
-#request setsource "0"
+#request setsource "3"
 
 /* Buffer swap interval (vsync), set to '0' to prevent
    waiting for refresh, '1' (or more) to wait for the specified
