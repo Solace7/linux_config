@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug '907th/vim-auto-save'
 Plug 'Lokaltog/vim-powerline'
 Plug 'morhetz/gruvbox'
+Plug 'danilo-augusto/vim-afterglow'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline'
@@ -29,8 +30,8 @@ Plug 'norcalli/nvim-colorizer.lua'
 call plug#end()            " required
 let g:auto_save_events = ["InsertLeave"]
 syntax on
-colorscheme gruvbox
-let g:airline_theme='gruvbox'
+colorscheme afterglow
+let g:airline_theme='afterglow'
 
 "Instant Markdown Settings
 let g:instant_markdown_slow = 1
